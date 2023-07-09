@@ -35,29 +35,23 @@
                                 {{ $loop->iteration }}
                             </div>
                             <div class="col-2"> 
-                                {{ $row->league->country }}
+                                {{ $row->yeary }}-{{ $row->monthy }}-{{ $row->dayy }}
                             </div>
-                            <div class="col-3">
-                                <abbr class="initialism">
-                                    #{{ $row->leagueapi_id }} 
-                                </abbr>
-                                {{ $row->league->name }} 
-                            </div>
-                            <div class="col-1 text-center">   
-                                {{ $row->season }}
-                            </div>
-                            <div class="col-1 text-center">   
-                                {!! $row->league->star !!}  
+                            <div class="col-7"> 
+                                {{ $row->houry }}:{{ $row->minutey }}
                             </div> 
                             <div class="col-1 text-center">   
                                 ({{ $row->counter }})
                             </div> 
-                            <div class="col-2"> 
-                                <a   
-                                    href="{{ route($content.'.leagues', [
-                                            'leagueapi_id'  => $row->leagueapi_id,
-                                            'season'        => $row->season,
-                                        ]) }}"
+                            <div class="col-1"> 
+                                <a    
+                                    href="{{route('Notstarted.time', [
+                                            'year'      => $row->yeary,
+                                            'month'     => $row->monthy,
+                                            'day'       => $row->dayy,
+                                            'hour'      => $row->houry,
+                                            'minute'    => $row->minutey
+                                        ])}}"
                                     class=" "> 
                                     View
                                 </a> 

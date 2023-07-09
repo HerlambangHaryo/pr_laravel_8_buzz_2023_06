@@ -80,6 +80,14 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                 Route::resource('Leagues', LeaguesController::class);   
 
                 
+                    Route::get('Notstarted/leagues/{leagueapi_id}/{season}', 'NotstartedController@leagues')
+                        ->name('Notstarted.leagues'); 
+
+                    Route::get('Notstarted/timegroup', 'NotstartedController@timegroup')
+                        ->name('Notstarted.timegroup');  
+                    Route::get('Notstarted/time/{year}/{month}/{day}/{hour}/{minute}', 'NotstartedController@time')
+                        ->name('Notstarted.time'); 
+
                 Route::resource('Notstarted', NotstartedController::class);   
         });
     //-----------------------------------------------------------  
