@@ -68,6 +68,7 @@ class RapidapiController extends Controller
             $user = auth()->user();  
 
         // ----------------------------------------------------------- Agent 
+
         // ----------------------------------------------------------- Initialize  
             $model_NON_Apiaccount       = Apiaccount::where('active', '=', 1); 
 
@@ -75,13 +76,57 @@ class RapidapiController extends Controller
                 'active'       => 4,      
             ]);       
  
+            
         // ----------------------------------------------------------- Action  
+            $first_Apiaccount           = Apiaccount::where('id', '=', $id)
+                                            ->first(); 
+
+             
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+                CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v3/timezone",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => [
+                    "X-RapidAPI-Host: api-football-v1.p.rapidapi.com", 
+                    "X-RapidAPI-Key: $first_Apiaccount->apikey"
+                ],
+                CURLOPT_HEADER => true,
+            ]);
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+ 
+            // Get the response headers size
+            $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+
+            curl_close($curl);
+
+            if ($err) {
+                echo "cURL Error #: " . $err;
+            } else {
+                // Extract the response headers
+                $responseHeaders = substr($response, 0, $headerSize);
+                
+                // Print the response headers  
+                $temp_responseHeaders = explode("X-RateLimit-requests-Remaining: ", $responseHeaders );
+
+                $temp_responseHeaders2 = explode("X-RateLimit-requests-Reset", $temp_responseHeaders[1] );
+                
+                $counter_NEW = $temp_responseHeaders2[0]; 
+            }
+
             $model_Apiaccount           = Apiaccount::where('id', '=', $id); 
 
             $model_Apiaccount->update([ 
-                'counter'      => 99,
-                'active'       => 1,    
-                'reset_date_at'       => now(),        
+                'counter'               => $counter_NEW,
+                'active'                => 1,    
+                'reset_date_at'         => now(),        
             ]);              
  
         // ----------------------------------------------------------- Send  

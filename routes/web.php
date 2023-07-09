@@ -60,17 +60,27 @@ use App\Http\Controllers\Super\AboutLifecycleController;
             //--------------------------------------------------- 
                 // Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
             //--------------------------------------------------- 
-            
+             
                     Route::get('Rapidapi/on/{id}', 'RapidapiController@on')
                         ->name('Rapidapi.on');
                     Route::get('Rapidapi/reset/{id}', 'RapidapiController@reset')
                         ->name('Rapidapi.reset');
                 Route::resource('Rapidapi', RapidapiController::class);  
-
-                
+ 
                     Route::get('Reports/undone', 'ReportsController@undone')
                         ->name('Reports.undone');
                 Route::resource('Reports', ReportsController::class);
+
+                    Route::get('Countries/leagues/{country}', 'CountriesController@leagues')
+                        ->name('Countries.leagues');
+                Route::resource('Countries', CountriesController::class);
+
+                    Route::get('Leagues/notstarted/{leagueapi_id}/{season}', 'LeaguesController@notstarted')
+                        ->name('Leagues.notstarted'); 
+                Route::resource('Leagues', LeaguesController::class);   
+
+                
+                Route::resource('Notstarted', NotstartedController::class);   
         });
     //-----------------------------------------------------------  
 

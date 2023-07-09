@@ -38,8 +38,29 @@
                     </span>
                 </a>
             </div> 
+            
+            <div class="menu-item @if($title == 'Countries') active @endif">
+                <a href="{{ route('Countries.index') }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fas fa-globe"></i>
+                    </span>
+                    <span class="menu-text">
+                        Country 
+                    </span>
+                </a>
+            </div> 
 
             
+            <div class="menu-item @if($title == 'Notstarted') active @endif">
+                <a href="{{ route('Notstarted.index'  ) }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </span>
+                    <span class="menu-text">
+                        Not Started 
+                    </span>
+                </a>
+            </div> 
         </div>
         <!-- END menu -->
     </div>

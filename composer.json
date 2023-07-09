@@ -33,6 +33,7 @@
             "app/Helpers/HelpAboutApp.php",
             "app/Helpers/HelpAgent.php",
             "app/Helpers/HelpAuth.php",
+            "app/Helpers/HelpDate.php",
             "app/Helpers/HelpMessage.php",
             "app/Helpers/HelpUser.php"
 
