@@ -66,6 +66,11 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                     Route::get('Rapidapi/reset/{id}', 'RapidapiController@reset')
                         ->name('Rapidapi.reset');
                 Route::resource('Rapidapi', RapidapiController::class);  
+
+                
+                    Route::get('Reports/undone', 'ReportsController@undone')
+                        ->name('Reports.undone');
+                Route::resource('Reports', ReportsController::class);
         });
     //-----------------------------------------------------------  
 

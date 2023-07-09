@@ -9,16 +9,16 @@ use DB;
  
 use App\Models\Football_odd; 
 
-class DashboardController extends Controller
+class ReportsController extends Controller
 {
     //
     public $template    = 'studio_v30';
     public $mode        = '';
     public $themecolor  = '';
-    public $content     = 'Dashboard';
+    public $content     = 'Reports';
     public $type        = 'backend';
  
-    public function index()
+    public function undone()
     {
         // ----------------------------------------------------------- Auth
             $user = auth()->user();   
@@ -36,11 +36,21 @@ class DashboardController extends Controller
             $content        = $this->content;
             $active_as      = $content;
 
-            $view_file      = 'dashboard';
+            $view_file      = 'undone';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
             
         // ----------------------------------------------------------- Action   
-            $data           = array();
+            $data           = Football_odd::select(
+                                    'leagueapi_id', 
+                                    DB::raw('count(*) as counter')
+                                )
+                                ->where('pre_response', '!=', 3)
+                                ->where('end_response', '!=', 3)
+                                ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
+                                ->groupby('leagueapi_id')
+                                ->orderby(DB::raw('count(*)'), 'desc')
+                                ->limit(10)
+                                ->get();
                                   
             $undone         = Football_odd::where('pre_response', '!=', 3)
                                 ->where('end_response', '!=', 3)
@@ -64,5 +74,4 @@ class DashboardController extends Controller
             );
         ///////////////////////////////////////////////////////////////
     } 
- 
 }
