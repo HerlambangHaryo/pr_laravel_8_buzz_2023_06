@@ -35,7 +35,11 @@
                                 {{ $loop->iteration }}
                             </div>
                             <div class="col-2"> 
-                                {{ $row->league->country }}
+                                    <i class="flag-icon flag-icon-{{ strtolower($row->league->country->code) }} " 
+                                        title="{{ strtolower($row->league->country->code) }}" 
+                                        id="{{ strtolower($row->league->country->code) }}"></i>
+
+                                {{ $row->league->country->name }}
                             </div>
                             <div class="col-3">
                                 <abbr class="initialism">

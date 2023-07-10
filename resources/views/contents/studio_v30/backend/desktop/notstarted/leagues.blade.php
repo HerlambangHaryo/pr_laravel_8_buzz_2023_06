@@ -52,7 +52,13 @@
                                             'season'        => $row->season,
                                         ])}}"
                                     class="badge bg-gray-900 "> 
-                                    {{ $row->league->country }}
+
+                                    <i class="flag-icon flag-icon-{{ strtolower($row->league->country->code) }} " 
+                                        title="{{ strtolower($row->league->country->code) }}" 
+                                        id="{{ strtolower($row->league->country->code) }}"></i>
+
+                                        
+                                    {{ $row->league->country->name }}
                                 </a>
                                 <br/>
                                 {{ $row->league->name }}
