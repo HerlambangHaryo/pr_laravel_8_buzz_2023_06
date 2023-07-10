@@ -46,17 +46,17 @@
                                 {{ $loop->iteration }}
                             </div>
                             <div class="col-2"> 
+
+                                <i class="flag-icon flag-icon-{{ strtolower($row->league->country->code) }} " 
+                                    title="{{ strtolower($row->league->country->code) }}" 
+                                    id="{{ strtolower($row->league->country->code) }}"></i>
+
                                 <a 
                                     href="{{route('Leagues.notstarted',[
                                             'leagueapi_id'  => $row->leagueapi_id,
                                             'season'        => $row->season,
                                         ])}}"
-                                    class="badge bg-gray-900 "> 
-
-                                    <i class="flag-icon flag-icon-{{ strtolower($row->league->country->code) }} " 
-                                        title="{{ strtolower($row->league->country->code) }}" 
-                                        id="{{ strtolower($row->league->country->code) }}"></i>
-
+                                    class=" "> 
                                         
                                     {{ $row->league->country->name }}
                                 </a>

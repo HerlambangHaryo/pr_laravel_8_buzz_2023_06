@@ -34,20 +34,27 @@
                             <div class="col-1"> 
                                 {{ $loop->iteration }}
                             </div>
-                            <div class="col-2"> 
-                                    <i class="flag-icon flag-icon-{{ strtolower($row->league->country->code) }} " 
-                                        title="{{ strtolower($row->league->country->code) }}" 
-                                        id="{{ strtolower($row->league->country->code) }}"></i>
-
-                                {{ $row->league->country->name }}
+                            <div class="col-2">  
+                                <i class="flag-icon flag-icon-{{ strtolower($row->league->country->code) }} " 
+                                    title="{{ strtolower($row->league->country->code) }}" 
+                                    id="{{ strtolower($row->league->country->code) }}"></i>
+                                <a   
+                                    href="{{route('Countries.leagues', $row->league->country->name )}}"
+                                    class="btn btn-link">  
+                                    {{ $row->league->country->name }}
+                                </a> 
                             </div>
                             <div class="col-3">
                                 <abbr class="initialism">
                                     #{{ $row->leagueapi_id }} 
                                 </abbr>
-                                {{ $row->league->name }} 
+                                <a   
+                                    href=" "
+                                    class="btn btn-link"> 
+                                        {{ $row->league->name }} 
+                                </a> 
                             </div>
-                            <div class="col-1 text-center">   
+                            <div class="col-3 ">   
                                 {{ $row->season }}
                             </div>
                             <div class="col-1 text-center">   
@@ -56,7 +63,7 @@
                             <div class="col-1 text-center">   
                                 ({{ $row->counter }})
                             </div> 
-                            <div class="col-2"> 
+                            <div class="col-1  text-center"> 
                                 <a   
                                     href="{{ route($content.'.leagues', [
                                             'leagueapi_id'  => $row->leagueapi_id,

@@ -56,7 +56,7 @@
                                                     'season'        => $row->season
                                                 ])
                                             }}" 
-                                            class="btn btn-default btn-sm" >
+                                            class=" " >
                                             View  
                                         </a>     
                                     </td>  

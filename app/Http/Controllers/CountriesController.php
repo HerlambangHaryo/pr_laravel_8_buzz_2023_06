@@ -42,9 +42,9 @@ class CountriesController extends Controller
             
         // ----------------------------------------------------------- Action 
             $data           = Football_league::select(
-                                    'country'
+                                    'country_name'
                                 )
-                                ->groupby('country')    
+                                ->groupby('country_name')    
                                 ->whereNull('deleted_at')   
                                 ->get();
                                     
@@ -96,7 +96,7 @@ class CountriesController extends Controller
                                     'football_leagues.bookmakers_name',
                                 )
                                 ->join('football_odds', 'football_odds.leagueapi_id', '=', 'football_leagues.leagueapi_id')
-                                    ->where('football_leagues.country', '=', $country) 
+                                    ->where('football_leagues.country_name', '=', $country) 
                                     ->whereNull('football_leagues.deleted_at')
                                     ->groupby(
                                         'football_odds.leagueapi_id', 
