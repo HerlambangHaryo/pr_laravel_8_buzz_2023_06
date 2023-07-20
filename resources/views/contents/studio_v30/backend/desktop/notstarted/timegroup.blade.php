@@ -8,12 +8,12 @@
         <div class="col-12 text-center"> 
             <div class="btn-group">
                 <a  
-                    href="{{ route('Notstarted.index') }}"
+                    href="{{ route($content.'.index') }}"
                     class="btn btn-sm btn-secondary">
                     League
                 </a>   
                 <a  
-                    href="{{ route('Notstarted.timegroup') }}"
+                    href="{{ route($content.'.timegroup') }}"
                     class="btn btn-sm btn-secondary">
                     Time
                 </a>   
@@ -38,14 +38,16 @@
                                 {{ $row->yeary }}-{{ $row->monthy }}-{{ $row->dayy }}
                             </div>
                             <div class="col-7"> 
-                                {{ $row->houry }}:{{ $row->minutey }}
+                                <abbr class="initialism">
+                                    {{ $row->houry }}:{{ $row->minutey }}
+                                </abbr>
                             </div> 
                             <div class="col-1 text-center">   
                                 ({{ $row->counter }})
                             </div> 
                             <div class="col-1"> 
                                 <a    
-                                    href="{{route('Notstarted.time', [
+                                    href="{{route($content.'.time', [
                                             'year'      => $row->yeary,
                                             'month'     => $row->monthy,
                                             'day'       => $row->dayy,

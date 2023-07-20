@@ -49,18 +49,84 @@
                     </span>
                 </a>
             </div> 
-
+ 
+            <div class="menu-item @if($title == 'Leagues') active @endif">
+                <a href="{{ route('Leagues.index') }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fas fa-trophy"></i>
+                    </span>
+                    <span class="menu-text">
+                        League 
+                    </span>
+                </a>
+            </div>  
             
-            <div class="menu-item @if($title == 'Notstarted') active @endif">
-                <a href="{{ route('Notstarted.index'  ) }}" class="menu-link">
+            <div class="menu-item @if($title == 'Today') active @endif">
+                <a href="{{ route('Today.index'  ) }}" class="menu-link">
                     <span class="menu-icon">
                         <i class="fas fa-play-circle"></i>
                     </span>
                     <span class="menu-text">
-                        Not Started 
+                        Today
                     </span>
                 </a>
             </div> 
+            <div class="menu-item @if($title == 'Tomorrow') active @endif">
+                <a href="{{ route('Tomorrow.index'  ) }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fas fa-fast-forward"></i>
+                    </span>
+                    <span class="menu-text">
+                        Tomorrow
+                    </span>
+                </a>
+            </div> 
+ 
+            <div class="menu-item @if($title == 'Favorites') active @endif">
+                <a href="{{ route('Favorites.index'  ) }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fas fa-star"></i>
+                    </span>
+                    <span class="menu-text">
+                        Favorites
+                    </span>
+                </a>
+            </div> 
+ 
+            <div class="menu-item @if($title == 'One') active @endif">
+                <a href="{{ route('One.index'  ) }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fas fa-bullseye"></i> 
+                    </span>
+                    <span class="menu-text">
+                        One
+                    </span>
+                </a>
+            </div> 
+            
+            <div class="menu-item @if($title == 'Matchdone') active @endif">
+                <a href="{{ route('Matchdone.index'  ) }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="far fa-calendar-check"></i> 
+                    </span>
+                    <span class="menu-text">
+                        Match Done 
+                    </span>
+                </a>
+            </div> 
+ 
+            <div class="menu-item @if($title == 'Matchfinished') active @endif">
+                <a href="{{ route('Matchfinished.index'  ) }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fas fa-flag-checkered"></i> 
+                    </span>
+                    <span class="menu-text">
+                        Match Finished
+                    </span>
+                </a>
+            </div> 
+
+
         </div>
         <!-- END menu -->
     </div>

@@ -11,7 +11,7 @@
                     <!-- BEGIN card-body -->
                     <div class="card-body position-relative">
                         <h5 class="text-white text-opacity-80 mb-3 fs-16px">
-                            {{ $row->league->country }} - 
+                            {{ $row->league->country_name }} - 
                             {{ $row->league->name }}
                         </h5>
                         <h3 class="text-white mt-n1"> 

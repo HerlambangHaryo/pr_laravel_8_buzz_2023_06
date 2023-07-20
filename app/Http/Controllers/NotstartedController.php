@@ -42,15 +42,13 @@ class NotstartedController extends Controller
             
         // ----------------------------------------------------------- Action   
             $date_start     = define_date("start");
-            $date_end       = define_date("end");
+            $date_end       = define_date("end_15");
 
             $data           = Football_odd::select(
                                     'leagueapi_id',
                                     'season', 
                                     DB::raw('count(*) as counter')
-                                )
-                                ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)   
+                                ) 
                                 ->whereNull('deleted_at')   
                                 ->orderby('date')    
                                 ->groupby('leagueapi_id')  
@@ -97,7 +95,7 @@ class NotstartedController extends Controller
             
         // ----------------------------------------------------------- Action   
             $date_start     = define_date("start");
-            $date_end       = define_date("end");
+            $date_end       = define_date("end_15");
             
             $data           = Football_odd::select(
                                     // DB::raw('year( DATE_ADD(date, INTERVAL 7 HOUR) ) as yearx'), 
@@ -116,9 +114,7 @@ class NotstartedController extends Controller
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%i") as minutey'),
                                     
                                     DB::raw('count(*) as counter')
-                                )
-                                ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)  
+                                ) 
                                 ->whereNotNull('special_odds')    
                                 ->whereNull('deleted_at')   
                                 // ->groupby( DB::raw('year( DATE_ADD(date, INTERVAL 7 HOUR) )') )
@@ -150,8 +146,7 @@ class NotstartedController extends Controller
             );
         ///////////////////////////////////////////////////////////////
     } 
-    
- 
+     
     public function time($year, $month, $day, $hour, $minute)
     {
         // ----------------------------------------------------------- Auth
@@ -170,12 +165,12 @@ class NotstartedController extends Controller
             $content        = $this->content;
             $active_as      = $content;
 
-            $view_file      = 'leagues';
+            $view_file      = 'time';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
              
         // ----------------------------------------------------------- Action 
             $date_start = define_date("start");
-            $date_end = define_date("end"); 
+            $date_end = define_date("end_15");  
             
             $data       = Football_odd::select(
                                 '*',
@@ -203,7 +198,7 @@ class NotstartedController extends Controller
                     'panel_name', 
                     'active_as',
                     'view_file', 
-                    'data',    
+                    'data',     
                 )
             );
         ///////////////////////////////////////////////////////////////
@@ -232,7 +227,7 @@ class NotstartedController extends Controller
             
         // ----------------------------------------------------------- Action   
             $date_start     = define_date("start");
-            $date_end       = define_date("end");
+            $date_end       = define_date("end_15");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
                                 ->first();
@@ -241,9 +236,7 @@ class NotstartedController extends Controller
                                     '*',
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
-                                )
-                                ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)   
+                                ) 
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)   
                                 ->where('season', '=', $season)   

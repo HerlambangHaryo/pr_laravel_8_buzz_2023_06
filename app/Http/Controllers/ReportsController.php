@@ -49,7 +49,7 @@ class ReportsController extends Controller
                                 ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
                                 ->groupby('leagueapi_id')
                                 ->orderby(DB::raw('count(*)'), 'desc')
-                                ->limit(10)
+                                ->limit(12)
                                 ->get();
                                   
             $undone         = Football_odd::where('pre_response', '!=', 3)

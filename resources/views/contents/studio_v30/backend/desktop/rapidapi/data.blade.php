@@ -32,6 +32,10 @@
                                     </td>
                                     <td class="text-left">  
                                         {{ $row->account }}  
+                                        <br/>
+                                        <small>
+                                            {{ $row->apikey }}  
+                                        </small> 
                                     </td>  
                                     <td class="text-center">  
                                         <?php

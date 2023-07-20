@@ -65,6 +65,10 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Rapidapi.on');
                     Route::get('Rapidapi/reset/{id}', 'RapidapiController@reset')
                         ->name('Rapidapi.reset');
+                    Route::get('Rapidapi/teams/{id}', 'RapidapiController@teams')
+                        ->name('Rapidapi.teams');
+                    Route::get('Rapidapi/venues/{id}', 'RapidapiController@venues')
+                        ->name('Rapidapi.venues');
                 Route::resource('Rapidapi', RapidapiController::class);  
  
                     Route::get('Reports/undone', 'ReportsController@undone')
@@ -75,10 +79,43 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Countries.leagues');
                 Route::resource('Countries', CountriesController::class);
 
+                    Route::get('Leagues/today/{leagueapi_id}/{season}', 'LeaguesController@today')
+                        ->name('Leagues.today'); 
                     Route::get('Leagues/notstarted/{leagueapi_id}/{season}', 'LeaguesController@notstarted')
                         ->name('Leagues.notstarted'); 
+                    Route::get('Leagues/matchfinished/{leagueapi_id}/{season}', 'LeaguesController@matchfinished')
+                        ->name('Leagues.matchfinished'); 
+                    Route::get('Leagues/standings/{leagueapi_id}/{season}', 'LeaguesController@standings')
+                        ->name('Leagues.standings'); 
+                    Route::get('Leagues/pecheck/{leagueapi_id}/{season}', 'LeaguesController@pecheck')
+                        ->name('Leagues.pecheck');   
+                    Route::get('Leagues/patternfixtures/{leagueapi_id}/{season}/{pre_ah_pattern}/{pre_gou_pattern}/{end_ah_pattern}/{end_gou_pattern}', 'LeaguesController@patternfixtures')
+                        ->name('Leagues.patternfixtures'); 
+
+                         
+                    Route::get('Leagues/pattern_odd/{leagueapi_id}/{season}', 'LeaguesController@pattern_odd')
+                        ->name('Leagues.pattern_odd'); 
+                    Route::get('Leagues/pattern_preend/{leagueapi_id}/{season}', 'LeaguesController@pattern_preend')
+                        ->name('Leagues.pattern_preend');
+
+
+                    Route::get('Leagues/setdetail/{leagueapi_id}', 'LeaguesController@setdetail')
+                        ->name('Leagues.setdetail'); 
+                    Route::get('Leagues/setbookmakers_league/{bookmakersapi_id}/{leagueapi_id}', 'LeaguesController@setbookmakers_league')
+                        ->name('Leagues.setbookmakers_league');  
+                    Route::get('Leagues/setfav/{leagueapi_id}', 'LeaguesController@setfav')
+                        ->name('Leagues.setfav'); 
                 Route::resource('Leagues', LeaguesController::class);   
 
+                    Route::get('Today/leagues/{leagueapi_id}/{season}', 'TodayController@leagues')
+                        ->name('Today.leagues'); 
+
+                    Route::get('Today/timegroup', 'TodayController@timegroup')
+                        ->name('Today.timegroup');  
+                    Route::get('Today/time/{year}/{month}/{day}/{hour}/{minute}', 'TodayController@time')
+                        ->name('Today.time'); 
+
+                Route::resource('Today', TodayController::class);   
                 
                     Route::get('Notstarted/leagues/{leagueapi_id}/{season}', 'NotstartedController@leagues')
                         ->name('Notstarted.leagues'); 
@@ -89,6 +126,111 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Notstarted.time'); 
 
                 Route::resource('Notstarted', NotstartedController::class);   
+
+                
+                    Route::get('Matchdone/leagues/{leagueapi_id}/{season}', 'MatchdoneController@leagues')
+                        ->name('Matchdone.leagues'); 
+
+                    Route::get('Matchdone/timegroup', 'MatchdoneController@timegroup')
+                        ->name('Matchdone.timegroup');  
+                    Route::get('Matchdone/time/{year}/{month}/{day}/{hour}/{minute}', 'MatchdoneController@time')
+                        ->name('Matchdone.time'); 
+
+                Route::resource('Matchdone', MatchdoneController::class);  
+
+                
+                    Route::get('Matchfinished/leagues/{leagueapi_id}/{season}', 'MatchfinishedController@leagues')
+                        ->name('Matchfinished.leagues'); 
+
+                    Route::get('Matchfinished/timegroup', 'MatchfinishedController@timegroup')
+                        ->name('Matchfinished.timegroup');  
+                    Route::get('Matchfinished/time/{year}/{month}/{day}/{hour}/{minute}', 'MatchfinishedController@time')
+                        ->name('Matchfinished.time'); 
+
+                Route::resource('Matchfinished', MatchfinishedController::class);  
+
+                
+                    Route::get('Favorites/leagues/{leagueapi_id}/{season}', 'FavoritesController@leagues')
+                        ->name('Favorites.leagues'); 
+
+                    Route::get('Favorites/timegroup', 'FavoritesController@timegroup')
+                        ->name('Favorites.timegroup');  
+                    Route::get('Favorites/time/{year}/{month}/{day}/{hour}/{minute}', 'FavoritesController@time')
+                        ->name('Favorites.time'); 
+
+                Route::resource('Favorites', FavoritesController::class);  
+
+                
+                    Route::get('One/leagues/{leagueapi_id}/{season}', 'OneController@leagues')
+                        ->name('One.leagues'); 
+
+                    Route::get('One/timegroup', 'OneController@timegroup')
+                        ->name('One.timegroup');  
+                    Route::get('One/time/{year}/{month}/{day}/{hour}/{minute}', 'OneController@time')
+                        ->name('One.time'); 
+
+                Route::resource('One', OneController::class);  
+
+                
+                    Route::get('Fixtures/information/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@information')
+                        ->name('Fixtures.information'); 
+                    Route::get('Fixtures/setone/{id}', 'FixturesController@setone')
+                        ->name('Fixtures.setone'); 
+                    Route::get('Fixtures/setoneye/{id}', 'FixturesController@setoneye')
+                        ->name('Fixtures.setoneye'); 
+                    Route::get('Fixtures/statistics/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@statistics')
+                        ->name('Fixtures.statistics'); 
+                    Route::get('Fixtures/headtohead/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@headtohead')
+                        ->name('Fixtures.headtohead'); 
+                    Route::get('Fixtures/players/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@players')
+                        ->name('Fixtures.players'); 
+                    Route::get('Fixtures/prepre/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@prepre')
+                        ->name('Fixtures.prepre'); 
+                    Route::get('Fixtures/preend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@preend')
+                        ->name('Fixtures.preend'); 
+                    Route::get('Fixtures/endend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@endend')
+                        ->name('Fixtures.endend'); 
+                    Route::get('Fixtures/otherpattern/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@otherpattern')
+                        ->name('Fixtures.otherpattern'); 
+                Route::resource('Fixtures', FixturesController::class);   
+
+                
+                    Route::get('Patterns/pre_only/{leagueapi_id}/{season}/{fixtureapi_id}', 'PatternsController@pre_only')
+                        ->name('Patterns.pre_only'); 
+                    Route::get('Patterns/end_only/{leagueapi_id}/{season}/{fixtureapi_id}', 'PatternsController@end_only')
+                        ->name('Patterns.end_only'); 
+                    Route::get('Patterns/pre_end/{leagueapi_id}/{season}/{fixtureapi_id}', 'PatternsController@pre_end')
+                        ->name('Patterns.pre_end');  
+                    Route::get('Patterns/odd/{leagueapi_id}/{season}/{fixtureapi_id}/{odd}', 'PatternsController@odd')
+                        ->name('Patterns.odd'); 
+                Route::resource('Patterns', PatternsController::class);  
+
+                    Route::get('Mybets/datacreate/{leagueapi_id}/{season}/{fixtureapi_id}/{betsapi_id}/{value}/{odd}', 'MybetsController@datacreate')
+                        ->name('Mybets.datacreate'); 
+                Route::resource('Mybets', MybetsController::class);  
+ 
+                    Route::get('Tomorrow/leagues/{leagueapi_id}/{season}', 'TomorrowController@leagues')
+                        ->name('Tomorrow.leagues'); 
+
+                    Route::get('Tomorrow/timegroup', 'TomorrowController@timegroup')
+                        ->name('Tomorrow.timegroup');  
+                    Route::get('Tomorrow/time/{year}/{month}/{day}/{hour}/{minute}', 'TomorrowController@time')
+                        ->name('Tomorrow.time'); 
+
+                Route::resource('Tomorrow', TomorrowController::class);  
+                
+                Route::resource('Teams', TeamsController::class);  
+                  
+                Route::resource('Venues', VenuesController::class);
+                Route::resource('Oneye', OneyeController::class);
+
+
+                // Route::get('/data', [AjaxController::class, 'getData'])->name('data');
+                
+                    Route::get('Ajax/data', 'AjaxController@data')
+                        ->name('Ajax.data');  
+                    
+                Route::resource('Ajax', AjaxController::class);  
         });
     //-----------------------------------------------------------  
 

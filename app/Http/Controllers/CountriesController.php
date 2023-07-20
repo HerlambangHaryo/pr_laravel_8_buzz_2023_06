@@ -9,6 +9,7 @@ use DB;
 
 use App\Models\football_odd;
 use App\Models\football_league;
+use App\Models\country;
 
 class CountriesController extends Controller
 {
@@ -37,7 +38,7 @@ class CountriesController extends Controller
             $content        = $this->content;
             $active_as      = $content;
 
-            $view_file      = 'data';
+            $view_file      = 'country';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
             
         // ----------------------------------------------------------- Action 
@@ -87,6 +88,9 @@ class CountriesController extends Controller
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
             
         // ----------------------------------------------------------- Action 
+            $data_country   = Country::where('name', '=', $country)
+                                ->first();
+
             $data           = Football_league::select( 
                                     'football_odds.leagueapi_id', 
                                     'football_odds.season',
@@ -120,6 +124,7 @@ class CountriesController extends Controller
                     'active_as',
                     'view_file', 
                     'data', 
+                    'data_country', 
                 )
             );
         ///////////////////////////////////////////////////////////////

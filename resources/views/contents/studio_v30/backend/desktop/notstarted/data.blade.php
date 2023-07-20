@@ -8,12 +8,12 @@
         <div class="col-12 text-center"> 
             <div class="btn-group">
                 <a  
-                    href="{{ route('Notstarted.index') }}"
+                    href="{{ route($content.'.index') }}"
                     class="btn btn-sm btn-secondary">
                     League
                 </a>   
                 <a  
-                    href="{{ route('Notstarted.timegroup') }}"
+                    href="{{ route($content.'.timegroup') }}"
                     class="btn btn-sm btn-secondary">
                     Time
                 </a>   
@@ -49,14 +49,28 @@
                                     #{{ $row->leagueapi_id }} 
                                 </abbr>
                                 <a   
-                                    href=" "
+                                    href="{{route('Leagues.notstarted', [
+                                            'leagueapi_id'  => $row->leagueapi_id,
+                                            'season'        => $row->season,
+                                        ])}}"
                                     class="btn btn-link"> 
                                         {{ $row->league->name }} 
                                 </a> 
                             </div>
-                            <div class="col-3 ">   
+                            <div class="col-1 ">   
                                 {{ $row->season }}
                             </div>
+                            <div class="col-2 text-center">
+                                @if($row->league->bookmakersapi_id == 11) 
+                                    <span class="badge bg-primary" >   
+                                        {{ $row->league->bookmakers_name }}   
+                                    </span>   
+                                @elseif($row->league->bookmakersapi_id == 8)
+                                    <span class="badge bg-success" >   
+                                        {{ $row->league->bookmakers_name }}   
+                                    </span>   
+                                @endif
+                            </div> 
                             <div class="col-1 text-center">   
                                 {!! $row->league->star !!}  
                             </div> 

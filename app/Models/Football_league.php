@@ -11,6 +11,19 @@ class Football_league extends Model
 {
     use HasFactory;
 
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'country_name',
+        'leagueapi_id',
+        'name',
+        'type', 
+        'logo', 
+    ];
+
     public function country()
     {         
         return $this->belongsTo(Country::class,'country_name', 'name')

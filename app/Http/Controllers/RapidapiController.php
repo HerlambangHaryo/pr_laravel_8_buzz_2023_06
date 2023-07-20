@@ -10,6 +10,8 @@ use DB;
 use App\Models\Apiaccount; 
 use App\Models\Football_Fixture;
 use App\Models\League;
+use App\Models\Football_team;
+use App\Models\Football_venue;
 
 class RapidapiController extends Controller
 {
@@ -132,7 +134,7 @@ class RapidapiController extends Controller
         // ----------------------------------------------------------- Send  
             return redirect()
                 ->route('Rapidapi.index')
-                ->with(['Success' => 'Data successfully saved!']);
+                ->with(['saved_data' => define_messages('saved_data')]);
         ///////////////////////////////////////////////////////////////
     } 
 
@@ -163,7 +165,152 @@ class RapidapiController extends Controller
         
             return redirect()
                 ->route('Rapidapi.index')
-                ->with(['Success' => 'Data successfully saved!']);
+                ->with(['saved_data' => define_messages('saved_data')]);
+        ///////////////////////////////////////////////////////////////
+    } 
+
+    public function teams($id)
+    {
+        // ----------------------------------------------------------- Auth
+            $user = auth()->user();  
+
+        // ----------------------------------------------------------- Agent 
+        // ----------------------------------------------------------- Initialize  
+            $model_Apiaccount       = Apiaccount::where('active', '=', 1)
+                                            ->first();   
+  
+        // ----------------------------------------------------------- Action    
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+                CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v3/teams?id=$id",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => [
+                    "X-RapidAPI-Host: api-football-v1.p.rapidapi.com",
+                    "X-RapidAPI-Key: $model_Apiaccount->apikey"
+                ],
+            ]);
+            
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            
+            curl_close($curl);
+            
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            } 
+            else 
+            {
+                  
+                $decode             = json_decode($response, true); 
+                $decode_response    = $decode['response'];
+                // dump($decode_response);
+                // die;
+                $data = Football_team::where('teamapi_id', '=', $id);
+
+                $venueapi_id        = $decode['response'][0]['venue']['id'];
+                // dump($venueapi_id);
+                // die;
+
+                $data->update([     
+                    'code'          => $decode['response'][0]['team']['code'],
+                    'country'       => $decode['response'][0]['team']['country'],
+                    'founded'       => $decode['response'][0]['team']['founded'],
+                    'logo'          => $decode['response'][0]['team']['logo'],
+                    'venueapi_id'   => $venueapi_id, 
+                ]);
+
+                $data2 = Football_venue::where('venueapi_id', '=', $venueapi_id);
+                
+                $data2->update([     
+                    'name'          => $decode['response'][0]['venue']['name'], 
+                    'address'       => $decode['response'][0]['venue']['address'], 
+                    'city'          => $decode['response'][0]['venue']['city'], 
+                    // 'country'          => $decode['response'][0]['venue']['country'], 
+                    'capacity'      => $decode['response'][0]['venue']['capacity'], 
+                    'image'         => $decode['response'][0]['venue']['image'], 
+                    'surface'       => $decode['response'][0]['venue']['surface'], 
+                ]);
+                
+            }
+            
+
+        // ----------------------------------------------------------- Send  
+            return back();
+            // return redirect()
+            //     ->route('Teams.show', $id)
+            //     ->with(['saved_data' => define_messages('saved_data')]);
+        ///////////////////////////////////////////////////////////////
+    } 
+
+    public function venues($id)
+    {
+        // ----------------------------------------------------------- Auth
+            $user = auth()->user();  
+
+        // ----------------------------------------------------------- Agent 
+        // ----------------------------------------------------------- Initialize  
+            $model_Apiaccount       = Apiaccount::where('active', '=', 1)
+                                            ->first();   
+  
+        // ----------------------------------------------------------- Action    
+            $curl = curl_init();
+
+            curl_setopt_array($curl, [
+                CURLOPT_URL => "https://api-football-v1.p.rapidapi.com/v3/venues?id=$id", 
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => [
+                    "X-RapidAPI-Host: api-football-v1.p.rapidapi.com",
+                    "X-RapidAPI-Key: $model_Apiaccount->apikey"
+                ],
+            ]);
+            
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            
+            curl_close($curl);
+            
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            } 
+            else 
+            {
+                  
+                $decode             = json_decode($response, true); 
+                $decode_response    = $decode['response'];
+                // dump($decode_response);
+                // die; 
+
+                $data2 = Football_venue::where('venueapi_id', '=', $id);
+                
+                $data2->update([     
+                    'name'          => $decode['response'][0]['name'], 
+                    'address'       => $decode['response'][0]['address'], 
+                    'city'          => $decode['response'][0]['city'], 
+                    'country'       => $decode['response'][0]['country'], 
+                    'capacity'      => $decode['response'][0]['capacity'], 
+                    'image'         => $decode['response'][0]['image'], 
+                    'surface'       => $decode['response'][0]['surface'], 
+                ]);
+                
+            }
+            
+
+        // ----------------------------------------------------------- Send  
+            return back();
+            // return redirect()
+            //     ->route('Teams.show', $id)
+            //     ->with(['saved_data' => define_messages('saved_data')]);
         ///////////////////////////////////////////////////////////////
     } 
 }

@@ -70,7 +70,7 @@ class UserProfilesController extends Controller
 
         // ----------------------------------------------------------- Action   
             //get post by ID
-            $data = User::findOrFail(1);
+            $data = User::findOrFail($user->id);
 
             //check if logo is uploaded
             if ($request->hasFile('profile_photo_path')) {
