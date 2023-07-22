@@ -49,8 +49,8 @@ class OneController extends Controller
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
                                 )
-                                ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)  
+                                // ->where('date', '>=', $date_start)
+                                // ->where('date', '<=', $date_end)  
                                 ->whereNotNull('one')    
                                 ->whereNull('deleted_at')   
                                 ->orderby('date')     
@@ -116,8 +116,8 @@ class OneController extends Controller
                                     
                                     DB::raw('count(*) as counter')
                                 )
-                                ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)  
+                                // ->where('date', '>=', $date_start)
+                                // ->where('date', '<=', $date_end)  
                                 ->whereNotNull('special_odds')    
                                 ->whereNull('deleted_at')   
                                 // ->groupby( DB::raw('year( DATE_ADD(date, INTERVAL 7 HOUR) )') )
@@ -241,8 +241,8 @@ class OneController extends Controller
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
                                 )
-                                ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)   
+                                // ->where('date', '>=', $date_start)
+                                // ->where('date', '<=', $date_end)  
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)   
                                 ->where('season', '=', $season)   

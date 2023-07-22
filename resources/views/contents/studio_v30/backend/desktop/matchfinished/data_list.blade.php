@@ -9,6 +9,12 @@
                         <div class="col-1"> 
                             {{ $loop->iteration }}
                         </div> 
+                        <div class="col-1">   
+                            {{ $row->league->country->name }} 
+                            <br/>
+                            {{ $row->league->name }}  
+                            {{ $row->season }} 
+                        </div>  
                         <div class="col-1 text-center"> 
                             {{ $row->tanggal }}
                             <br/>
@@ -28,7 +34,7 @@
                                 {{ $row->fixtureapi_id }}
                             </span>
                         </div> 
-                        <div class="col-2"> 
+                        <div class="col-1"> 
                             <small>
                                 {{ $row->venue->name }} 
                                 <br/>

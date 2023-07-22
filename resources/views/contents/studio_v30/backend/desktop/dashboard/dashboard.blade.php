@@ -13,7 +13,7 @@
                 <div class="d-flex mb-3">
                     <div class="flex-grow-1">
                         <h5 class="mb-1">
-                            <a href="{{ route('Mybets.index') }}" 
+                            <a href="{{ route('Reports.undone') }}" 
                                 class=" ">
                                 Undone recalibration
                             </a>
