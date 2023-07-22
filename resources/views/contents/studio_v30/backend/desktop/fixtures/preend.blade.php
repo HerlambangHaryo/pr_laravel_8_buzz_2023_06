@@ -16,7 +16,7 @@
         <div class="col-12 mb-3">
             <div class="card border-0 text-white overflow-hidden"  style="max-height: 350px" > 
                 <!-- card-img -->
-                <img src="{{$row->venue->image}}" class="card-img" />
+                {!! define_venue($row->venueapi_id, $row->venue->image) !!} 
                  
                 <div class="card-img-overlay d-flex flex-column bg-gray-900 bg-opacity-70 rounded"> 
  

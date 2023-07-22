@@ -48,42 +48,50 @@ class DashboardController extends Controller
             $date_start_1   = define_date("start_1");
             $date_start_2   = define_date("start_2");
                                   
-            $undone         = Football_odd::where('pre_response', '!=', 3)
-                                ->where('end_response', '!=', 3)
-                                ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
-                                ->count();
+            // $undone         = Football_odd::where('pre_response', '!=', 3)
+            //                     ->where('end_response', '!=', 3)
+            //                     ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
+            //                     ->count();
                                   
-            $today          = Football_odd::where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)    
-                                ->count();
 
-            $today_pre_3    = Football_odd::where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)    
-                                ->where('pre_response', '=', 3)
-                                ->count();
+            // $today          = Football_odd::where('date', '>=', $date_start)
+            //                     ->where('date', '<=', $date_end)    
+            //                     ->count();
+
+            // $today_pre_3    = Football_odd::where('date', '>=', $date_start)
+            //                     ->where('date', '<=', $date_end)    
+            //                     ->where('pre_response', '=', 3)
+            //                     ->count();
                                     
-            $today_pre_non  = Football_odd::where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)    
-                                ->where('pre_response', '!=', 3)
-                                ->count();
+            // $today_pre_non  = Football_odd::where('date', '>=', $date_start)
+            //                     ->where('date', '<=', $date_end)    
+            //                     ->where('pre_response', '!=', 3)
+            //                     ->count();
+ 
+            // $date_start_7     = define_date("start_7");
+            // $date_end_0       = define_date("end_0");
 
-                                
-            $date_start_7     = define_date("start_7");
-            $date_end_0       = define_date("end_0");
+            // $yest           = Football_odd::where('date', '>=', $date_start_7)
+            //                     ->where('date', '<=', $date_end_0)    
+            //                     ->count();
 
-            $yest           = Football_odd::where('date', '>=', $date_start_7)
-                                ->where('date', '<=', $date_end_0)    
-                                ->count();
-
-            $yest_pre_3     = Football_odd::where('date', '>=', $date_start_7)
-                                ->where('date', '<=', $date_end_0)    
-                                ->where('end_response', '=', 3)
-                                ->count();
+            // $yest_pre_3     = Football_odd::where('date', '>=', $date_start_7)
+            //                     ->where('date', '<=', $date_end_0)    
+            //                     ->where('end_response', '=', 3)
+            //                     ->count();
                             
-            $yest_pre_non   = Football_odd::where('date', '>=', $date_start_7)
-                                ->where('date', '<=', $date_end_0)    
-                                ->where('end_response', '!=', 3)
-                                ->count();
+            // $yest_pre_non   = Football_odd::where('date', '>=', $date_start_7)
+            //                     ->where('date', '<=', $date_end_0)    
+            //                     ->where('end_response', '!=', 3)
+            //                     ->count();
+ 
+            // $pattern_from   = Football_odd::whereNull('pattern_from')
+            //                     ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
+            //                     ->count();
+
+            // $pattern_end   = Football_odd::whereNull('pattern_end')
+            //                     ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
+            //                     ->count();
         // ----------------------------------------------------------- Send
             return view($view,  
                 compact(
@@ -96,13 +104,15 @@ class DashboardController extends Controller
                     'active_as',
                     'view_file', 
                     'data',  
-                    'undone',  
-                    'today',  
-                    'today_pre_3',  
-                    'today_pre_non',
-                    'yest',  
-                    'yest_pre_3',  
-                    'yest_pre_non',
+                    // 'undone',  
+                    // 'today',  
+                    // 'today_pre_3',  
+                    // 'today_pre_non',
+                    // 'yest',  
+                    // 'yest_pre_3',  
+                    // 'yest_pre_non',
+                    // 'pattern_from',
+                    // 'pattern_end',
                 )
             );
         ///////////////////////////////////////////////////////////////

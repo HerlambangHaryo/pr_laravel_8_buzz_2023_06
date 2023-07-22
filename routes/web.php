@@ -168,6 +168,8 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('One.timegroup');  
                     Route::get('One/time/{year}/{month}/{day}/{hour}/{minute}', 'OneController@time')
                         ->name('One.time'); 
+                    Route::get('One/clear', 'OneController@clear')
+                        ->name('One.clear');  
 
                 Route::resource('One', OneController::class);  
 
@@ -192,6 +194,12 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Fixtures.endend'); 
                     Route::get('Fixtures/otherpattern/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@otherpattern')
                         ->name('Fixtures.otherpattern'); 
+                    Route::get('Fixtures/datapreend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@datapreend')
+                        ->name('Fixtures.datapreend'); 
+                    Route::get('Fixtures/dataonlypre/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@dataonlypre')
+                        ->name('Fixtures.dataonlypre'); 
+                    Route::get('Fixtures/dataonlyend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@dataonlyend')
+                        ->name('Fixtures.dataonlyend'); 
                 Route::resource('Fixtures', FixturesController::class);   
 
                 
@@ -229,7 +237,12 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                 
                     Route::get('Ajax/data', 'AjaxController@data')
                         ->name('Ajax.data');  
-                    
+                    Route::get('Ajax/pattern_from', 'AjaxController@pattern_from')
+                        ->name('Ajax.pattern_from');   
+                    Route::get('Ajax/pattern_only', 'AjaxController@pattern_only')
+                        ->name('Ajax.pattern_only');  
+                    Route::get('Ajax/undone', 'AjaxController@undone')
+                        ->name('Ajax.undone');  
                 Route::resource('Ajax', AjaxController::class);  
         });
     //-----------------------------------------------------------  

@@ -852,11 +852,20 @@ class LeaguesController extends Controller
         // ----------------------------------------------------------- Initialize  
             $content        = $this->content;
 
+            if($bookmakersapi_id == 8)
+            {
+                $bookmakers_name = 'Bet365';
+            }
+            elseif($bookmakersapi_id == 11)
+            {
+                $bookmakers_name = '1xBet';
+            }
         // ----------------------------------------------------------- Action 
             $model      = Football_league::where('leagueapi_id', '=', $leagueapi_id);
                                      
             $model->update([     
-                'bookmakersapi_id'   => $bookmakersapi_id 
+                'bookmakersapi_id'      => $bookmakersapi_id, 
+                'bookmakers_name'       => $bookmakers_name
             ]);
             
         // ----------------------------------------------------------- Send  

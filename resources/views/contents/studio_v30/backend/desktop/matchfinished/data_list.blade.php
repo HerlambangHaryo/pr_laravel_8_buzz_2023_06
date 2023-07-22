@@ -71,6 +71,26 @@
                             <span class="badge bg-gray-900">
                                 {{ $row->pre_gou_pattern }} 
                             </span>
+                            <br/> 
+                            <br/> 
+                            <a 
+                                href="javascript:void(0)"
+                                data-fixtureapi_id="{{ $row->fixtureapi_id }}"
+                                data-leagueapi_id="{{ $row->leagueapi_id }}"
+                                data-season="{{ $row->season }}"
+
+                                data-pre_ah_pattern="{{ $row->pre_ah_pattern }}"
+                                data-pre_ah_pattern_mirror="{{ $row->pre_ah_pattern_mirror }}"
+                                data-pre_gou_pattern="{{ $row->pre_gou_pattern }}"
+
+                                data-end_ah_pattern="{{ $row->pre_ah_pattern }}"
+                                data-end_ah_pattern_mirror="{{ $row->pre_ah_pattern_mirror }}"
+                                data-end_gou_pattern="{{ $row->pre_gou_pattern }}"
+                                data-pattern="only"
+                                class="my-button"
+                                id="append_only_{{ $row->fixtureapi_id }}"> 
+                                Tf-Only:
+                            </a> 
                         </div> 
                         <div class="col-2">
                             <span class="badge bg-gray-900">
@@ -80,6 +100,27 @@
                             <span class="badge bg-gray-900">
                                 {{ $row->end_gou_pattern }} 
                             </span>
+                            <br/> 
+                            <br/> 
+                            <a 
+                                href="javascript:void(0)"
+                                data-fixtureapi_id="{{ $row->fixtureapi_id }}"
+                                data-leagueapi_id="{{ $row->leagueapi_id }}"
+                                data-season="{{ $row->season }}"
+
+                                data-pre_ah_pattern="{{ $row->pre_ah_pattern }}"
+                                data-pre_ah_pattern_mirror="{{ $row->pre_ah_pattern_mirror }}"
+                                data-pre_gou_pattern="{{ $row->pre_gou_pattern }}"
+
+                                data-end_ah_pattern="{{ $row->end_ah_pattern }}"
+                                data-end_ah_pattern_mirror="{{ $row->end_ah_pattern_mirror }}"
+                                data-end_gou_pattern="{{ $row->end_gou_pattern }}"
+                                data-pattern="preend"
+                                class="my-button"
+                                id="append_preend_{{ $row->fixtureapi_id }}"> 
+                                Tf-PreEnd:
+                            </a> 
+ 
                         </div>  
                         <div class="col-1 text-center">  
                             {{ $row->pre_response }}-{{ $row->end_response }}
@@ -114,3 +155,71 @@
             
     @endforelse  
 </div>  
+
+@push('scripts')
+    <script> 
+        $(document).ready(function() {
+            // my-button
+            $('.my-button').on('click', function(e) {
+                e.preventDefault(); 
+
+                var fixtureapi_id       = $(this).data('fixtureapi_id');
+                var leagueapi_id        = $(this).data('leagueapi_id');
+                var season              = $(this).data('season');
+                var pattern              = $(this).data('pattern');
+                
+                var pre_ah_pattern              = $(this).data('pre_ah_pattern');
+                var pre_ah_pattern_mirror              = $(this).data('pre_ah_pattern_mirror');
+                var pre_gou_pattern              = $(this).data('pre_gou_pattern');
+
+                var end_ah_pattern              = $(this).data('end_ah_pattern');
+                var end_ah_pattern_mirror              = $(this).data('end_ah_pattern_mirror');
+                var end_gou_pattern              = $(this).data('end_gou_pattern');
+
+                // alert("fixtureapi_id ID: " + fixtureapi_id);
+                // alert("leagueapi_id ID: " + leagueapi_id);
+                // alert("season ID: " + season);
+
+                alert("pre_ah_pattern_mirror ID: " + pre_ah_pattern_mirror);
+
+
+                // alert("pre_ah_pattern ID: " + pre_ah_pattern);
+                // alert("pre_gou_pattern ID: " + pre_gou_pattern);
+                // alert("end_ah_pattern ID: " + end_ah_pattern);
+                // alert("end_gou_pattern ID: " + end_gou_pattern);
+                // append data
+                // var newContent = "<p>New content appended!</p>";
+                // $('#append'+buttonId).append(newContent); 
+
+                $.ajax({
+                    url: "{{ route('Ajax.data') }}",
+                    type: "GET",
+                    data: {
+                        fixtureapi_id: fixtureapi_id, 
+                        leagueapi_id: leagueapi_id, 
+                        season: season, 
+                        pattern: pattern, 
+
+                        pre_ah_pattern: pre_ah_pattern, 
+                        pre_ah_pattern_mirror: pre_ah_pattern_mirror, 
+                        pre_gou_pattern: pre_gou_pattern, 
+
+                        end_ah_pattern: end_ah_pattern, 
+                        end_ah_pattern_mirror: end_ah_pattern_mirror, 
+                        end_gou_pattern: end_gou_pattern, 
+                    },
+                    success: function(response) {
+                        // Process the response 
+                        $('#append_'+pattern+'_'+fixtureapi_id).append(response.foox );
+                        alert(response.foox)
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                        // Handle the error scenario
+                    }
+                }); 
+            });
+ 
+        });
+    </script>
+@endpush

@@ -6,7 +6,10 @@
       
     <div class="row mb-2"> 
         <div class="col-6">
-            <a href="{{route('Rapidapi.teams', $row->teams_homeapi_id)}}">update</a>    
+            <a href="{{route('Rapidapi.teams', $row->teams_homeapi_id)}}">update</a>  
+            
+            Home,  {{$row->teams_homeapi_id}} 
+            Venue,  {{$row->venueapi_id}} 
         </div>
         <div class="col-6 text-end">
             {{ (microtime(true) - LARAVEL_START) }} 
@@ -16,7 +19,7 @@
         <div class="col-12 mb-3">
             <div class="card border-0 text-white overflow-hidden"  > 
                 <!-- card-img -->
-                <img src="{{$row->venue->image}}" class="card-img" />
+                {!! define_venue($row->venueapi_id, $row->venue->image) !!} 
                  
                 <div class="card-img-overlay d-flex flex-column bg-gray-900 bg-opacity-70 rounded"> 
  

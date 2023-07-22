@@ -1,3 +1,9 @@
+<small> 
+    <abbr class="initialism">
+        Match Winner
+    </abbr>  
+</small>
+
 @if($pattern->match_winner_home_perc >= 0.8)
     <a
         class="badge bg-primary"

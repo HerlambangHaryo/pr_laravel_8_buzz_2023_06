@@ -81,5 +81,35 @@
             >
             Other Pattern
         </a> 
+        <a   
+            href="{{ route('Fixtures.dataonlypre', [
+                    'leagueapi_id'      => $row->leagueapi_id,
+                    'season'            => $row->season,
+                    'fixtureapi_id'     => $row->fixtureapi_id,
+                ])}}" 
+            class="ms-2 me-2"
+            >
+            Only Pre
+        </a>   
+        <a   
+            href="{{ route('Fixtures.datapreend', [
+                    'leagueapi_id'      => $row->leagueapi_id,
+                    'season'            => $row->season,
+                    'fixtureapi_id'     => $row->fixtureapi_id,
+                ])}}" 
+            class="ms-2 me-2"
+            >
+            Data PreEnd
+        </a>   
+        <a   
+            href="{{ route('Fixtures.dataonlyend', [
+                    'leagueapi_id'      => $row->leagueapi_id,
+                    'season'            => $row->season,
+                    'fixtureapi_id'     => $row->fixtureapi_id,
+                ])}}" 
+            class="ms-2 me-2"
+            >
+            Only End
+        </a>   
     </div> 
 </div> 
