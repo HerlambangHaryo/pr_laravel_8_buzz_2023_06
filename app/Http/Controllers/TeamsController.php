@@ -42,13 +42,57 @@ class TeamsController extends Controller
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
             
         // ----------------------------------------------------------- Action    
+            $date_end       = define_date("end");
+
             $data           = Football_team::select(
                                     '*',
                                 ) 
-
                                 ->where('teamapi_id', '=', $id)   
                                 ->first();
+
+            $fixtures0       = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
+                                    DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
+                                )
+                                ->where('teams_homeapi_id', '=', $id)
+                                ->where('date', '>=', $date_end)
+                                ->limit(2);
                                     
+            $fixtures       = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
+                                    DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
+                                )
+                                ->where('teams_awayapi_id', '=', $id)
+                                ->where('date', '>=', $date_end)
+                                ->limit(2)
+                                ->union($fixtures0)
+                                ->orderby('date')
+                                ->get();
+                                    
+            $result0       = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
+                                DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
+                            )
+                            ->where('teams_homeapi_id', '=', $id)
+                            ->where('date', '<=', $date_end)
+                            ->limit(2)
+                            ->orderby('date','desc');
+                                
+            $result       = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
+                                DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
+                            )
+                            ->where('teams_awayapi_id', '=', $id)
+                            ->where('date', '<=', $date_end)
+                            ->limit(2)
+                            ->orderby('date','desc')
+                            ->union($result0)
+                            ->orderby('date','desc')
+                            ->get();
         // ----------------------------------------------------------- Send
             return view($view,  
                 compact(
@@ -61,6 +105,8 @@ class TeamsController extends Controller
                     'active_as',
                     'view_file', 
                     'data',   
+                    'fixtures',  
+                    'result',   
                 )
             );
         ///////////////////////////////////////////////////////////////

@@ -1,26 +1,27 @@
  
 
-<div class="row mb-2">
     @forelse ($data as $row)     
-        <div class="col-12 mb-3">
+        <div class="row mb-4"> 
             <div class="card">
-                <div class="card-body">  
-                    <div class="row"> 
-                        <div class="col-1"> 
-                            {{ $loop->iteration }}
-                        </div> 
-                        <div class="col-1">   
-                            {{ $row->league->country->name }} 
-                            <br/>
-                            {{ $row->league->name }}  
-                            {{ $row->season }} 
-                        </div>  
-                        <div class="col-1 text-center"> 
-                            {{ $row->tanggal }}
-                            <br/>
+                <div class="card-header"> 
+                    <div class="row">
+                        <div class="col-2">
+                            {{ $row->tanggal }} 
                             <abbr class="initialism">
                                 {{ $row->jam }}
-                            </abbr> 
+                            </abbr>  
+                        </div>
+                        <div class="col-1">
+                            <i class="flag-icon flag-icon-{{ strtolower($row->league->country->code) }} " 
+                                title="{{ strtolower($row->league->country->code) }}" 
+                                id="{{ strtolower($row->league->country->code) }}"></i>
+                            {{ $row->league->country->name }}  
+                        </div>
+                        <div class="col-5"> 
+                            {{ $row->league->name }}  -
+                            {{ $row->season }} 
+                        </div>
+                        <div class="col-1 text-center">
                             @if($row->league->bookmakersapi_id == 11)
                                 <span class="badge bg-primary  ">
                                     {{ $row->league->bookmakers_name }}   
@@ -30,11 +31,32 @@
                                     {{ $row->league->bookmakers_name }}   
                                 </span>
                             @endif  
-                            <span class="badge bg-gray-900 mt-2 "> 
+                        </div>
+                        <div class="col-1 text-center">
+                            <span class="badge bg-gray-900 "> 
                                 {{ $row->fixtureapi_id }}
-                            </span>
-                        </div> 
-                        <div class="col-1"> 
+                            </span> 
+                        </div>
+                        <div class="col-1 text-center">
+                            {{ $row->pre_response }}-{{ $row->end_response }}
+                        </div>
+                        <div class="col-1 text-center">   
+                            <a   
+                                href="{{ route('Fixtures.information', [
+                                        'leagueapi_id'      => $row->leagueapi_id,
+                                        'season'            => $row->season,
+                                        'fixtureapi_id'     => $row->fixtureapi_id,
+                                    ])}}"
+                                target="_blank"
+                                class=" "> 
+                                View
+                            </a>  
+                        </div>
+                    </div>
+                </div> 
+                <div class="card-body">  
+                    <div class="row">   
+                        <div class="col-2"> 
                             <small>
                                 {{ $row->venue->name }} 
                                 <br/>
@@ -68,6 +90,29 @@
                             {{ $row->goals_home }} 
                             <br/>
                             {{ $row->goals_away }} 
+                            <br/>
+                            <i class="far fa-futbol"></i>
+                        </div>  
+                        <div class="col-1 text-center"> 
+                            {{ $row->corner_kicks_home }} 
+                            <br/>
+                            {{ $row->corner_kicks_away }} 
+                            <br/>
+                            <i class="fas fa-flag-checkered"></i>
+                        </div> 
+                        <div class="col-1 text-center"> 
+                            {{ $row->yellow_cards_home }} 
+                            <br/>
+                            {{ $row->yellow_cards_away }} 
+                            <br/>
+                            <i class="fas fa-square text-warning"></i>
+                        </div> 
+                        <div class="col-1 text-center"> 
+                            {{ $row->red_cards_home }} 
+                            <br/>
+                            {{ $row->red_cards_away }} 
+                            <br/>
+                            <i class="fas fa-square text-danger"></i>
                         </div> 
                         <div class="col-2">
                             <span class="badge bg-gray-900">
@@ -76,9 +121,42 @@
                             <br/>
                             <span class="badge bg-gray-900">
                                 {{ $row->pre_gou_pattern }} 
+                            </span> 
+                        </div> 
+                        <div class="col-2">
+                            <span class="badge bg-gray-900">
+                                {{ $row->end_ah_pattern }} 
                             </span>
-                            <br/> 
-                            <br/> 
+                            <br/>
+                            <span class="badge bg-gray-900">
+                                {{ $row->end_gou_pattern }} 
+                            </span> 
+                        </div>    
+                    </div> 
+                </div>  
+                <div class="card-footer"> 
+                    <div class="row"> 
+                        <div class="col-2"> 
+                            odd:
+                            <small>
+                                {{ $row->end_odd_updated_at  }}
+                            </small>
+                        </div>
+                        <div class="col-2"> 
+                            updt:
+                            <small>
+                                {{ $row->updated_at  }}
+                            </small>
+                        </div> 
+                        <div class="col-1 text-center"> 
+                        </div> 
+                        <div class="col-1 text-center"> 
+                        </div> 
+                        <div class="col-1 text-center"> 
+                        </div> 
+                        <div class="col-1 text-center"> 
+                        </div> 
+                        <div class="col-1 text-center"> 
                             <a 
                                 href="javascript:void(0)"
                                 data-fixtureapi_id="{{ $row->fixtureapi_id }}"
@@ -98,16 +176,7 @@
                                 Tf-Only:
                             </a> 
                         </div> 
-                        <div class="col-2">
-                            <span class="badge bg-gray-900">
-                                {{ $row->end_ah_pattern }} 
-                            </span>
-                            <br/>
-                            <span class="badge bg-gray-900">
-                                {{ $row->end_gou_pattern }} 
-                            </span>
-                            <br/> 
-                            <br/> 
+                        <div class="col-1 text-center"> 
                             <a 
                                 href="javascript:void(0)"
                                 data-fixtureapi_id="{{ $row->fixtureapi_id }}"
@@ -126,41 +195,16 @@
                                 id="append_preend_{{ $row->fixtureapi_id }}"> 
                                 Tf-PreEnd:
                             </a> 
- 
-                        </div>  
-                        <div class="col-1 text-center">  
-                            {{ $row->pre_response }}-{{ $row->end_response }}
-                            <br/>
-                            <a   
-                                href="{{ route('Fixtures.information', [
-                                        'leagueapi_id'      => $row->leagueapi_id,
-                                        'season'            => $row->season,
-                                        'fixtureapi_id'     => $row->fixtureapi_id,
-                                    ])}}"
-                                target="_blank"
-                                class=" "> 
-                                View
-                            </a> 
-                            <br/>
-                            <small>
-                                {{ $row->end_odd_updated_at  }}
-                            </small>
-                            <br/>
-                            <small>
-                                {{ $row->updated_at  }}
-                            </small>
-                        </div>
-                    </div> 
-                </div>  
-                
-            </div>
+                        </div> 
+                    </div>
+                </div> 
+            </div> 
+        </div>  
             
-            @include('contents.includes.data_list_details') 
-        </div>
-        @empty 
+        @include('contents.includes.data_list_details')  
+    @empty 
             
     @endforelse  
-</div>  
 
 @push('scripts')
     <script> 

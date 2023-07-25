@@ -90,9 +90,10 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                     Route::get('Leagues/pecheck/{leagueapi_id}/{season}', 'LeaguesController@pecheck')
                         ->name('Leagues.pecheck');   
                     Route::get('Leagues/patternfixtures/{leagueapi_id}/{season}/{pre_ah_pattern}/{pre_gou_pattern}/{end_ah_pattern}/{end_gou_pattern}', 'LeaguesController@patternfixtures')
-                        ->name('Leagues.patternfixtures'); 
+                        ->name('Leagues.patternfixtures');  
+                    Route::get('Leagues/detailround/{leagueapi_id}/{season}/{round}', 'LeaguesController@detailround')
+                        ->name('Leagues.detailround');  
 
-                         
                     Route::get('Leagues/pattern_odd/{leagueapi_id}/{season}', 'LeaguesController@pattern_odd')
                         ->name('Leagues.pattern_odd'); 
                     Route::get('Leagues/pattern_preend/{leagueapi_id}/{season}', 'LeaguesController@pattern_preend')
@@ -215,6 +216,8 @@ use App\Http\Controllers\Super\AboutLifecycleController;
 
                     Route::get('Mybets/datacreate/{leagueapi_id}/{season}/{fixtureapi_id}/{betsapi_id}/{value}/{odd}', 'MybetsController@datacreate')
                         ->name('Mybets.datacreate'); 
+                    Route::get('Mybets/datacreateanalysis/{leagueapi_id}/{season}/{fixtureapi_id}/{betsapi_id}/{value}/{odd}', 'MybetsController@datacreateanalysis')
+                        ->name('Mybets.datacreateanalysis'); 
                 Route::resource('Mybets', MybetsController::class);  
  
                     Route::get('Tomorrow/leagues/{leagueapi_id}/{season}', 'TomorrowController@leagues')
@@ -232,6 +235,16 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                 Route::resource('Venues', VenuesController::class);
                 Route::resource('Oneye', OneyeController::class);
 
+
+                    Route::get('Forecasts/leagues/{leagueapi_id}/{season}', 'ForecastsController@leagues')
+                        ->name('Forecasts.leagues'); 
+
+                    Route::get('Forecasts/timegroup', 'ForecastsController@timegroup')
+                        ->name('Forecasts.timegroup');  
+                    Route::get('Forecasts/time/{year}/{month}/{day}/{hour}/{minute}', 'ForecastsController@time')
+                        ->name('Forecasts.time'); 
+
+                Route::resource('Forecasts', ForecastsController::class);  
 
                 // Route::get('/data', [AjaxController::class, 'getData'])->name('data');
                 

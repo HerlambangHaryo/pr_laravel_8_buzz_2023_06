@@ -71,6 +71,18 @@
                     </span>
                 </a>
             </div> 
+            
+            <div class="menu-item @if($title == 'Forecasts') active @endif">
+                <a href="{{ route('Forecasts.index'  ) }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="fas fa-hat-wizard"></i>
+                    </span>
+                    <span class="menu-text">
+                        Forecasts
+                    </span>
+                </a>
+            </div> 
+
             <div class="menu-item @if($title == 'Tomorrow') active @endif">
                 <a href="{{ route('Tomorrow.index'  ) }}" class="menu-link">
                     <span class="menu-icon">
@@ -89,6 +101,17 @@
                     </span>
                     <span class="menu-text">
                         Favorites
+                    </span>
+                </a>
+            </div> 
+ 
+            <div class="menu-item @if($title == 'Oneye') active @endif">
+                <a href="{{ route('Oneye.index'  ) }}" class="menu-link">
+                    <span class="menu-icon">
+                        <i class="far fa-eye"></i>
+                    </span>
+                    <span class="menu-text">
+                        Oneye
                     </span>
                 </a>
             </div> 

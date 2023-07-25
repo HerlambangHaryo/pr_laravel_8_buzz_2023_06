@@ -491,7 +491,7 @@ class LeaguesController extends Controller
             $content        = $this->content;
             $active_as      = $content;
 
-            $view_file      = 'matchfinished';
+            $view_file      = 'round';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
             
         // ----------------------------------------------------------- Action   
@@ -499,8 +499,9 @@ class LeaguesController extends Controller
                                 ->first();
 
             $data           = Football_odd::select(
-                                    '*', 
-                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                    'leagueapi_id', 
+                                    'season', 
+                                    'round', 
                                 ) 
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)
@@ -508,6 +509,68 @@ class LeaguesController extends Controller
                                 ->whereIn('fixture_status', ['Match Finished', 'Match Finished Ended'])   
 
                                 ->whereNull('deleted_at')   
+                                ->groupby('leagueapi_id')
+                                ->groupby('season')
+                                ->groupby('round')
+                                ->orderby('date')     
+                                ->get();
+                                    
+        // ----------------------------------------------------------- Send
+            return view($view,  
+                compact(
+                    'template', 
+                    'mode', 
+                    'themecolor',
+                    'content', 
+                    'user', 
+                    'panel_name', 
+                    'active_as',
+                    'view_file', 
+                    'data',   
+                    'leagueapi_id', 
+                    'league',  
+                    'season',   
+                )
+            );
+        ///////////////////////////////////////////////////////////////
+    } 
+ 
+    public function detailround($leagueapi_id, $season, $round)
+    {
+        // ----------------------------------------------------------- Auth
+            $user = auth()->user();   
+
+        // ----------------------------------------------------------- Agent
+            $agent              = new Agent(); 
+            $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
+
+        // ----------------------------------------------------------- Initialize
+            $panel_name     = 'matchfinished';  
+            
+            $template       = $this->template;
+            $mode           = $this->mode;
+            $themecolor     = $this->themecolor;
+            $content        = $this->content;
+            $active_as      = $content;
+
+            $view_file      = 'detailround';
+            $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
+            
+        // ----------------------------------------------------------- Action   
+            $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
+                                ->first();
+
+            $data           = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal') 
+                                ) 
+
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->where('season', '=', $season)   
+                                ->where('round', '=', str_replace('_', ' ', $round))   
+                                ->whereIn('fixture_status', ['Match Finished', 'Match Finished Ended'])   
+
+                                ->whereNull('deleted_at')    
                                 ->orderby('date')     
                                 ->get();
                                     

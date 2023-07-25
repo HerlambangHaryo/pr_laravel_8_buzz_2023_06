@@ -170,6 +170,22 @@ class AjaxController extends Controller
         // ----------------------------------------------------------- Action    
             $pattern_from   = Football_odd::whereNull('pattern_from')
                                 ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
+
+                                ->whereNotNull('pre_ah_pattern')
+                                ->whereNotNull('pre_gou_pattern')
+ 
+                                ->whereNotNull('end_ah_pattern')
+                                ->whereNotNull('end_gou_pattern')
+
+                                ->where('pre_ah_pattern', '!=', 'H')
+                                ->where('pre_gou_pattern', '!=', 'G')
+
+                                ->where('end_ah_pattern', '!=', 'H')
+                                ->where('end_gou_pattern', '!=', 'G') 
+
+                                ->where('pre_response', '=', 3)
+                                ->where('end_response', '=', 3) 
+
                                 ->count();
         // ----------------------------------------------------------- Send 
             $data = [
@@ -192,6 +208,22 @@ class AjaxController extends Controller
         // ----------------------------------------------------------- Action    
             $pattern_only   = Football_odd::whereNull('pattern_only')
                                 ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
+
+                                ->whereNotNull('pre_ah_pattern')
+                                ->whereNotNull('pre_gou_pattern')
+ 
+                                ->whereNotNull('end_ah_pattern')
+                                ->whereNotNull('end_gou_pattern')
+
+                                ->where('pre_ah_pattern', '!=', 'H')
+                                ->where('pre_gou_pattern', '!=', 'G')
+
+                                ->where('end_ah_pattern', '!=', 'H')
+                                ->where('end_gou_pattern', '!=', 'G') 
+                                
+                                ->where('pre_response', '=', 3)
+                                ->where('end_response', '=', 3) 
+                                
                                 ->count();
         // ----------------------------------------------------------- Send 
             $data = [
