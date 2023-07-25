@@ -8,7 +8,7 @@ use App\Models\Aboutapp;
             // ----------------------------------------------------------- Initialize  
                 $data = Aboutapp::findOrFail(define_aboutapp_team());
 
-                $link   = '/storage/app/public/aboutapp';
+                $link   = 'storage/aboutapp';
                 $link2  = '/public/starter';
             // ----------------------------------------------------------- Action   
                 if($status == 'name')
@@ -39,6 +39,10 @@ use App\Models\Aboutapp;
                                 type="image/x-icon" 
                                 href="'.asset($link.'/'.$data->logo).'"  
                                 >';
+
+                                // <link rel="icon" type="image/x-icon" 
+                                // href="{{ asset('storage/app/public/aboutapp/LOO6nsjXSoEXegc38TklYFa1itrWsQ1GpmbR8Ue5.png') }}">
+
                     }
                     else
                     { 

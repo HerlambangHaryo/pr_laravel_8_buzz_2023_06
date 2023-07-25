@@ -455,7 +455,7 @@ class FixturesController extends Controller
                                     '*',
                                     DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
                                 )   
-                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                // ->where('leagueapi_id', '=', $leagueapi_id)
 
                                 ->where('pre_ah_pattern', '=', $row->pre_ah_pattern)  
                                 ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
@@ -470,7 +470,7 @@ class FixturesController extends Controller
                                     '*',
                                     DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
                                 )   
-                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                // ->where('leagueapi_id', '=', $leagueapi_id)
 
                                 ->where('pre_ah_pattern', '=', $row->pre_ah_pattern_mirror)  
                                 ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    

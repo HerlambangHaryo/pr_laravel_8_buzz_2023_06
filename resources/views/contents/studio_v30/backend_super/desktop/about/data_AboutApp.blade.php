@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="text-gray-600"> 
                                     <img 
-                                        src="{{ asset('/storage/app/public/aboutapp/'.$data->logo) }}" 
+                                        src="{{ asset('/storage/aboutapp/'.$data->logo) }}" 
                                         alt="" 
                                         class="ms-50 mh-50"> 
                                 </div>
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="text-gray-600"> 
                                     <img 
-                                        src="{{ asset('/storage/app/public/aboutapp/'.$data->ico) }}" 
+                                        src="{{ asset('/storage/aboutapp/'.$data->ico) }}" 
                                         alt="" 
                                         class="ms-50 mh-50">  
                                         

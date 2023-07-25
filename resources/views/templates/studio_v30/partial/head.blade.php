@@ -7,10 +7,10 @@
 
 @stack('metaTag')
 
-<!-- ================== BEGIN BASE CSS STYLE ================== -->
-<link href="{{ asset('/public/studio_v30') }}/assets/css/vendor.css" rel="stylesheet" />
-<link href="{{ asset('/public/studio_v30') }}/assets/css/app.min.css" rel="stylesheet" /> 
-<link href="{{ asset('/public/studio_v30') }}/assets/plugins/flag-icon/css/flag-icon.css" rel="stylesheet" /> 
+<!-- ================== BEGIN BASE CSS STYLE ================== --> 
+<link href="{{ asset('studio_v30/assets/css/vendor.css') }}" rel="stylesheet" /> 
+<link href="{{ asset('studio_v30/assets/css/app.min.css') }}" rel="stylesheet" /> 
+<link href="{{ asset('studio_v30/assets/plugins/flag-icon/css/flag-icon.css') }}" rel="stylesheet" /> 
 <!-- ================== END BASE CSS STYLE ================== --> 
 {!! define_aboutapp('ico') !!}
 @stack('css')
