@@ -455,6 +455,181 @@ class FixturesController extends Controller
                                     '*',
                                     DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
                                 )   
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+
+                                ->where('pre_ah_pattern', '=', $row->pre_ah_pattern)  
+                                ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->where('end_ah_pattern', '=', $row->pre_ah_pattern)  
+                                ->where('end_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->whereNull('deleted_at');
+
+                            
+            $data           = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )   
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+
+                                ->where('pre_ah_pattern', '=', $row->pre_ah_pattern_mirror)  
+                                ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->where('end_ah_pattern', '=', $row->pre_ah_pattern_mirror)  
+                                ->where('end_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->whereNull('deleted_at')   
+                                ->union($data0)
+                                ->get();  
+                                    
+        // ----------------------------------------------------------- Send
+            return view($view,  
+                compact(
+                    'template', 
+                    'mode', 
+                    'themecolor',
+                    'content', 
+                    'user', 
+                    'panel_name', 
+                    'active_as',
+                    'view_file', 
+                    'row',   
+                    'leagueapi_id',   
+                    'season',        
+                    'data'  
+                )
+            );
+        ///////////////////////////////////////////////////////////////
+    } 
+ 
+    public function dataonlyprecountry($leagueapi_id, $season, $fixtureapi_id)
+    {
+        // ----------------------------------------------------------- Auth
+            $user = auth()->user();   
+
+        // ----------------------------------------------------------- Agent
+            $agent              = new Agent(); 
+            $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
+
+        // ----------------------------------------------------------- Initialize
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
+            
+            $template       = $this->template;
+            $mode           = $this->mode;
+            $themecolor     = $this->themecolor;
+            $content        = $this->content;
+            $active_as      = $content;
+
+            $view_file      = 'dataonlypre';
+            $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
+            
+        // ----------------------------------------------------------- Action     
+            $row            = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal') 
+                                )   
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->where('season', '=', $season)   
+                                ->where('fixtureapi_id', '=', $fixtureapi_id)   
+
+                                ->whereNull('deleted_at')   
+                                ->first();
+
+            $league0         = Football_league::select('country_name')
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->first();
+
+            $league1         = Football_league::select('leagueapi_id')
+                                ->where('country_name', '=', $league0->country_name);
+ 
+            $data0          = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )   
+                                ->whereIN('leagueapi_id', $league1)
+
+                                ->where('pre_ah_pattern', '=', $row->pre_ah_pattern)  
+                                ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->where('end_ah_pattern', '=', $row->pre_ah_pattern)  
+                                ->where('end_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->whereNull('deleted_at');
+
+                            
+            $data           = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )   
+                                ->whereIN('leagueapi_id', $league1)
+
+                                ->where('pre_ah_pattern', '=', $row->pre_ah_pattern_mirror)  
+                                ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->where('end_ah_pattern', '=', $row->pre_ah_pattern_mirror)  
+                                ->where('end_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->whereNull('deleted_at')   
+                                ->union($data0)
+                                ->get();  
+                                    
+        // ----------------------------------------------------------- Send
+            return view($view,  
+                compact(
+                    'template', 
+                    'mode', 
+                    'themecolor',
+                    'content', 
+                    'user', 
+                    'panel_name', 
+                    'active_as',
+                    'view_file', 
+                    'row',   
+                    'leagueapi_id',   
+                    'season',        
+                    'data'  
+                )
+            );
+        ///////////////////////////////////////////////////////////////
+    } 
+ 
+    public function dataonlypreworld($leagueapi_id, $season, $fixtureapi_id)
+    {
+        // ----------------------------------------------------------- Auth
+            $user = auth()->user();   
+
+        // ----------------------------------------------------------- Agent
+            $agent              = new Agent(); 
+            $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
+
+        // ----------------------------------------------------------- Initialize
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
+            
+            $template       = $this->template;
+            $mode           = $this->mode;
+            $themecolor     = $this->themecolor;
+            $content        = $this->content;
+            $active_as      = $content;
+
+            $view_file      = 'dataonlypre';
+            $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
+            
+        // ----------------------------------------------------------- Action     
+            $row            = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal') 
+                                )   
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->where('season', '=', $season)   
+                                ->where('fixtureapi_id', '=', $fixtureapi_id)   
+
+                                ->whereNull('deleted_at')   
+                                ->first();
+ 
+            $data0          = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )   
                                 // ->where('leagueapi_id', '=', $leagueapi_id)
 
                                 ->where('pre_ah_pattern', '=', $row->pre_ah_pattern)  
@@ -556,6 +731,180 @@ class FixturesController extends Controller
                                     DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
                                 )   
                                 ->where('leagueapi_id', '=', $leagueapi_id)
+
+                                ->where('pre_ah_pattern', '=', $row->pre_ah_pattern_mirror)  
+                                ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->where('end_ah_pattern', '=', $row->end_ah_pattern_mirror)  
+                                ->where('end_gou_pattern', '=', $row->end_gou_pattern)    
+
+                                ->whereNull('deleted_at')   
+                                ->union($data0)
+                                ->get();  
+                                    
+        // ----------------------------------------------------------- Send
+            return view($view,  
+                compact(
+                    'template', 
+                    'mode', 
+                    'themecolor',
+                    'content', 
+                    'user', 
+                    'panel_name', 
+                    'active_as',
+                    'view_file', 
+                    'row',   
+                    'leagueapi_id',   
+                    'season',        
+                    'data'  
+                )
+            );
+        ///////////////////////////////////////////////////////////////
+    } 
+
+    public function datapreendcountry($leagueapi_id, $season, $fixtureapi_id)
+    {
+        // ----------------------------------------------------------- Auth
+            $user = auth()->user();   
+
+        // ----------------------------------------------------------- Agent
+            $agent              = new Agent(); 
+            $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
+
+        // ----------------------------------------------------------- Initialize
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
+            
+            $template       = $this->template;
+            $mode           = $this->mode;
+            $themecolor     = $this->themecolor;
+            $content        = $this->content;
+            $active_as      = $content;
+
+            $view_file      = 'datapreend';
+            $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
+            
+        // ----------------------------------------------------------- Action     
+            $row            = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal') 
+                                )   
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->where('season', '=', $season)   
+                                ->where('fixtureapi_id', '=', $fixtureapi_id)   
+
+                                ->whereNull('deleted_at')   
+                                ->first();
+ 
+            $league0         = Football_league::select('country_name')
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->first();
+
+            $league1         = Football_league::select('leagueapi_id')
+                                ->where('country_name', '=', $league0->country_name);
+
+
+            $data0          = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )   
+                                ->whereIN('leagueapi_id', $league1)
+
+                                ->where('pre_ah_pattern', '=', $row->pre_ah_pattern)  
+                                ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->where('end_ah_pattern', '=', $row->end_ah_pattern)  
+                                ->where('end_gou_pattern', '=', $row->end_gou_pattern)    
+
+                                ->whereNull('deleted_at');
+
+                            
+            $data           = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )   
+                                ->whereIN('leagueapi_id', $league1)
+
+                                ->where('pre_ah_pattern', '=', $row->pre_ah_pattern_mirror)  
+                                ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->where('end_ah_pattern', '=', $row->end_ah_pattern_mirror)  
+                                ->where('end_gou_pattern', '=', $row->end_gou_pattern)    
+
+                                ->whereNull('deleted_at')   
+                                ->union($data0)
+                                ->get();  
+                                    
+        // ----------------------------------------------------------- Send
+            return view($view,  
+                compact(
+                    'template', 
+                    'mode', 
+                    'themecolor',
+                    'content', 
+                    'user', 
+                    'panel_name', 
+                    'active_as',
+                    'view_file', 
+                    'row',   
+                    'leagueapi_id',   
+                    'season',        
+                    'data'  
+                )
+            );
+        ///////////////////////////////////////////////////////////////
+    } 
+
+    public function datapreendworld($leagueapi_id, $season, $fixtureapi_id)
+    {
+        // ----------------------------------------------------------- Auth
+            $user = auth()->user();   
+
+        // ----------------------------------------------------------- Agent
+            $agent              = new Agent(); 
+            $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
+
+        // ----------------------------------------------------------- Initialize
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
+            
+            $template       = $this->template;
+            $mode           = $this->mode;
+            $themecolor     = $this->themecolor;
+            $content        = $this->content;
+            $active_as      = $content;
+
+            $view_file      = 'datapreend';
+            $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
+            
+        // ----------------------------------------------------------- Action     
+            $row            = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal') 
+                                )   
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->where('season', '=', $season)   
+                                ->where('fixtureapi_id', '=', $fixtureapi_id)   
+
+                                ->whereNull('deleted_at')   
+                                ->first();
+ 
+            $data0          = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )    
+
+                                ->where('pre_ah_pattern', '=', $row->pre_ah_pattern)  
+                                ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    
+
+                                ->where('end_ah_pattern', '=', $row->end_ah_pattern)  
+                                ->where('end_gou_pattern', '=', $row->end_gou_pattern)    
+
+                                ->whereNull('deleted_at');
+
+                            
+            $data           = Football_odd::select(
+                                    '*',
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )    
 
                                 ->where('pre_ah_pattern', '=', $row->pre_ah_pattern_mirror)  
                                 ->where('pre_gou_pattern', '=', $row->pre_gou_pattern)    

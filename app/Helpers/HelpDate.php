@@ -12,7 +12,7 @@
                 // MINUS
 
 
-                $start_0 = date("Y-m-d h:i:s", strtotime("+ 5 hour"));
+                $start_0 = date("Y-m-d h:i:s");
 
                 // $start = date("Y-m-d", strtotime("+ 0 day")); 
                 $start = date("Y-m-d h:i:s", strtotime("- 7 hour"));

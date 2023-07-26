@@ -11,6 +11,7 @@ use App\Models\Football_venue;
 use App\Models\Football_statistic;  
 use App\Models\Api_football_standing;
 use App\Models\Football_pattern_from;
+use App\Models\Football_forecast_pattern;   
 
 use Awobaz\Compoships\Compoships;
 
@@ -20,6 +21,17 @@ class Football_odd extends Model
     use HasFactory;
     use Compoships;
  
+    public function forecast_pattern()
+    {         
+        return $this->belongsTo(Football_forecast_pattern::class, 
+                ['leagueapi_id', 'season', 'fixtureapi_id'], 
+                ['leagueapi_id', 'season', 'fixtureapi_id'], 
+            )
+            ->withDefault([
+                'total_fixtures' => 0,
+            ]);
+    }
+
     public function preend()
     {         
         return $this->belongsTo(Football_pattern_from::class, 

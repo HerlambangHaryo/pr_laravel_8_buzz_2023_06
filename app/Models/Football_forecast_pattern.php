@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Models\Football_league;   
+use Awobaz\Compoships\Compoships;
 
 class Football_forecast_pattern extends Model
 {
     use HasFactory;
+    use Compoships;
  
     protected $table = 'Football_forecast_pattern';
  

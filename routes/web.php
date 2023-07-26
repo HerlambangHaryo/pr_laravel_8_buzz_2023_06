@@ -197,8 +197,16 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Fixtures.otherpattern'); 
                     Route::get('Fixtures/datapreend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@datapreend')
                         ->name('Fixtures.datapreend'); 
+                    Route::get('Fixtures/datapreendcountry/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@datapreendcountry')
+                        ->name('Fixtures.datapreendcountry'); 
+                    Route::get('Fixtures/datapreendworld/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@datapreendworld')
+                        ->name('Fixtures.datapreendworld'); 
                     Route::get('Fixtures/dataonlypre/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@dataonlypre')
                         ->name('Fixtures.dataonlypre'); 
+                    Route::get('Fixtures/dataonlyprecountry/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@dataonlyprecountry')
+                        ->name('Fixtures.dataonlyprecountry'); 
+                    Route::get('Fixtures/dataonlypreworld/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@dataonlypreworld')
+                        ->name('Fixtures.dataonlypreworld'); 
                     Route::get('Fixtures/dataonlyend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@dataonlyend')
                         ->name('Fixtures.dataonlyend'); 
                 Route::resource('Fixtures', FixturesController::class);   
