@@ -55,7 +55,7 @@ class ForecastsController extends Controller
                                 ->whereNull('deleted_at')   
                                 ->orderby('date')    
                                 ->groupby('leagueapi_id')   
-                                ->groupby('seasonc') 
+                                ->groupby('season') 
                                 ->get();
                                     
         // ----------------------------------------------------------- Send

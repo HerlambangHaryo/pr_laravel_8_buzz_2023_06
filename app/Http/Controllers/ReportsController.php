@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Jenssegers\Agent\Agent;
-use DB;   
- 
-use App\Models\Football_odd; 
+use DB;
+
+use App\Models\Football_odd;
 
 class ReportsController extends Controller
 {
@@ -17,19 +17,19 @@ class ReportsController extends Controller
     public $themecolor  = '';
     public $content     = 'Reports';
     public $type        = 'backend';
- 
+
     public function undone()
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -38,10 +38,10 @@ class ReportsController extends Controller
 
             $view_file      = 'undone';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $data           = Football_odd::select(
-                                    'leagueapi_id', 
+                                    'leagueapi_id',
                                     DB::raw('count(*) as counter')
                                 )
                                 ->where('pre_response', '!=', 3)
@@ -51,27 +51,27 @@ class ReportsController extends Controller
                                 ->orderby(DB::raw('count(*)'), 'desc')
                                 // ->limit(12)
                                 ->get();
-                                  
+
             $undone         = Football_odd::where('pre_response', '!=', 3)
                                 ->where('end_response', '!=', 3)
                                 ->whereIN('fixture_status', ['Match Finished', 'Match Finished Ended'])
                                 ->count();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',  
-                    'undone',  
+                    'view_file',
+                    'data',
+                    'undone',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
+    }
 }

@@ -1,67 +1,67 @@
 <div>
-    <span class="badge bg-gray-700 mt-2" > 
+    <span class="badge bg-gray-700 mt-2" >
         home - draw - away
         <br/>
         {{ $row->pre_results_both_teams_score_home_yes }} - {{ $row->pre_results_both_teams_score_draw_yes }} - {{ $row->pre_results_both_teams_score_away_yes }}
-    </span>   
-</div>  
+    </span>
+</div>
 
 <div class="text-center">
-    <span class="badge bg-gray-800 mt-2" > 
-        home - draw - away 
-    </span> 
+    <span class="badge bg-gray-800 mt-2" >
+        home - draw - away
+    </span>
 
     <br/>
- 
+
     <small>
-        <a    
+        <a
             @if(!is_null($row->end_results_both_teams_score_home_yes))
                 href="{{route('Mybets.datacreate',[
-                    'leagueapi_id'      => $row->leagueapi_id, 
+                    'leagueapi_id'      => $row->leagueapi_id,
                     'season'            => $row->season,
                     'fixtureapi_id'     => $row->fixtureapi_id,
                     'betsapi_id'        => 1,
-                    'value'             => 'Home', 
-                    'odd'               => $row->end_results_both_teams_score_home_yes, 
+                    'value'             => 'Home',
+                    'odd'               => $row->end_results_both_teams_score_home_yes,
                 ])}}"
             @endif
             target="_blank"
-            class=" ms-2 me-2">  
+            class=" ms-2 me-2">
             {{ $row->end_results_both_teams_score_home_yes }}
-        </a> 
+        </a>
     </small>
     <small>
-        <a    
+        <a
             @if(!is_null($row->end_results_both_teams_score_draw_yes))
                 href="{{route('Mybets.datacreate',[
-                    'leagueapi_id'      => $row->leagueapi_id, 
+                    'leagueapi_id'      => $row->leagueapi_id,
                     'season'            => $row->season,
                     'fixtureapi_id'     => $row->fixtureapi_id,
                     'betsapi_id'        => 2,
-                    'value'             => 'Draw', 
-                    'odd'               => $row->end_results_both_teams_score_draw_yes, 
+                    'value'             => 'Draw',
+                    'odd'               => $row->end_results_both_teams_score_draw_yes,
                 ])}}"
             @endif
             target="_blank"
-            class=" ms-2 me-2">  
+            class=" ms-2 me-2">
             {{ $row->end_results_both_teams_score_draw_yes }}
-        </a> 
+        </a>
     </small>
     <small>
-        <a    
+        <a
             @if(!is_null($row->end_results_both_teams_score_away_yes))
                 href="{{route('Mybets.datacreate',[
-                    'leagueapi_id'      => $row->leagueapi_id, 
+                    'leagueapi_id'      => $row->leagueapi_id,
                     'season'            => $row->season,
                     'fixtureapi_id'     => $row->fixtureapi_id,
                     'betsapi_id'        => 3,
-                    'value'             => 'Away', 
-                    'odd'               => $row->end_results_both_teams_score_away_yes, 
+                    'value'             => 'Away',
+                    'odd'               => $row->end_results_both_teams_score_away_yes,
                 ])}}"
             @endif
             target="_blank"
-            class=" ms-2 me-2">  
+            class=" ms-2 me-2">
             {{ $row->end_results_both_teams_score_away_yes }}
-        </a> 
+        </a>
     </small>
 </div>

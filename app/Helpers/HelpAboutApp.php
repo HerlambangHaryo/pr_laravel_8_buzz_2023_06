@@ -8,7 +8,7 @@ use App\Models\Aboutapp;
             // ----------------------------------------------------------- Initialize  
                 $data = Aboutapp::findOrFail(define_aboutapp_team());
 
-                $link   = 'storage/aboutapp';
+                $link   = '/storage/app/public/aboutapp';
                 $link2  = '/public/starter';
             // ----------------------------------------------------------- Action   
                 if($status == 'name')

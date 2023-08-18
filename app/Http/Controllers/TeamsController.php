@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Jenssegers\Agent\Agent;
-use DB;   
- 
-use App\Models\Football_odd; 
-use App\Models\Football_league; 
-use App\Models\Football_team;  
+use DB;
+
+use App\Models\Football_fixture;
+use App\Models\Football_league;
+use App\Models\Football_team;
+
+use App\Models\Football_player_squad;
 
 class TeamsController extends Controller
 {
@@ -19,19 +21,19 @@ class TeamsController extends Controller
     public $themecolor  = '';
     public $content     = 'Teams';
     public $type        = 'backend';
- 
+
     public function show($id)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -40,17 +42,17 @@ class TeamsController extends Controller
 
             $view_file      = 'show';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action    
+
+        // ----------------------------------------------------------- Action
             $date_end       = define_date("end");
 
             $data           = Football_team::select(
                                     '*',
-                                ) 
-                                ->where('teamapi_id', '=', $id)   
+                                )
+                                ->where('teamapi_id', '=', $id)
                                 ->first();
 
-            $fixtures0       = Football_odd::select(
+            $fixtures0       = Football_fixture::select(
                                     '*',
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
@@ -58,8 +60,8 @@ class TeamsController extends Controller
                                 ->where('teams_homeapi_id', '=', $id)
                                 ->where('date', '>=', $date_end)
                                 ->limit(2);
-                                    
-            $fixtures       = Football_odd::select(
+
+            $fixtures       = Football_fixture::select(
                                     '*',
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
@@ -70,8 +72,8 @@ class TeamsController extends Controller
                                 ->union($fixtures0)
                                 ->orderby('date')
                                 ->get();
-                                    
-            $result0       = Football_odd::select(
+
+            $result0       = Football_fixture::select(
                                 '*',
                                 DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                 DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
@@ -80,8 +82,8 @@ class TeamsController extends Controller
                             ->where('date', '<=', $date_end)
                             ->limit(2)
                             ->orderby('date','desc');
-                                
-            $result       = Football_odd::select(
+
+            $result       = Football_fixture::select(
                                 '*',
                                 DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                 DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
@@ -93,22 +95,27 @@ class TeamsController extends Controller
                             ->union($result0)
                             ->orderby('date','desc')
                             ->get();
+
+
+            $player_squad       = Football_player_squad::where('teamapi_id', '=', $id)
+                                    ->get();
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'fixtures',  
-                    'result',   
+                    'view_file',
+                    'data',
+                    'fixtures',
+                    'result',
+                    'player_squad'
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
+    }
 }

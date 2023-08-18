@@ -1,50 +1,46 @@
 <!DOCTYPE html>
-<html 
-	lang="{{ app()->getLocale() }}"{{ (!empty($htmlAttribute)) ? $htmlAttribute : '' }}  
+<html
+	lang="{{ app()->getLocale() }}"{{ (!empty($htmlAttribute)) ? $htmlAttribute : '' }}
 	class="{!! define_aboutapp('mode') !!}">
-	<head>
-		@include('templates.'.$template.'.partial.head')
+    <head>
+        @include('templates.'.$template.'.partial.head')
 
-		<!-- ================== BEGIN page-css ================== -->
-		<link href="{{ asset('/public/studio_v30') }}/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" />
-		<link href="{{ asset('/public/studio_v30') }}/assets/plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" />
-		<link href="{{ asset('/public/studio_v30') }}/assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
-		<link href="{{ asset('/public/studio_v30') }}/assets/plugins/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" />
-		<!-- ================== END page-css ================== -->
-		 
-	</head> 
-	<body class="pace-done theme-{!! define_aboutapp('color') !!}">  
-		<div id="app" class="app {{ (!empty($appClass)) ? $appClass : '' }}"> 
+        <!-- ================== BEGIN page-css ================== -->
+        <link href="{{ asset('/public/studio_v30') }}/assets/plugins/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet" />
+        <link href="{{ asset('/public/studio_v30') }}/assets/plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+        <link href="{{ asset('/public/studio_v30') }}/assets/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+        <link href="{{ asset('/public/studio_v30') }}/assets/plugins/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" />
+        <!-- ================== END page-css ================== -->
+    </head>
+    <body class="pace-done theme-{!! define_aboutapp('color') !!}">
+        <!-- BEGIN #app -->
+        <div id="app" class="app app-sidebar-minified">
 			@include('templates.'.$template.'.partial.header')
 
         	<x-studio_v30.sidebar-nav title="{!!$active_as!!}"/>
 
-			<!-- BEGIN #content -->
-			<div id="content" class="app-content">
-				<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-xl-12">				
-							<x-studio_v30.breadcrumb link2="{{ route($content.'.index') }}" level2="{!!$panel_name!!}" level3="{!!$view_file!!}" />	
-	
-							@include('contents.includes.flash_message')
+            <!-- BEGIN #content -->
+            <div id="content" class="app-content">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <x-studio_v30.breadcrumb link2="{{ route($content.'.index') }}" level2="{!!$panel_name!!}" level3="{!!$view_file!!}" />
 
-		    				@yield('content')
-						</div>			
-					</div>
-				</div>
-			</div>
-			<!-- END #content -->
-			
-			@includeWhen(!empty($footer), 'templates.'.$template.'.partial.footer')
+                            @include('contents.includes.flash_message')
 
-		</div>
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END #content -->
 
-		@include('templates.'.$template.'.partial.scroll-top-btn')
+            @include('templates.'.$template.'.partial.scroll-top-btn')
+        </div>
+        <!-- END #app -->
 
+        @include('templates.'.$template.'.partial.scripts')
 
-		@include('templates.'.$template.'.partial.scripts')
-		
-		
 		<!-- ================== BEGIN page-js ================== -->
 		<script src="{{ asset('/public/studio_v30') }}/assets/plugins/highlight.js/highlight.min.js"></script>
 		<script src="{{ asset('/public/studio_v30') }}/assets/js/demo/highlightjs.demo.js"></script>
@@ -61,5 +57,5 @@
 		<script src="{{ asset('/public/studio_v30') }}/assets/plugins/bootstrap-table/dist/bootstrap-table.min.js"></script>
 		<script src="{{ asset('/public/studio_v30') }}/assets/js/demo/table-plugins.demo.js"></script>
 		<!-- ================== END page-js ================== -->
-	</body>
+    </body>
 </html>

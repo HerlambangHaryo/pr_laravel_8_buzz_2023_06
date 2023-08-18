@@ -1,13 +1,13 @@
-<div class="row d-flex justify-content-center mt-3">   
-    <div class="col-5 text-center text-yellow"> 
-        <small> 
+<div class="row d-flex justify-content-center mt-3">
+    <div class="col-5 text-center text-yellow">
+        <small>
             <abbr class="initialism">
                 Second Half
-            </abbr>  
+            </abbr>
             <br/>
             <abbr class="initialism">
-                {{ $row->score_secondtime_home }} - {{ $row->score_secondtime_away }} 
-            </abbr>  
-        </small>  
-    </div>  
-</div> 
+                {{ $row_fixture->score_secondtime_home }} - {{ $row_fixture->score_secondtime_away }}
+            </abbr>
+        </small>
+    </div>
+</div>

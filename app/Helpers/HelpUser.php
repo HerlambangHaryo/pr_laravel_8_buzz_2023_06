@@ -33,8 +33,8 @@ use App\Models\Aboutapp;
             // ----------------------------------------------------------- Initialize  
                 $user = auth()->user();  
                 
-                $link   = 'storage/userprofiles';
-                $link2  = 'starter';
+                $link   = '/storage/app/public/userprofiles';
+                $link2  = '/public/starter';
             // ----------------------------------------------------------- Action   
                 if($status == 'profile_header')
                 {

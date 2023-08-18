@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Jenssegers\Agent\Agent;
-use DB;   
- 
-use App\Models\Football_odd; 
-use App\Models\Football_league; 
+use DB;
+
+use App\Models\Football_odd;
+use App\Models\Football_league;
+use App\Models\Football_fixture;
 
 class NotstartedController extends Controller
 {
@@ -18,19 +19,19 @@ class NotstartedController extends Controller
     public $themecolor  = '';
     public $content     = 'Notstarted';
     public $type        = 'backend';
- 
+
     public function index()
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -39,51 +40,51 @@ class NotstartedController extends Controller
 
             $view_file      = 'data';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end_15");
 
-            $data           = Football_odd::select(
+            $data           = Football_fixture::select(
                                     'leagueapi_id',
-                                    'season', 
+                                    'season',
                                     DB::raw('count(*) as counter')
-                                ) 
-                                ->whereNull('deleted_at')   
-                                ->orderby('date')    
-                                ->groupby('leagueapi_id')  
-                                ->groupby('season')   
+                                )
+                                ->whereNull('deleted_at')
+                                ->orderby('date')
+                                ->groupby('leagueapi_id')
+                                ->groupby('season')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
+                    'view_file',
+                    'data',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function timegroup()
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -92,13 +93,13 @@ class NotstartedController extends Controller
 
             $view_file      = 'timegroup';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end_15");
-            
-            $data           = Football_odd::select(
-                                    // DB::raw('year( DATE_ADD(date, INTERVAL 7 HOUR) ) as yearx'), 
+
+            $data           = Football_fixture::select(
+                                    // DB::raw('year( DATE_ADD(date, INTERVAL 7 HOUR) ) as yearx'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y") as yeary'),
 
                                     // DB::raw('month( DATE_ADD(date, INTERVAL 7 HOUR) ) as monthx'),
@@ -109,14 +110,14 @@ class NotstartedController extends Controller
 
                                     // DB::raw('hour( DATE_ADD(date, INTERVAL 7 HOUR) ) as hourx'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H") as houry'),
-                                    
-                                    // DB::raw('minute( DATE_ADD(date, INTERVAL 7 HOUR) ) as minutex'), 
+
+                                    // DB::raw('minute( DATE_ADD(date, INTERVAL 7 HOUR) ) as minutex'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%i") as minutey'),
-                                    
+
                                     DB::raw('count(*) as counter')
-                                ) 
-                                ->whereNotNull('special_odds')    
-                                ->whereNull('deleted_at')   
+                                )
+                                ->whereNotNull('special_odds')
+                                ->whereNull('deleted_at')
                                 // ->groupby( DB::raw('year( DATE_ADD(date, INTERVAL 7 HOUR) )') )
                                 ->groupby( DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y")') )
                                 // ->groupby( DB::raw('month( DATE_ADD(date, INTERVAL 7 HOUR) )') )
@@ -127,38 +128,38 @@ class NotstartedController extends Controller
                                 ->groupby( DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H")') )
                                 // ->groupby( DB::raw('minute( DATE_ADD(date, INTERVAL 7 HOUR) )') )
                                 ->groupby( DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%i")') )
-                                ->orderby('date')    
+                                ->orderby('date')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
+                    'view_file',
+                    'data',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
-     
+    }
+
     public function time($year, $month, $day, $hour, $minute)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -167,55 +168,55 @@ class NotstartedController extends Controller
 
             $view_file      = 'time';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-             
-        // ----------------------------------------------------------- Action 
+
+        // ----------------------------------------------------------- Action
             $date_start = define_date("start");
-            $date_end = define_date("end_15");  
-            
-            $data       = Football_odd::select(
+            $date_end = define_date("end_15");
+
+            $data       = Football_fixture::select(
                                 '*',
                                 DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
                             )
-                            ->where( DB::raw('year( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $year) 
-                            ->where( DB::raw('month( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $month) 
-                            ->where( DB::raw('day( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $day) 
-                            ->where( DB::raw('hour( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $hour) 
-                            ->where( DB::raw('minute( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $minute)  
-                            ->whereNotNull('special_odds')    
+                            ->where( DB::raw('year( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $year)
+                            ->where( DB::raw('month( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $month)
+                            ->where( DB::raw('day( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $day)
+                            ->where( DB::raw('hour( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $hour)
+                            ->where( DB::raw('minute( DATE_ADD(date, INTERVAL 7 HOUR) )'), '=', $minute)
+                            ->whereNotNull('special_odds')
                             ->whereNull('deleted_at')
-                            ->orderby('leagueapi_id')      
-                            ->orderby('date')   
+                            ->orderby('leagueapi_id')
+                            ->orderby('date')
                             ->get();
-                                
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',     
+                    'view_file',
+                    'data',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    }  
- 
+    }
+
     public function leagues($leagueapi_id, $season)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -224,43 +225,43 @@ class NotstartedController extends Controller
 
             $view_file      = 'leagues';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end_15");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
                                 ->first();
-                                
-            $data           = Football_odd::select( 
+
+            $data           = Football_fixture::select(
                                     '*',
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
-                                ) 
+                                )
 
-                                ->where('leagueapi_id', '=', $leagueapi_id)   
-                                ->where('season', '=', $season)   
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->where('season', '=', $season)
 
-                                ->whereNull('deleted_at')   
-                                ->orderby('date')     
+                                ->whereNull('deleted_at')
+                                ->orderby('date')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'league',  
-                    'season',   
+                    'view_file',
+                    'data',
+                    'league',
+                    'season',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
+    }
 }

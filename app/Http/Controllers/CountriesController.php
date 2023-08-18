@@ -23,15 +23,15 @@ class CountriesController extends Controller
     public function index()
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -40,44 +40,44 @@ class CountriesController extends Controller
 
             $view_file      = 'country';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action 
+
+        // ----------------------------------------------------------- Action
             $data           = Football_league::select(
                                     'country_name'
                                 )
-                                ->groupby('country_name')    
-                                ->whereNull('deleted_at')   
+                                ->groupby('country_name')
+                                ->whereNull('deleted_at')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data', 
+                    'view_file',
+                    'data',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
+    }
 
     public function leagues($country)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -86,47 +86,47 @@ class CountriesController extends Controller
 
             $view_file      = 'leagues';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action 
+
+        // ----------------------------------------------------------- Action
             $data_country   = Country::where('name', '=', $country)
                                 ->first();
 
-            $data           = Football_league::select( 
-                                    'football_odds.leagueapi_id', 
-                                    'football_odds.season',
+            $data           = Football_league::select(
+                                    'football_fixtures.leagueapi_id',
+                                    'football_fixtures.season',
                                     'football_leagues.name',
                                     'football_leagues.type',
                                     'football_leagues.bookmakersapi_id',
                                     'football_leagues.bookmakers_name',
                                 )
-                                ->join('football_odds', 'football_odds.leagueapi_id', '=', 'football_leagues.leagueapi_id')
-                                    ->where('football_leagues.country_name', '=', $country) 
+                                ->join('football_fixtures', 'football_fixtures.leagueapi_id', '=', 'football_leagues.leagueapi_id')
+                                    ->where('football_leagues.country_name', '=', $country)
                                     ->whereNull('football_leagues.deleted_at')
                                     ->groupby(
-                                        'football_odds.leagueapi_id', 
-                                        'football_odds.season',
+                                        'football_fixtures.leagueapi_id',
+                                        'football_fixtures.season',
                                         'football_leagues.name',
                                         'football_leagues.type',
                                         'football_leagues.bookmakersapi_id',
                                         'football_leagues.bookmakers_name',
                                     )
-                                    ->get(); 
-                                    
+                                    ->get();
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data', 
-                    'data_country', 
+                    'view_file',
+                    'data',
+                    'data_country',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
+    }
 }

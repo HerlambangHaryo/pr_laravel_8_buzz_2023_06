@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use Jenssegers\Agent\Agent;
 use DB;
 
+use App\Models\Football_fixture;
 use App\Models\Football_league;
 use App\Models\Football_odd;
 use App\Models\Apiaccount;
-use App\Models\Api_football_standing;
+use App\Models\Api_football_league_standing;
 
 use App\Models\Football_pattern_from;
 
@@ -26,15 +27,15 @@ class LeaguesController extends Controller
     public function index()
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -43,41 +44,41 @@ class LeaguesController extends Controller
 
             $view_file      = 'data';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action 
-            $data           = Football_league::whereNull('deleted_at')   
+
+        // ----------------------------------------------------------- Action
+            $data           = Football_league::whereNull('deleted_at')
                                 ->orderby('leagueapi_id')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data', 
+                    'view_file',
+                    'data',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    }  
- 
+    }
+
     public function create()
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();  
-            
+            $user = auth()->user();
+
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
             $panel_name     = ucwords(str_replace("_"," ", $this->content));
-            
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -86,22 +87,22 @@ class LeaguesController extends Controller
 
             $view_file      = 'create';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action  
-            $data           = array(); 
+
+        // ----------------------------------------------------------- Action
+            $data           = array();
 
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
+                    'view_file',
+                    'data',
                 )
             );
         ///////////////////////////////////////////////////////////////
@@ -110,15 +111,15 @@ class LeaguesController extends Controller
     public function store(Request $request)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Initialize
             $content        = $this->content;
 
             $leagueapi_id   = $request->leagueapi_id;
- 
+
             $apiaccount     = Apiaccount::where('active', '=', 1)->first();
-            
+
             $curl = curl_init();
 
             curl_setopt_array($curl, [
@@ -136,65 +137,70 @@ class LeaguesController extends Controller
                 ],
             ]);
 
-        // ----------------------------------------------------------- Action     
+        // ----------------------------------------------------------- Action
             $response = curl_exec($curl);
             $err = curl_error($curl);
 
             curl_close($curl);
 
-            if ($err) 
+            if ($err)
             {
                 echo "cURL Error #:" . $err;
-            } 
-            else 
+            }
+            else
             {
-                $data = $response; 
-                $decode = json_decode($data, true); 
+                $data = $response;
+                $decode = json_decode($data, true);
 
-                foreach ($decode['response'] as $row) 
-                {  
-                    // $leagueapi_id       = $row['league']['id']; 
-                    $leagueapi_name     = $row['league']['name']; 
-                    $leagueapi_type     = $row['league']['type']; 
-                    $leagueapi_logo     = $row['league']['logo'];  
-                    $country_name       = $row['country']['name']; 
- 
+
+                // Using dd() to print the debug output
+                // dd($decode);
+                // die();
+
+                foreach ($decode['response'] as $row)
+                {
+                    // $leagueapi_id       = $row['league']['id'];
+                    $leagueapi_name     = $row['league']['name'];
+                    $leagueapi_type     = $row['league']['type'];
+                    $leagueapi_logo     = $row['league']['logo'];
+                    $country_name       = $row['country']['name'];
+
                 }
 
                 $apiaccount_model = Apiaccount::where('active', '=', 1);
 
-                $apiaccount_model->update([ 
-                        'counter'        => $apiaccount->counter - 1, 
+                $apiaccount_model->update([
+                        'counter'        => $apiaccount->counter - 1,
                     ]);
 
-                //get post by ID 
-                $data = Football_league::create([ 
-                    'leagueapi_id'      => $leagueapi_id, 
+                //get post by ID
+                $data = Football_league::create([
+                    'leagueapi_id'      => $leagueapi_id,
                     'name'              => $leagueapi_name,
-                    'type'              => $leagueapi_type,   
-                    'logo'              => $leagueapi_logo,   
-                    'country_name'      => $country_name,        
-                ]);  
-            }  
-        // ----------------------------------------------------------- Send  
+                    'type'              => $leagueapi_type,
+                    'logo'              => $leagueapi_logo,
+                    'country_name'      => $country_name,
+                ]);
+            }
+        // ----------------------------------------------------------- Send
             return redirect()
                 ->route($content.'.index')
                 ->with(['saved_data' => define_messages('saved_data')]);
         ///////////////////////////////////////////////////////////////
     }
- 
+
     public function edit($id)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();  
-            
+            $user = auth()->user();
+
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
             $panel_name     = ucwords(str_replace("_"," ", $this->content));
-            
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -203,22 +209,22 @@ class LeaguesController extends Controller
 
             $view_file      = 'edit';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action  
-            $data           = Football_league::findOrFail($id); 
+
+        // ----------------------------------------------------------- Action
+            $data           = Football_league::findOrFail($id);
 
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
+                    'view_file',
+                    'data',
                 )
             );
         ///////////////////////////////////////////////////////////////
@@ -227,15 +233,15 @@ class LeaguesController extends Controller
     public function update(Request $request, $id)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Initialize
             $content        = $this->content;
 
             $leagueapi_id   = $request->leagueapi_id;
- 
+
             $apiaccount     = Apiaccount::where('active', '=', 1)->first();
-            
+
             $curl = curl_init();
 
             curl_setopt_array($curl, [
@@ -253,50 +259,50 @@ class LeaguesController extends Controller
                 ],
             ]);
 
-        // ----------------------------------------------------------- Action     
+        // ----------------------------------------------------------- Action
             $response = curl_exec($curl);
             $err = curl_error($curl);
 
             curl_close($curl);
 
-            if ($err) 
+            if ($err)
             {
                 echo "cURL Error #:" . $err;
-            } 
-            else 
+            }
+            else
             {
-                $data = $response; 
-                $decode = json_decode($data, true); 
+                $data = $response;
+                $decode = json_decode($data, true);
 
-                foreach ($decode['response'] as $row) 
-                {  
-                    // $leagueapi_id       = $row['league']['id']; 
-                    $leagueapi_name     = $row['league']['name']; 
-                    $leagueapi_type     = $row['league']['type']; 
-                    $leagueapi_logo     = $row['league']['logo'];  
-                    $country_name       = $row['country']['name']; 
- 
+                foreach ($decode['response'] as $row)
+                {
+                    // $leagueapi_id       = $row['league']['id'];
+                    $leagueapi_name     = $row['league']['name'];
+                    $leagueapi_type     = $row['league']['type'];
+                    $leagueapi_logo     = $row['league']['logo'];
+                    $country_name       = $row['country']['name'];
+
                 }
 
                 $apiaccount_model = Apiaccount::where('active', '=', 1);
 
-                $apiaccount_model->update([ 
-                        'counter'        => $apiaccount->counter - 1, 
+                $apiaccount_model->update([
+                        'counter'        => $apiaccount->counter - 1,
                     ]);
 
                 //get post by ID
-                $data = Football_league::findOrFail($id); 
+                $data = Football_league::findOrFail($id);
 
-                //update post 
-                $data->update([ 
-                    'leagueapi_id'      => $leagueapi_id, 
+                //update post
+                $data->update([
+                    'leagueapi_id'      => $leagueapi_id,
                     'name'              => $leagueapi_name,
-                    'type'              => $leagueapi_type,   
-                    'logo'              => $leagueapi_logo,   
-                    'country'           => $country_name,   
-                ]);           
-            }  
-        // ----------------------------------------------------------- Send  
+                    'type'              => $leagueapi_type,
+                    'logo'              => $leagueapi_logo,
+                    'country'           => $country_name,
+                ]);
+            }
+        // ----------------------------------------------------------- Send
             return redirect()
                 ->route($content.'.index')
                 ->with(['saved_data' => define_messages('saved_data')]);
@@ -306,15 +312,15 @@ class LeaguesController extends Controller
     public function country()
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = ucwords(str_replace("_"," ", $this->content));  
-            
+            $panel_name     = ucwords(str_replace("_"," ", $this->content));
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -323,44 +329,44 @@ class LeaguesController extends Controller
 
             $view_file      = 'country';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action 
+
+        // ----------------------------------------------------------- Action
             $data           = Football_league::select(
                                     'country'
                                 )
-                                ->groupby('country')    
-                                ->whereNull('deleted_at')   
+                                ->groupby('country')
+                                ->whereNull('deleted_at')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data', 
+                    'view_file',
+                    'data',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    }  
- 
+    }
+
     public function today($leagueapi_id, $season)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'today';  
-            
+            $panel_name     = 'today';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -369,60 +375,60 @@ class LeaguesController extends Controller
 
             $view_file      = 'notstarted';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
                                 ->first();
 
-            $data           = Football_odd::select(
+            $data           = Football_fixture::select(
                                     '*',
-                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal') 
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
                                 )
                                 ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end) 
+                                ->where('date', '<=', $date_end)
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)
-                                ->where('season', '=', $season)   
+                                ->where('season', '=', $season)
 
-                                ->whereNull('deleted_at')   
-                                ->orderby('date')     
+                                ->whereNull('deleted_at')
+                                ->orderby('date')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id',   
-                    'season',    
-                    'league',   
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'season',
+                    'league',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function notstarted($leagueapi_id, $season)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'notstarted';  
-            
+            $panel_name     = 'notstarted';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -431,60 +437,60 @@ class LeaguesController extends Controller
 
             $view_file      = 'notstarted';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end_15");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
                                 ->first();
 
-            $data           = Football_odd::select(
+            $data           = Football_fixture::select(
                                     '*',
-                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal') 
-                                ) 
+                                    DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )
                                 ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end) 
+                                ->where('date', '<=', $date_end)
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)
-                                ->where('season', '=', $season)   
+                                ->where('season', '=', $season)
 
-                                ->whereNull('deleted_at')   
-                                ->orderby('date')     
+                                ->whereNull('deleted_at')
+                                ->orderby('date')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id',   
-                    'season',    
-                    'league',   
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'season',
+                    'league',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function matchfinished($leagueapi_id, $season)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'matchfinished';  
-            
+            $panel_name     = 'matchfinished';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -493,60 +499,60 @@ class LeaguesController extends Controller
 
             $view_file      = 'round';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
                                 ->first();
 
-            $data           = Football_odd::select(
-                                    'leagueapi_id', 
-                                    'season', 
-                                    'round', 
-                                ) 
+            $data           = Football_fixture::select(
+                                    'leagueapi_id',
+                                    'season',
+                                    'round',
+                                )
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)
-                                ->where('season', '=', $season)   
-                                ->whereIn('fixture_status', ['Match Finished', 'Match Finished Ended'])   
+                                ->where('season', '=', $season)
+                                ->whereIn('fixture_status', ['Match Finished', 'Match Finished Ended'])
 
-                                ->whereNull('deleted_at')   
+                                ->whereNull('deleted_at')
                                 ->groupby('leagueapi_id')
                                 ->groupby('season')
                                 ->groupby('round')
-                                ->orderby('date')     
+                                ->orderby('date')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id', 
-                    'league',  
-                    'season',   
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'league',
+                    'season',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function detailround($leagueapi_id, $season, $round)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'matchfinished';  
-            
+            $panel_name     = 'matchfinished';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -555,57 +561,57 @@ class LeaguesController extends Controller
 
             $view_file      = 'detailround';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
                                 ->first();
 
-            $data           = Football_odd::select(
+            $data           = Football_fixture::select(
                                 '*',
-                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal') 
-                                ) 
+                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal')
+                                )
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)
-                                ->where('season', '=', $season)   
-                                ->where('round', '=', str_replace('_', ' ', $round))   
-                                ->whereIn('fixture_status', ['Match Finished', 'Match Finished Ended'])   
+                                ->where('season', '=', $season)
+                                ->where('round', '=', str_replace('_', ' ', $round))
+                                ->whereIn('fixture_status', ['Match Finished', 'Match Finished Ended'])
 
-                                ->whereNull('deleted_at')    
-                                ->orderby('date')     
+                                ->whereNull('deleted_at')
+                                ->orderby('date')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id', 
-                    'league',  
-                    'season',   
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'league',
+                    'season',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function standings($leagueapi_id, $season)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'standings';  
-            
+            $panel_name     = 'standings';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -614,56 +620,56 @@ class LeaguesController extends Controller
 
             $view_file      = 'standings';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
                                 ->first();
 
-            $data           = Api_football_standing::select(
-                                    '*' 
-                                ) 
+            $data           = Api_football_league_standing::select(
+                                    '*'
+                                )
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)
-                                ->where('season', '=', $season)   
+                                ->where('season', '=', $season)
 
-                                ->whereNull('deleted_at')    
+                                ->whereNull('deleted_at')
                                 ->get();
-                                    
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id',   
-                    'season',    
-                    'league',   
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'season',
+                    'league',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function pecheck($leagueapi_id, $season)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'pecheck';  
-            
+            $panel_name     = 'pecheck';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -672,61 +678,61 @@ class LeaguesController extends Controller
 
             $view_file      = 'pecheck';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
-                                ->first();                                
-                                  
-            $data           = Football_odd::select(
+                                ->first();
+
+            $data           = Football_fixture::select(
                                     'pre_response',
                                     'end_response',
                                     'fixture_status',
-                                    'season' 
-                                )  
+                                    'season'
+                                )
                                 ->where('leagueapi_id', '=', $leagueapi_id)
-                                // ->where('season', '=', $season)   
-                                ->groupby('pre_response')      
-                                ->groupby('end_response')       
-                                ->groupby('fixture_status')      
-                                ->groupby('season')  
+                                // ->where('season', '=', $season)
+                                ->groupby('pre_response')
+                                ->groupby('end_response')
+                                ->groupby('fixture_status')
+                                ->groupby('season')
                                 ->get();
-                                    
-                                    
+
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id',   
-                    'season',    
-                    'league',   
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'season',
+                    'league',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function pattern_odd($leagueapi_id, $season)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'pattern';  
-            
+            $panel_name     = 'pattern';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -735,22 +741,22 @@ class LeaguesController extends Controller
 
             $view_file      = 'pattern_odd';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
-                                ->first();         
-                                    
-                                 
-            $data           = Football_odd::select(
+                                ->first();
+
+
+            $data           = Football_fixture::select(
                                     'pre_ah_pattern',
                                     'pre_gou_pattern',
                                     'end_ah_pattern',
                                     'end_gou_pattern',
                                     DB::raw('count(*) as counter')
-                                )  
+                                )
                                 ->where('leagueapi_id', '=', $leagueapi_id)
                                 ->whereNotNull('pre_ah_pattern')
                                 ->whereNotNull('pre_gou_pattern')
@@ -760,45 +766,45 @@ class LeaguesController extends Controller
                                 // ->where('end_ah_pattern', '!=', 'H')
                                 // ->where('pre_gou_pattern', '!=', 'G')
                                 // ->where('end_gou_pattern', '!=', 'G')
-                                ->whereIN('fixture_status', ['Match Finished Ended', 'Match Finished'])   
-                                ->groupby('pre_ah_pattern')      
-                                ->groupby('pre_gou_pattern')    
-                                ->groupby('end_ah_pattern')      
-                                ->groupby('end_gou_pattern')    
-                                ->get();     
-                                
+                                ->whereIN('fixture_status', ['Match Finished Ended', 'Match Finished'])
+                                ->groupby('pre_ah_pattern')
+                                ->groupby('pre_gou_pattern')
+                                ->groupby('end_ah_pattern')
+                                ->groupby('end_gou_pattern')
+                                ->get();
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id',   
-                    'season',    
-                    'league',  
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'season',
+                    'league',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function pattern_preend($leagueapi_id, $season)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'pattern';  
-            
+            $panel_name     = 'pattern';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -807,57 +813,57 @@ class LeaguesController extends Controller
 
             $view_file      = 'pattern_preend';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
-                                ->first();         
-                                     
+                                ->first();
+
             $data           = Football_pattern_from::select(
                                     'pre_ah_pattern',
                                     'pre_gou_pattern',
                                     'end_ah_pattern',
                                     'end_gou_pattern',
                                     'total_fixtures',
-                                )  
-                                ->where('leagueapi_id', '=', $leagueapi_id)   
-                                ->get();                       
-                                   
-                                
+                                )
+                                ->where('leagueapi_id', '=', $leagueapi_id)
+                                ->get();
+
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id',   
-                    'season',    
-                    'league',   
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'season',
+                    'league',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function patternfixtures($leagueapi_id, $season, $pre_ah_pattern, $pre_gou_pattern, $end_ah_pattern, $end_gou_pattern)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();   
+            $user = auth()->user();
 
         // ----------------------------------------------------------- Agent
-            $agent              = new Agent(); 
+            $agent              = new Agent();
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'patternfixtures ';  
-            
+            $panel_name     = 'patternfixtures ';
+
             $template       = $this->template;
             $mode           = $this->mode;
             $themecolor     = $this->themecolor;
@@ -866,53 +872,53 @@ class LeaguesController extends Controller
 
             $view_file      = 'patternfixtures';
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
-            
-        // ----------------------------------------------------------- Action   
+
+        // ----------------------------------------------------------- Action
             $date_start     = define_date("start");
             $date_end       = define_date("end");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
-                                ->first();                                
-                                  
-            $data           = Football_odd::select(
+                                ->first();
+
+            $data           = Football_fixture::select(
                                     '*'
-                                )  
+                                )
                                 ->where('leagueapi_id', '=', $leagueapi_id)
                                 ->where('pre_ah_pattern', '=', $pre_ah_pattern)
                                 ->where('pre_gou_pattern', '=', $pre_gou_pattern)
                                 ->where('end_ah_pattern', '=', $end_ah_pattern)
                                 ->where('end_gou_pattern', '=', $end_gou_pattern)
-                                ->whereIN('fixture_status', ['Match Finished Ended', 'Match Finished'])    
+                                ->whereIN('fixture_status', ['Match Finished Ended', 'Match Finished'])
                                 ->get();
-                                    
-                                    
+
+
         // ----------------------------------------------------------- Send
-            return view($view,  
+            return view($view,
                 compact(
-                    'template', 
-                    'mode', 
+                    'template',
+                    'mode',
                     'themecolor',
-                    'content', 
-                    'user', 
-                    'panel_name', 
+                    'content',
+                    'user',
+                    'panel_name',
                     'active_as',
-                    'view_file', 
-                    'data',   
-                    'leagueapi_id',    
-                    'league',   
-                    'season',   
+                    'view_file',
+                    'data',
+                    'leagueapi_id',
+                    'league',
+                    'season',
                 )
             );
         ///////////////////////////////////////////////////////////////
-    } 
- 
+    }
+
     public function setbookmakers_league($bookmakersapi_id, $leagueapi_id)
     {
         // ----------------------------------------------------------- Auth
-            $user = auth()->user();  
+            $user = auth()->user();
 
-        // ----------------------------------------------------------- Agent  
-        // ----------------------------------------------------------- Initialize  
+        // ----------------------------------------------------------- Agent
+        // ----------------------------------------------------------- Initialize
             $content        = $this->content;
 
             if($bookmakersapi_id == 8)
@@ -923,18 +929,22 @@ class LeaguesController extends Controller
             {
                 $bookmakers_name = '1xBet';
             }
-        // ----------------------------------------------------------- Action 
+            elseif($bookmakersapi_id == 2)
+            {
+                $bookmakers_name = 'Marathon';
+            }
+        // ----------------------------------------------------------- Action
             $model      = Football_league::where('leagueapi_id', '=', $leagueapi_id);
-                                     
-            $model->update([     
-                'bookmakersapi_id'      => $bookmakersapi_id, 
+
+            $model->update([
+                'bookmakersapi_id'      => $bookmakersapi_id,
                 'bookmakers_name'       => $bookmakers_name
             ]);
-            
-        // ----------------------------------------------------------- Send  
-            return redirect()  
+
+        // ----------------------------------------------------------- Send
+            return redirect()
                 ->route('Leagues.index')
                 ->with(['saved_data' => define_messages('saved_data')]);
         ///////////////////////////////////////////////////////////////
-    } 
+    }
 }

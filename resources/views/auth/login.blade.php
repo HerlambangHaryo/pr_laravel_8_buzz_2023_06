@@ -2,19 +2,19 @@
 
 @section('title', 'Login')
 
-@section('content')  
- 
+@section('content')
+
 
     <div class="login-content">
-        
+
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
             </div>
-        @endif 
+        @endif
 
- 
-        <div class="row"> 
+
+        <div class="row">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -24,19 +24,19 @@
 
                 <div class="text-muted text-center mb-4">
                     For your protection, please verify your identity.
-                </div> 
+                </div>
 
-                @include('contents.includes.flash_message') 
- 
+                @include('contents.includes.flash_message')
+
                 <div class="mb-3">
                     <label class="form-label">
                         Email Address
                     </label>
-                    <input 
-                        class="form-control form-control-lg fs-15px" 
-                        type="text" 
-                        name="email" 
-                        placeholder="username@address.com" 
+                    <input
+                        class="form-control form-control-lg fs-15px"
+                        type="text"
+                        name="email"
+                        placeholder="username@address.com"
                         required="required" />
                 </div>
                 <div class="mb-3">
@@ -48,12 +48,12 @@
                             {{ __("Forgot Password?") }}
                         </a>
                     </div>
-                    <input 
-                        class="form-control form-control-lg fs-15px" 
-                        type="password" 
-                        name="password" 
-                        placeholder="Enter your password" 
-                        required="required" 
+                    <input
+                        class="form-control form-control-lg fs-15px"
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required="required"
                         autocomplete="current-password"/>
                 </div>
                 <div class="mb-3">
@@ -62,7 +62,7 @@
                         <label class="form-check-label fw-500" for="customCheck1">Remember me</label>
                     </div>
                 </div>
-                <button type="submit" 
+                <button type="submit"
                     class="btn btn-primary btn-lg d-block w-100 fw-500 mb-3"
                     >
                     Sign In
@@ -72,7 +72,7 @@
                 </div>
 
                 {!! define_auth("Login", "google") !!}
-                {!! define_auth("Login", "github") !!} 
+                {!! define_auth("Login", "github") !!}
             </form>
         </div>
     </div>
