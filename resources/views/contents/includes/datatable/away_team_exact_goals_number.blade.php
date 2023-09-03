@@ -1,0 +1,1 @@
+kosong away_team_exact_goals_number

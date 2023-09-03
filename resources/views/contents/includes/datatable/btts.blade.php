@@ -9,13 +9,22 @@
                     </h1>
                 </div>
                 <div class="col-6">
-
+                    <div>
+                        <div class="progress mt-3 mb-2" style="height: 15px;">
+                            <div class="progress-bar" style="width: {{ $row_pattern->both_teams_score_yes_perc }}%">
+                                {{ number_format($row_pattern->both_teams_score_yes_perc, 2, ',', ' ') }}
+                            </div>
+                            <div class="progress-bar  bg-pink" style="width: {{ $row_pattern->both_teams_score_no_perc }}%">
+                                {{ number_format($row_pattern->both_teams_score_no_perc, 2, ',', ' ') }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <div>
-                <table id="datatableDefault" class="table  ">
+            <div class="table-responsive">
+                <table id="datatableDefault" class="table myTable ">
                     <thead class=" ">
                         <tr>
                             <x-html.th-content-width title="No." width="10%" />

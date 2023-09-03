@@ -72,6 +72,10 @@
                                     <span class="badge bg-danger" >
                                         {{ $row->league->bookmakers_name }}
                                     </span>
+                                @elseif($row->league->bookmakersapi_id == 28)
+                                    <span class="badge bg-warning" >
+                                        {{ $row->league->bookmakers_name }}
+                                    </span>
                                 @endif
                             </div>
                             <div class="col-1 text-center">

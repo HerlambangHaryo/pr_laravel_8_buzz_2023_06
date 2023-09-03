@@ -9,26 +9,37 @@
                     </h1>
                 </div>
                 <div class="col-6">
-
+                    <div>
+                        <div class="progress mt-3 mb-2" style="height: 15px;">
+                            <div class="progress-bar" style="width: {{ $row_pattern->match_winner_home_perc }}%">
+                                {{ $row_pattern->match_winner_home_perc }}
+                            </div>
+                            <div class="progress-bar bg-gray-400" style="width: {{ $row_pattern->match_winner_draw_perc }}%">
+                                {{ $row_pattern->match_winner_draw_perc }}
+                            </div>
+                            <div class="progress-bar bg-pink" style="width: {{ $row_pattern->match_winner_away_perc }}%">
+                                {{ $row_pattern->match_winner_away_perc }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <div>
-                <table id="datatableDefault" class="table  ">
+            <div class="table-responsive">
+                <table id="datatableDefault" class="table  table-sm myTable ">
                     <thead class=" ">
                         <tr>
                             <x-html.th-content-width title="No." width="10%" />
                             <x-html.th-content title="Date"   />
-                            <x-html.th-content title="Leagues"   />
                             <x-html.th-content title="Teams"   />
                             <x-html.th-content title="Goals"   />
-                            <x-html.th-content title="Pre Home" />
-                            <x-html.th-content title="Pre Draw" />
-                            <x-html.th-content title="Pre Away" />
-                            <x-html.th-content title="End Home" />
-                            <x-html.th-content title="End Draw" />
-                            <x-html.th-content title="End Away" />
+                            <x-html.th-content title="Home" />
+                            <x-html.th-content title="Draw" />
+                            <x-html.th-content title="Away" />
+                            <x-html.th-content title="Home" />
+                            <x-html.th-content title="Draw" />
+                            <x-html.th-content title="Away" />
                         </tr>
                     </thead>
                     <tbody>
@@ -37,13 +48,24 @@
                             <tr>
                                 <td class="text-center">
                                     {{ $loop->iteration }}
+                                    <br/>
+                                    {{$row->statusx}}
                                 </td>
                                 <td class="text-left">
-                                    {{ $row->tanggal }}
+                                    <small>
+                                        {{ $row->tanggal }}
+                                        <br/>
+                                        <abbr class="initialism">
+                                            {{ $row->jam }}
+                                        </abbr>
+                                    </small>
+
+                                    <small>
+                                        {{ $row->leagueapi_id }} -
+                                        {{ $row->season }}
+                                    </small>
+
                                     <br/>
-                                    <abbr class="initialism">
-                                        {{ $row->jam }}
-                                    </abbr>
                                     @if($row->league->bookmakersapi_id == 11)
                                         <span class="badge bg-primary  ">
                                             {{ $row->league->bookmakers_name }}
@@ -58,19 +80,6 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <small>
-                                        {{ $row->fixture->venue->name }}
-                                        <br/>
-                                        <abbr class="initialism">
-                                            {{ $row->fixture->venue->city }}
-                                        </abbr>
-                                    </small>
-                                    <br/>
-                                    <span class="badge bg-gray-800 mt-2 ">
-                                        {{ $row->fixture->round }}
-                                    </span>
-                                </td>
-                                <td>
                                     <a
                                         class=" ">
                                         {{ $row->fixture->home->name }}
@@ -81,8 +90,10 @@
                                         {{ $row->fixture->away->name }}
                                     </a>
                                     <br/>
+
+
                                     <x-studio_v30.badge-fixture-status
-                                                link="https://www.google.com/search?client=firefox-b-d&q={!! $row->home->name !!}+vs+{!! $row->away->name !!}+flashscore"
+                                                link="halo"
                                                 nama="{{ $row->fixture_status }}"/>
                                 </td>
                                 <td class="text-center">
@@ -90,10 +101,17 @@
                                     <br/>
                                     {{ $row->fixture->goals_away }}
                                 </td>
+
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_match_winner_home }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->pre_match_winner_home }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->pre_match_winner_away }}
+                                        </small>
+                                    @endif
                                 </td>
                                 <td class="text-center">
                                     <small >
@@ -101,14 +119,26 @@
                                     </small>
                                 </td>
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_match_winner_away }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->pre_match_winner_away }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->pre_match_winner_home }}
+                                        </small>
+                                    @endif
                                 </td>
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->end_match_winner_home }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->end_match_winner_home }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->end_match_winner_away }}
+                                        </small>
+                                    @endif
                                 </td>
                                 <td class="text-center">
                                     <small >
@@ -116,9 +146,15 @@
                                     </small>
                                 </td>
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->end_match_winner_away }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->end_match_winner_away }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->end_match_winner_home }}
+                                        </small>
+                                    @endif
                                 </td>
                             </tr>
                             @empty

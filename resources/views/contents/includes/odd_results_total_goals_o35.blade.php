@@ -20,7 +20,7 @@
                     'leagueapi_id'      => $row->leagueapi_id,
                     'season'            => $row->season,
                     'fixtureapi_id'     => $row->fixtureapi_id,
-                    'betsapi_id'        => 1,
+                    'betapi_id'        => 1,
                     'value'             => 'Home',
                     'odd'               => $row->end_result_total_goals_home_over_35,
                 ])}}"
@@ -37,7 +37,7 @@
                     'leagueapi_id'      => $row->leagueapi_id,
                     'season'            => $row->season,
                     'fixtureapi_id'     => $row->fixtureapi_id,
-                    'betsapi_id'        => 2,
+                    'betapi_id'        => 2,
                     'value'             => 'Draw',
                     'odd'               => $row->end_result_total_goals_draw_over_35,
                 ])}}"
@@ -54,7 +54,7 @@
                     'leagueapi_id'      => $row->leagueapi_id,
                     'season'            => $row->season,
                     'fixtureapi_id'     => $row->fixtureapi_id,
-                    'betsapi_id'        => 3,
+                    'betapi_id'        => 3,
                     'value'             => 'Away',
                     'odd'               => $row->end_result_total_goals_away_over_35,
                 ])}}"

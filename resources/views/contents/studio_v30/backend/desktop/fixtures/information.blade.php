@@ -74,6 +74,513 @@
             </div>
 
             @include('contents.includes.data_list_details')
+
+
+            <div class="row d-flex justify-content-center mt-3">
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    Pre Anytime
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->pre_anytime_goal_scorer != "")
+                                        {
+                                            $temp_row =  $row->pre_anytime_goal_scorer;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    if($temp_exp2[1] <= 2.20)
+                                                    {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    End Anytime
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->end_anytime_goal_scorer != "")
+                                        {
+                                            $temp_row =  $row->end_anytime_goal_scorer;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    if($temp_exp2[1] <= 2.20)
+                                                    {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row d-flex justify-content-center mt-3">
+
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    Pre first_goal_scorer
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->pre_first_goal_scorer != "")
+                                        {
+                                            $temp_row =  $row->pre_first_goal_scorer;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    End first_goal_scorer
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->end_first_goal_scorer != "")
+                                        {
+                                            $temp_row =  $row->end_first_goal_scorer;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row d-flex justify-content-center mt-3">
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    Pre last_goal_scorer
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->pre_last_goal_scorer != "")
+                                        {
+                                            $temp_row =  $row->pre_last_goal_scorer;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    End last_goal_scorer
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->end_last_goal_scorer != "")
+                                        {
+                                            $temp_row =  $row->end_last_goal_scorer;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row d-flex justify-content-center mt-3">
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    Pre to_score_two_or_more_goals
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->pre_to_score_two_or_more_goals != "")
+                                        {
+                                            $temp_row =  $row->pre_to_score_two_or_more_goals;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    End to_score_two_or_more_goals
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+                                        if($row->end_to_score_two_or_more_goals != "")
+                                        {
+                                            $temp_row =  $row->end_to_score_two_or_more_goals;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row d-flex justify-content-center mt-3">
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    Pre last_goal_scorer2
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->pre_last_goal_scorer2 != "")
+                                        {
+                                            $temp_row =  $row->pre_last_goal_scorer2;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    End last_goal_scorer2
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+                                        if($row->end_last_goal_scorer2 != "")
+                                        {
+                                            $temp_row =  $row->end_last_goal_scorer2;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row d-flex justify-content-center mt-3">
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    Pre player_to_be_booked
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+
+                                        if($row->pre_player_to_be_booked != "")
+                                        {
+                                            $temp_row =  $row->pre_player_to_be_booked;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    End player_to_be_booked
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="flex-grow-1 text-center">
+                                    <?php
+
+                                        if($row->end_player_to_be_booked != "")
+                                        {
+                                            $temp_row =  $row->end_player_to_be_booked;
+
+                                            $temp_exp = explode(";",$temp_row );
+                                            foreach($temp_exp as $rowx)
+                                            {
+                                                $temp_exp2 = explode(":",$rowx );
+
+                                                if(isset($temp_exp2[1]))
+                                                {
+                                                    // if($temp_exp2[1] <= 2.20)
+                                                    // {
+                                                        echo $rowx;
+                                                        echo '<br/>';
+                                                    // }
+                                                }
+                                            }
+                                        }
+
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </div>
 @endsection

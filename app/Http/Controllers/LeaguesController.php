@@ -563,6 +563,8 @@ class LeaguesController extends Controller
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
 
         // ----------------------------------------------------------- Action
+            $round_str_replace  = str_replace('_', ' ', $round);
+
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
                                 ->first();
 
@@ -573,7 +575,7 @@ class LeaguesController extends Controller
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)
                                 ->where('season', '=', $season)
-                                ->where('round', '=', str_replace('_', ' ', $round))
+                                ->where('round', '=', $round_str_replace)
                                 ->whereIn('fixture_status', ['Match Finished', 'Match Finished Ended'])
 
                                 ->whereNull('deleted_at')
@@ -595,12 +597,13 @@ class LeaguesController extends Controller
                     'leagueapi_id',
                     'league',
                     'season',
+                    'round',
                 )
             );
         ///////////////////////////////////////////////////////////////
     }
 
-    public function standings($leagueapi_id, $season)
+    public function standing($leagueapi_id, $season, $stats)
     {
         // ----------------------------------------------------------- Auth
             $user = auth()->user();
@@ -610,7 +613,7 @@ class LeaguesController extends Controller
             $additional_view    = define_additionalview($agent->isDesktop(), $agent->isMobile(), $agent->isTablet());
 
         // ----------------------------------------------------------- Initialize
-            $panel_name     = 'standings';
+            $panel_name     = 'standing';
 
             $template       = $this->template;
             $mode           = $this->mode;
@@ -618,7 +621,7 @@ class LeaguesController extends Controller
             $content        = $this->content;
             $active_as      = $content;
 
-            $view_file      = 'standings';
+            $view_file      = 'standing_'.$stats;
             $view           = define_view($this->template, $this->type, $this->content, $additional_view, $view_file);
 
         // ----------------------------------------------------------- Action
@@ -932,6 +935,10 @@ class LeaguesController extends Controller
             elseif($bookmakersapi_id == 2)
             {
                 $bookmakers_name = 'Marathon';
+            }
+            elseif($bookmakersapi_id == 28)
+            {
+                $bookmakers_name = 'ComeOn';
             }
         // ----------------------------------------------------------- Action
             $model      = Football_league::where('leagueapi_id', '=', $leagueapi_id);

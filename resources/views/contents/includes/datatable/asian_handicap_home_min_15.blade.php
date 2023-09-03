@@ -5,29 +5,38 @@
             <div class="row">
                 <div class="col-6">
                     <h1>
-                        Asian Handicap -1.5
+                        Ah Home -1.5
                     </h1>
                 </div>
-                <div class="col-6 text-center">
-                    {!! $row->preend->asian_handicap_home_min_15_perc !!} -
-                    {!! $row->preend->asian_handicap_away_min_15_perc !!}
+                <div class="col-6">
+                    <div>
+                        <div class="progress mt-3 mb-2" style="height: 15px;">
+                            <div class="progress-bar" style="width: {{ $row_pattern->asian_handicap_home_min_15_perc }}%">
+                                {{ $row_pattern->asian_handicap_home_min_15_data }} -
+                                {{ number_format($row_pattern->asian_handicap_home_min_15_perc, 2, ',', ' ') }}
+                            </div>
+                            <div class="progress-bar  bg-pink" style="width: {{ $row_pattern->asian_handicap_away_min_15_perc }}%">
+                                {{ $row_pattern->asian_handicap_away_min_15_data }} -
+                                {{ number_format($row_pattern->asian_handicap_away_min_15_perc, 2, ',', ' ') }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <div>
-                <table id="datatableDefault" class="table  ">
+            <div class="table-responsive">
+                <table id="datatableDefault" class="table  table-sm myTable ">
                     <thead class=" ">
                         <tr>
                             <x-html.th-content-width title="No." width="10%" />
                             <x-html.th-content title="Date"   />
-                            <x-html.th-content title="Leagues"   />
                             <x-html.th-content title="Teams"   />
                             <x-html.th-content title="Goals"   />
-                            <x-html.th-content title="Pre Home -1.5" />
-                            <x-html.th-content title="Pre Away +1.5" />
-                            <x-html.th-content title="End Home -1.5" />
-                            <x-html.th-content title="End Away +1.5" />
+                            <x-html.th-content title="H -1.5" />
+                            <x-html.th-content title="A +1.5" />
+                            <x-html.th-content title="H -1.5" />
+                            <x-html.th-content title="A +1.5" />
                         </tr>
                     </thead>
                     <tbody>
@@ -38,11 +47,20 @@
                                     {{ $loop->iteration }}
                                 </td>
                                 <td class="text-left">
-                                    {{ $row->tanggal }}
+                                    <small>
+                                        {{ $row->tanggal }}
+                                        <br/>
+                                        <abbr class="initialism">
+                                            {{ $row->jam }}
+                                        </abbr>
+                                    </small>
+
+                                    <small>
+                                        {{ $row->leagueapi_id }} -
+                                        {{ $row->season }}
+                                    </small>
+
                                     <br/>
-                                    <abbr class="initialism">
-                                        {{ $row->jam }}
-                                    </abbr>
                                     @if($row->league->bookmakersapi_id == 11)
                                         <span class="badge bg-primary  ">
                                             {{ $row->league->bookmakers_name }}
@@ -57,19 +75,6 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <small>
-                                        {{ $row->fixture->venue->name }}
-                                        <br/>
-                                        <abbr class="initialism">
-                                            {{ $row->fixture->venue->city }}
-                                        </abbr>
-                                    </small>
-                                    <br/>
-                                    <span class="badge bg-gray-800 mt-2 ">
-                                        {{ $row->fixture->round }}
-                                    </span>
-                                </td>
-                                <td>
                                     <a
                                         class=" ">
                                         {{ $row->fixture->home->name }}
@@ -80,8 +85,10 @@
                                         {{ $row->fixture->away->name }}
                                     </a>
                                     <br/>
+
+
                                     <x-studio_v30.badge-fixture-status
-                                                link="https://www.google.com/search?client=firefox-b-d&q={!! $row->home->name !!}+vs+{!! $row->away->name !!}+flashscore"
+                                                link="halo"
                                                 nama="{{ $row->fixture_status }}"/>
                                 </td>
                                 <td class="text-center">
@@ -89,25 +96,53 @@
                                     <br/>
                                     {{ $row->fixture->goals_away }}
                                 </td>
+
+
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_asian_handicap_home_min_15 }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->pre_asian_handicap_home_min_15 }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->pre_asian_handicap_away_min_15 }}
+                                        </small>
+                                    @endif
                                 </td>
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_asian_handicap_away_min_15 }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->pre_asian_handicap_away_min_15 }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->pre_asian_handicap_home_min_15 }}
+                                        </small>
+                                    @endif
+                                </td>
+
+
+                                <td class="text-center">
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->end_asian_handicap_home_min_15 }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->end_asian_handicap_away_min_15 }}
+                                        </small>
+                                    @endif
                                 </td>
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->end_asian_handicap_home_min_15 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->end_asian_handicap_away_min_15 }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->end_asian_handicap_away_min_15 }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->end_asian_handicap_home_min_15 }}
+                                        </small>
+                                    @endif
                                 </td>
                             </tr>
                             @empty

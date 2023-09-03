@@ -68,6 +68,10 @@
                                             <span class="badge bg-danger" >
                                                 {{ $row->bookmakers_name }}
                                             </span>
+                                        @elseif($row->bookmakersapi_id == 28)
+                                            <span class="badge bg-warning" >
+                                                {{ $row->bookmakers_name }}
+                                            </span>
                                         @else
                                             <div class="row">
                                                 <div class="col-12 text-center">
@@ -99,6 +103,17 @@
                                                             class="btn btn-default btn-sm" >
                                                             Marathon
                                                         </a>
+                                                        <a href="{{ route('Leagues.setbookmakers_league',
+                                                                        [
+                                                                            'bookmakersapi_id'  => 28,
+                                                                            'leagueapi_id'      => $row->leagueapi_id
+                                                                        ]
+                                                                    ) }}"
+                                                            class="btn btn-default btn-sm" >
+                                                            ComeOn
+                                                        </a>
+
+
                                                     </div>
                                                 </div>
                                             </div>

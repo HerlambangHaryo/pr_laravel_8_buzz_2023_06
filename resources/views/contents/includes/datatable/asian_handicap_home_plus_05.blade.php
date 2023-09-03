@@ -5,18 +5,28 @@
             <div class="row">
                 <div class="col-6">
                     <h1>
-                        Asian Handicap +0.5
+                        Ah Home +0.5
                     </h1>
                 </div>
-                <div class="col-6 text-center">
-                    {!! $row->preend->asian_handicap_home_plus_05_perc !!} -
-                    {!! $row->preend->asian_handicap_away_plus_05_perc !!}
+                <div class="col-6">
+                    <div>
+                        <div class="progress mt-3 mb-2" style="height: 15px;">
+                            <div class="progress-bar" style="width: {{ $row_pattern->asian_handicap_home_plus_05_perc }}%">
+                                {{ $row_pattern->asian_handicap_home_plus_05_data }} -
+                                {{ number_format($row_pattern->asian_handicap_home_plus_05_perc, 2, ',', ' ') }}
+                            </div>
+                            <div class="progress-bar  bg-pink" style="width: {{ $row_pattern->asian_handicap_away_plus_05_perc }}%">
+                                {{ $row_pattern->asian_handicap_away_plus_05_data }} -
+                                {{ number_format($row_pattern->asian_handicap_away_plus_05_perc, 2, ',', ' ') }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <div>
-                <table id="datatableDefault" class="table  ">
+            <div class="table-responsive">
+                <table id="datatableDefault" class="table myTable ">
                     <thead class=" ">
                         <tr>
                             <x-html.th-content-width title="No." width="10%" />
@@ -89,25 +99,53 @@
                                     <br/>
                                     {{ $row->fixture->goals_away }}
                                 </td>
+
+
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_asian_handicap_home_plus_15 }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->pre_asian_handicap_home_plus_05 }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->pre_asian_handicap_away_plus_05 }}
+                                        </small>
+                                    @endif
                                 </td>
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_asian_handicap_away_plus_15 }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->pre_asian_handicap_away_plus_05 }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->pre_asian_handicap_home_plus_05 }}
+                                        </small>
+                                    @endif
+                                </td>
+
+
+                                <td class="text-center">
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->end_asian_handicap_home_plus_05 }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->end_asian_handicap_away_plus_05 }}
+                                        </small>
+                                    @endif
                                 </td>
                                 <td class="text-center">
-                                    <small >
-                                        {{ $row->end_asian_handicap_home_plus_15 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->end_asian_handicap_away_plus_15 }}
-                                    </small>
+                                    @if($row->statusx == 'Ori')
+                                        <small >
+                                            {{ $row->end_asian_handicap_away_plus_05 }}
+                                        </small>
+                                    @else
+                                        <small >
+                                            {{ $row->end_asian_handicap_home_plus_05 }}
+                                        </small>
+                                    @endif
                                 </td>
                             </tr>
                             @empty

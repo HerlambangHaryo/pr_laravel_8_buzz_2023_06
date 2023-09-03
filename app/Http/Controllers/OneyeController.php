@@ -8,8 +8,8 @@ use Jenssegers\Agent\Agent;
 use DB;
 
 use App\Models\Football_odd;
-use App\Models\Football_league;
-use App\Models\Football_fixtures;
+use App\Models\Football_set_eye;
+use App\Models\Football_fixture;
 
 class OneyeController extends Controller
 {
@@ -45,16 +45,18 @@ class OneyeController extends Controller
             $date_start     = define_date("start");
             $date_end       = define_date("end");
 
-            $data           = Football_fixtures::select(
+            $pre_data       = Football_set_eye::select('fixtureapi_id')->where('status', '=', 1);
+
+            $data           = Football_fixture::select(
                                     '*',
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%Y-%m-%d") as tanggal'),
                                     DB::raw('DATE_FORMAT(DATE_ADD(date, INTERVAL 7 HOUR), "%H:%i:%s") as jam')
                                 )
-                                ->where('date', '>=', $date_start)
-                                ->where('date', '<=', $date_end)
-                                ->whereNotNull('Oneye')
+                                // ->where('date', '>=', $date_start)
+                                // ->where('date', '<=', $date_end)
+                                ->whereIn('fixtureapi_id', $pre_data)
                                 ->whereNull('deleted_at')
-                                ->orderby('date')
+                                ->orderby('date', 'asc')
                                 ->get();
 
         // ----------------------------------------------------------- Send
@@ -268,6 +270,29 @@ class OneyeController extends Controller
                     'season',
                 )
             );
+        ///////////////////////////////////////////////////////////////
+    }
+
+    public function clear()
+    {
+        // ----------------------------------------------------------- Auth
+            $user = auth()->user();
+
+        // ----------------------------------------------------------- Agent
+        // ----------------------------------------------------------- Initialize
+            $content        = $this->content;
+
+        // ----------------------------------------------------------- Action
+            $model      = Football_set_eye::where('status', '=', 1);
+
+            $model->update([
+                'status'   => 0
+            ]);
+
+        // ----------------------------------------------------------- Send
+            return redirect()
+                ->route('One.index')
+                ->with(['saved_data' => define_messages('saved_data')]);
         ///////////////////////////////////////////////////////////////
     }
 }

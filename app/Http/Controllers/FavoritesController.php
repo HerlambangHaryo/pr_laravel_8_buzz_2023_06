@@ -241,7 +241,7 @@ class FavoritesController extends Controller
             $view           = define_view($this->template, $this->type, 'Notstarted', $additional_view, $view_file);
 
         // ----------------------------------------------------------- Action
-            $date_start     = define_date("start");
+            $date_start     = define_date("start_0");
             $date_end       = define_date("end");
 
             $league         = Football_league::where('leagueapi_id', '=', $leagueapi_id)
@@ -254,6 +254,7 @@ class FavoritesController extends Controller
                                 )
                                 ->where('date', '>=', $date_start)
                                 ->where('date', '<=', $date_end)
+                                ->whereIN('fixture_status',  ['Not Started', 'Not Started Goto', 'Not Started One'])
 
                                 ->where('leagueapi_id', '=', $leagueapi_id)
                                 ->where('season', '=', $season)

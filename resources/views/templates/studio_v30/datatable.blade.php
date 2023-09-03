@@ -42,6 +42,12 @@
         @include('templates.'.$template.'.partial.scripts')
 
 		<!-- ================== BEGIN page-js ================== -->
+        <script>
+            $(document).ready(function() {
+                $('.myTable').DataTable();
+            });
+
+        </script>
 		<script src="{{ asset('/public/studio_v30') }}/assets/plugins/highlight.js/highlight.min.js"></script>
 		<script src="{{ asset('/public/studio_v30') }}/assets/js/demo/highlightjs.demo.js"></script>
 		<script src="{{ asset('/public/studio_v30') }}/assets/plugins/datatables.net/js/jquery.dataTables.min.js"></script>

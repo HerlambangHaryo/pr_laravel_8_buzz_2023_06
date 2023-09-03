@@ -44,46 +44,64 @@
                 Match Finished
             </a>
             <a
-                href="{{ route('Leagues.standings',
+                href="{{ route('Leagues.standing',
                     [
                         'leagueapi_id'  => $leagueapi_id,
-                        'season'        => $season
+                        'season'        => $season,
+                        'stats'        => 'Goals'
                     ])
                 }}"
                 class="btn btn-sm btn-secondary
-                @if($panel_name == 'standings')
+                @if($panel_name == 'standing')
                     active
                 @endif
                 ">
                 Standings
             </a>
             <a
-                href="{{ route('Leagues.standing_corners',
+                href="{{ route('Leagues.standing',
                     [
                         'leagueapi_id'  => $leagueapi_id,
-                        'season'        => $season
+                        'season'        => $season,
+                        'stats'        => 'Corners'
                     ])
                 }}"
                 class="btn btn-sm btn-secondary
-                @if($panel_name == 'standing_corners')
+                @if($panel_name == 'standing')
                     active
                 @endif
                 ">
                 Corners
             </a>
             <a
-                href="{{ route('Leagues.standing_cards',
+                href="{{ route('Leagues.standing',
                     [
                         'leagueapi_id'  => $leagueapi_id,
-                        'season'        => $season
+                        'season'        => $season,
+                        'stats'        => 'Shots'
                     ])
                 }}"
                 class="btn btn-sm btn-secondary
-                @if($panel_name == 'standing_cards')
+                @if($panel_name == 'standing')
                     active
                 @endif
                 ">
-                Cards
+                Shots
+            </a>
+            <a
+                href="{{ route('Leagues.standing',
+                    [
+                        'leagueapi_id'  => $leagueapi_id,
+                        'season'        => $season,
+                        'stats'        => 'Fouls'
+                    ])
+                }}"
+                class="btn btn-sm btn-secondary
+                @if($panel_name == 'standing')
+                    active
+                @endif
+                ">
+                Fouls
             </a>
             <a
                 href="{{ route('Leagues.pecheck',

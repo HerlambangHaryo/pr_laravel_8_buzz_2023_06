@@ -1,0 +1,1 @@
+kosong to_win_either_half

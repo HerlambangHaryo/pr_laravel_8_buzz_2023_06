@@ -16,4 +16,12 @@ class Football_player_squad extends Model
                     'nama' => '',
                 ]);
     }
+
+    public function team()
+    {
+        return $this->belongsTo(Football_team::class,'teamapi_id', 'teamapi_id')
+                ->withDefault([
+                    'nama' => '',
+                ]);
+    }
 }

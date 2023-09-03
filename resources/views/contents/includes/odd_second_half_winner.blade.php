@@ -5,7 +5,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 6,
+                'betapi_id' => 6,
                 'value' => 'Home',
                 'odd' => $row->pre_second_half_winner_home,
             ])}}"
@@ -22,7 +22,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 7,
+                'betapi_id' => 7,
                 'value' => 'Draw',
                 'odd' => $row->pre_second_half_winner_draw,
             ])}}"
@@ -39,7 +39,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 8,
+                'betapi_id' => 8,
                 'value' => 'Away',
                 'odd' => $row->pre_second_half_winner_away,
             ])}}"
@@ -62,7 +62,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 6,
+                'betapi_id' => 6,
                 'value' => 'Home',
                 'odd' => $row->end_second_half_winner_home,
             ])}}"
@@ -77,7 +77,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 7,
+                'betapi_id' => 7,
                 'value' => 'Draw',
                 'odd' => $row->end_second_half_winner_draw,
             ])}}"
@@ -92,7 +92,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 8,
+                'betapi_id' => 8,
                 'value' => 'Away',
                 'odd' => $row->end_second_half_winner_away,
             ])}}"

@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <!-- <div id="datatable" class="mt-3 mb-5">
+            <div id="datatable" class="mt-3 mb-5">
                 <div class="card">
                     <div class="card-header">
                         Data Only Pre
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             @include('contents.includes.datatable.match_winner')
             @include('contents.includes.datatable.goals_overunder_25')

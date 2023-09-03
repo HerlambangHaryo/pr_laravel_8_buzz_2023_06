@@ -11,10 +11,11 @@ use App\Models\Football_venue;
 use App\Models\Football_statistic;
 use App\Models\Api_football_league_standing;
 use App\Models\Football_pattern_from;
+use App\Models\Football_pattern_only;
 use App\Models\Football_forecast_pattern;
 
 use Awobaz\Compoships\Compoships;
-
+use DB;
 
 class Football_odd extends Model
 {
@@ -59,6 +60,17 @@ class Football_odd extends Model
         return $this->belongsTo(Football_pattern_from::class,
                 ['leagueapi_id', 'pre_ah_pattern_mirror', 'pre_gou_pattern', 'end_ah_pattern_mirror', 'end_gou_pattern'],
                 ['leagueapi_id', 'pre_ah_pattern', 'pre_gou_pattern', 'end_ah_pattern', 'end_gou_pattern'],
+            )
+            ->withDefault([
+                'total_fixtures' => 0,
+            ]);
+    }
+
+    public function onlypre()
+    {
+        return $this->belongsTo(Football_pattern_only::class,
+                ['leagueapi_id', 'pre_ah_pattern', 'pre_gou_pattern'],
+                ['leagueapi_id', 'end_ah_pattern', 'end_gou_pattern'],
             )
             ->withDefault([
                 'total_fixtures' => 0,
@@ -150,5 +162,124 @@ class Football_odd extends Model
                 ->withDefault([
                     'nama' => '',
                 ]);
+    }
+
+    public static function data_pattern_prepre($leagueapi_id,
+            $fixtureapi_id,
+
+            $pre_ah_pattern,
+            $pre_ah_pattern_mirror,
+            $pre_gou_pattern,
+
+            $end_ah_pattern,
+            $end_ah_pattern_mirror,
+            $end_gou_pattern
+        )
+    {
+
+        $data_1         = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal'),
+                                DB::raw('"Ori" as statusx')
+                            )
+                            ->where('fixtureapi_id', '=', $fixtureapi_id)
+                            ->whereNull('deleted_at');
+
+
+        $data0          = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal'),
+                                DB::raw('"Ori" as statusx')
+                            )
+                            ->where('leagueapi_id', '=', $leagueapi_id)
+
+                            ->where('pre_ah_pattern', '=', $pre_ah_pattern)
+                            ->where('pre_gou_pattern', '=', $pre_gou_pattern)
+
+                            ->where('end_ah_pattern', '=', $pre_ah_pattern)
+                            ->where('end_gou_pattern', '=', $pre_gou_pattern)
+
+                            ->whereNull('deleted_at');
+
+
+        $data           = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal'),
+                                DB::raw('"Mir" as statusx')
+                            )
+                            ->where('leagueapi_id', '=', $leagueapi_id)
+
+                            ->where('pre_ah_pattern', '=', $pre_ah_pattern_mirror)
+                            ->where('pre_gou_pattern', '=', $pre_gou_pattern)
+
+                            ->where('end_ah_pattern', '=', $pre_ah_pattern_mirror)
+                            ->where('end_gou_pattern', '=', $pre_gou_pattern)
+
+                            ->whereNull('deleted_at')
+                            ->union($data0)
+                            ->union($data_1)
+                            ->get();
+
+        return $data;
+    }
+
+    public static function data_pattern_onlypre($leagueapi_id,
+            $fixtureapi_id,
+
+            $pre_ah_pattern,
+            $pre_ah_pattern_mirror,
+            $pre_gou_pattern,
+
+            $end_ah_pattern,
+            $end_ah_pattern_mirror,
+            $end_gou_pattern
+        )
+    {
+
+        $data_1         = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal'),
+                                DB::raw('"Ori" as statusx')
+                            )
+                            ->where('fixtureapi_id', '=', $fixtureapi_id)
+                            ->whereNull('deleted_at');
+
+
+        $data0          = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal'),
+                                DB::raw('"Ori" as statusx')
+                            )
+                            ->where('leagueapi_id', '=', $leagueapi_id)
+
+
+                            ->where('end_ah_pattern', '=', $pre_ah_pattern)
+                            ->where('end_gou_pattern', '=', $pre_gou_pattern)
+
+                            ->whereNull('deleted_at');
+
+
+        $data           = Football_odd::select(
+                                '*',
+                                DB::raw('DATE_ADD(date, INTERVAL 7 HOUR) as tanggal'),
+                                DB::raw('"Mir" as statusx')
+                            )
+                            ->where('leagueapi_id', '=', $leagueapi_id)
+
+
+                            ->where('end_ah_pattern', '=', $pre_ah_pattern_mirror)
+                            ->where('end_gou_pattern', '=', $pre_gou_pattern)
+
+                            ->whereNull('deleted_at')
+                            ->union($data0)
+                            ->union($data_1)
+                            ->get();
+
+        return $data;
+    }
+
+    public function arya()
+    {
+        return $this->hasMany(football_arya_tip::class,'fixtureapi_id', 'fixtureapi_id') ;
     }
 }

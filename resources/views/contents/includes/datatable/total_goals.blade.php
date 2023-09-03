@@ -1,0 +1,1 @@
+kosong total_goals

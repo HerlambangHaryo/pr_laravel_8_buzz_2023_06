@@ -1,0 +1,1 @@
+kosong highest_scoring_half

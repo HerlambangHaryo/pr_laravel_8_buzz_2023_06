@@ -5,7 +5,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 55,
+                'betapi_id' => 55,
                 'value' => 'Home',
                 'odd' => $row->pre_corners_winner_home,
             ])}}"
@@ -22,7 +22,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 55,
+                'betapi_id' => 55,
                 'value' => 'Draw',
                 'odd' => $row->pre_corners_winner_draw,
             ])}}"
@@ -39,7 +39,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 55,
+                'betapi_id' => 55,
                 'value' => 'Away',
                 'odd' => $row->pre_corners_winner_away,
             ])}}"
@@ -63,7 +63,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 55,
+                'betapi_id' => 55,
                 'value' => 'Home',
                 'odd' => $row->end_corners_winner_home,
             ])}}"
@@ -78,7 +78,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 55,
+                'betapi_id' => 55,
                 'value' => 'Draw',
                 'odd' => $row->end_corners_winner_draw,
             ])}}"
@@ -93,7 +93,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 55,
+                'betapi_id' => 55,
                 'value' => 'Away',
                 'odd' => $row->end_corners_winner_away,
             ])}}"

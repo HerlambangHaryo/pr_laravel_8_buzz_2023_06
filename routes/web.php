@@ -85,12 +85,9 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Leagues.notstarted');
                     Route::get('Leagues/matchfinished/{leagueapi_id}/{season}', 'LeaguesController@matchfinished')
                         ->name('Leagues.matchfinished');
-                    Route::get('Leagues/standings/{leagueapi_id}/{season}', 'LeaguesController@standings')
-                        ->name('Leagues.standings');
-                    Route::get('Leagues/standing_corners/{leagueapi_id}/{season}', 'LeaguesController@standing_corners')
-                        ->name('Leagues.standing_corners');
-                    Route::get('Leagues/standing_cards/{leagueapi_id}/{season}', 'LeaguesController@standing_cards')
-                        ->name('Leagues.standing_cards');
+                    Route::get('Leagues/standing/{leagueapi_id}/{season}/{stats}', 'LeaguesController@standing')
+                        ->name('Leagues.standing');
+
                     Route::get('Leagues/pecheck/{leagueapi_id}/{season}', 'LeaguesController@pecheck')
                         ->name('Leagues.pecheck');
                     Route::get('Leagues/patternfixtures/{leagueapi_id}/{season}/{pre_ah_pattern}/{pre_gou_pattern}/{end_ah_pattern}/{end_gou_pattern}', 'LeaguesController@patternfixtures')
@@ -185,26 +182,50 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Fixtures.setone');
                     Route::get('Fixtures/setoneye/{id}', 'FixturesController@setoneye')
                         ->name('Fixtures.setoneye');
+                    Route::get('Fixtures/setoneyefixture/{id}', 'FixturesController@setoneyefixture')
+                        ->name('Fixtures.setoneyefixture');
                     Route::get('Fixtures/statistics/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@statistics')
                         ->name('Fixtures.statistics');
                     Route::get('Fixtures/headtohead/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@headtohead')
                         ->name('Fixtures.headtohead');
                     Route::get('Fixtures/players/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@players')
                         ->name('Fixtures.players');
+
                     Route::get('Fixtures/prepre/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@prepre')
                         ->name('Fixtures.prepre');
+                    Route::get('Fixtures/preprecountry/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@preprecountry')
+                        ->name('Fixtures.preprecountry');
+                    Route::get('Fixtures/prepreworld/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@prepreworld')
+                        ->name('Fixtures.prepreworld');
+
                     Route::get('Fixtures/preend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@preend')
                         ->name('Fixtures.preend');
+                    Route::get('Fixtures/preendcountry/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@preendcountry')
+                        ->name('Fixtures.preendcountry');
+                    Route::get('Fixtures/preendworld/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@preendworld')
+                        ->name('Fixtures.preendworld');
+
+                    Route::get('Fixtures/preend_four/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@preend_four')
+                        ->name('Fixtures.preend_four');
+                    Route::get('Fixtures/preend_fourcountry/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@preend_fourcountry')
+                        ->name('Fixtures.preend_fourcountry');
+                    Route::get('Fixtures/preend_fourworld/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@preend_fourworld')
+                        ->name('Fixtures.preend_fourworld');
+
+                    Route::get('Fixtures/onlypre/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@onlypre')
+                        ->name('Fixtures.onlypre');
+                    Route::get('Fixtures/onlyend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@onlyend')
+                        ->name('Fixtures.onlyend');
+
+
                     Route::get('Fixtures/endend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@endend')
                         ->name('Fixtures.endend');
+
                     Route::get('Fixtures/otherpattern/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@otherpattern')
                         ->name('Fixtures.otherpattern');
+
                     Route::get('Fixtures/datapreend/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@datapreend')
                         ->name('Fixtures.datapreend');
-                    Route::get('Fixtures/datapreendcountry/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@datapreendcountry')
-                        ->name('Fixtures.datapreendcountry');
-                    Route::get('Fixtures/datapreendworld/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@datapreendworld')
-                        ->name('Fixtures.datapreendworld');
                     Route::get('Fixtures/dataonlypre/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@dataonlypre')
                         ->name('Fixtures.dataonlypre');
                     Route::get('Fixtures/dataonlyprecountry/{leagueapi_id}/{season}/{fixtureapi_id}', 'FixturesController@dataonlyprecountry')
@@ -226,9 +247,9 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Patterns.odd');
                 Route::resource('Patterns', PatternsController::class);
 
-                    Route::get('Mybets/datacreate/{leagueapi_id}/{season}/{fixtureapi_id}/{betsapi_id}/{value}/{odd}', 'MybetsController@datacreate')
+                    Route::get('Mybets/datacreate/{leagueapi_id}/{season}/{fixtureapi_id}/{betapi_id}/{value}/{odd}', 'MybetsController@datacreate')
                         ->name('Mybets.datacreate');
-                    Route::get('Mybets/datacreateanalysis/{leagueapi_id}/{season}/{fixtureapi_id}/{betsapi_id}/{value}/{odd}', 'MybetsController@datacreateanalysis')
+                    Route::get('Mybets/datacreateanalysis/{leagueapi_id}/{season}/{fixtureapi_id}/{betapi_id}/{value}/{odd}', 'MybetsController@datacreateanalysis')
                         ->name('Mybets.datacreateanalysis');
                 Route::resource('Mybets', MybetsController::class);
 
@@ -245,6 +266,17 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                 Route::resource('Teams', TeamsController::class);
 
                 Route::resource('Venues', VenuesController::class);
+
+
+                    Route::get('Oneye/leagues/{leagueapi_id}/{season}', 'OneyeController@leagues')
+                        ->name('Oneye.leagues');
+
+                    Route::get('Oneye/timegroup', 'OneyeController@timegroup')
+                        ->name('Oneye.timegroup');
+                    Route::get('Oneye/time/{year}/{month}/{day}/{hour}/{minute}', 'OneyeController@time')
+                        ->name('Oneye.time');
+                    Route::get('Oneye/clear', 'OneyeController@clear')
+                        ->name('Oneye.clear');
                 Route::resource('Oneye', OneyeController::class);
 
 
@@ -281,6 +313,34 @@ use App\Http\Controllers\Super\AboutLifecycleController;
                         ->name('Ultimate.time');
 
                 Route::resource('Ultimate', UltimateController::class);
+
+                    Route::get('Players/roundratings/{leagueapi_id}/{season}/{round}', 'PlayersController@roundratings')
+                        ->name('Players.roundratings');
+
+                    Route::get('Players/anytimegoalscorers/{leagueapi_id}/{season}/{round}', 'PlayersController@anytimegoalscorers')
+                        ->name('Players.anytimegoalscorers');
+                    Route::get('Players/today_ags', 'PlayersController@today_ags')
+                        ->name('Players.today_ags');
+
+                    Route::get('Players/playertobebooked/{leagueapi_id}/{season}/{round}', 'PlayersController@playertobebooked')
+                        ->name('Players.playertobebooked');
+                    Route::get('Players/today_ptbb', 'PlayersController@today_ptbb')
+                        ->name('Players.today_ptbb');
+
+                Route::resource('Players', PlayersController::class);
+
+
+                    Route::get('Anytimegoalscorers/player/{id}', 'AnytimegoalscorersController@player')
+                        ->name('Anytimegoalscorers.player');
+                    Route::get('Anytimegoalscorers/league/{id}', 'AnytimegoalscorersController@league')
+                        ->name('Anytimegoalscorers.league');
+                    Route::get('Anytimegoalscorers/country/{id}', 'AnytimegoalscorersController@country')
+                        ->name('Anytimegoalscorers.country');
+                Route::resource('Anytimegoalscorers', AnytimegoalscorersController::class);
+
+                    Route::get('Aryatips/tip/{leagueapi_id}/{season}/{fixtureapi_id}/{betapi_id}/{value}/{odd}', 'AryatipsController@tip')
+                        ->name('Aryatips.tip');
+                Route::resource('Aryatips', AryatipsController::class);
         });
     //-----------------------------------------------------------
 

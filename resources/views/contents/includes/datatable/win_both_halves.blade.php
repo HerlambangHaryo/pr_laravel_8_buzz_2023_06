@@ -1,0 +1,1 @@
+kosong win_both_halves

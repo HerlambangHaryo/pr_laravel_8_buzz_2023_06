@@ -4,10 +4,13 @@
 
 @section('content')
 
+    <?php
+        $row_fixture    = $row->fixture;
+        $row_venue      = $row->venue;
+    ?>
     <div class="row mb-2">
         <div class="col-6">
-            <a
-            >update</a>
+            <a href="{{route('Rapidapi.teams', $row_fixture->teams_homeapi_id)}}">update</a>
         </div>
         <div class="col-6 text-end">
             {{ (microtime(true) - LARAVEL_START) }}
@@ -17,14 +20,11 @@
         <div class="col-12 mb-3">
             <div class="card border-0 text-white overflow-hidden"  style="max-height: 350px" >
                 <!-- card-img -->
-                {!! define_venue($row->venueapi_id, $row->venue->image) !!}
+                {!! define_venue($row_venue->venueapi_id, $row_venue->image) !!}
 
                 <div class="card-img-overlay d-flex flex-column bg-gray-900 bg-opacity-70 rounded">
 
                     @include('contents.includes.fixture_menu')
-                    <?php
-                        $row_fixture = $row;
-                    ?>
                     @include('contents.includes.fixture_info')
 
                     <div class="row d-flex justify-content-center text-center mt-1">

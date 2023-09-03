@@ -5,7 +5,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 228,
+                'betapi_id' => 228,
                 'value' => 'Home',
                 'odd' => $row->pre_win_both_halves_home,
             ])}}"
@@ -22,7 +22,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 229,
+                'betapi_id' => 229,
                 'value' => 'Away',
                 'odd' => $row->pre_win_both_halves_away,
             ])}}"
@@ -45,7 +45,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 228,
+                'betapi_id' => 228,
                 'value' => 'Home',
                 'odd' => $row->end_win_both_halves_home,
             ])}}"
@@ -60,7 +60,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 229,
+                'betapi_id' => 229,
                 'value' => 'Away',
                 'odd' => $row->end_win_both_halves_away,
             ])}}"

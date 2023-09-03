@@ -5,17 +5,26 @@
             <div class="row">
                 <div class="col-6">
                     <h1>
-                        Overunder
+                        Overunder ou25
                     </h1>
                 </div>
                 <div class="col-6">
-
+                    <div>
+                        <div class="progress mt-3 mb-2" style="height: 15px;">
+                            <div class="progress-bar bg-success" style="width: {{ $row_pattern->goals_overunder_over_25_perc }}%">
+                                {{ number_format($row_pattern->goals_overunder_over_25_perc, 2, ',', ' ') }}
+                            </div>
+                            <div class="progress-bar  bg-warning" style="width: {{ $row_pattern->goals_overunder_under_25_perc }}%">
+                                {{ number_format($row_pattern->goals_overunder_under_25_perc, 2, ',', ' ') }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="datatableDefault" class="table  ">
+                <table id="datatableDefault" class="table myTable ">
                     <thead class=" ">
                         <tr>
                             <x-html.th-content-width title="No." width="10%" />
@@ -24,17 +33,6 @@
                             <x-html.th-content title="Teams"   />
                             <x-html.th-content title="Goals"   />
 
-                            <x-html.th-content title="Pre o2" />
-                            <x-html.th-content title="Pre u2" />
-
-                            <x-html.th-content title="Pre o225" />
-                            <x-html.th-content title="Pre u225" />
-
-                            <x-html.th-content title="Pre o25" />
-                            <x-html.th-content title="Pre u25" />
-
-                            <x-html.th-content title="Pre o275" />
-                            <x-html.th-content title="Pre u275" />
 
                             <x-html.th-content title="End o2" />
                             <x-html.th-content title="End u2" />
@@ -47,6 +45,19 @@
 
                             <x-html.th-content title="End o275" />
                             <x-html.th-content title="End u275" />
+
+
+                            <x-html.th-content title="Pre o2" />
+                            <x-html.th-content title="Pre u2" />
+
+                            <x-html.th-content title="Pre o225" />
+                            <x-html.th-content title="Pre u225" />
+
+                            <x-html.th-content title="Pre o25" />
+                            <x-html.th-content title="Pre u25" />
+
+                            <x-html.th-content title="Pre o275" />
+                            <x-html.th-content title="Pre u275" />
                         </tr>
                     </thead>
                     <tbody>
@@ -108,46 +119,6 @@
                                     <br/>
                                     {{ $row->fixture->goals_away }}
                                 </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_goals_overunder_over_20 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_goals_overunder_under_20 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_goals_overunder_over_225 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_goals_overunder_under_225 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_goals_overunder_over_25 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_goals_overunder_under_25 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_goals_overunder_over_275 }}
-                                    </small>
-                                </td>
-                                <td class="text-center">
-                                    <small >
-                                        {{ $row->pre_goals_overunder_under_275 }}
-                                    </small>
-                                </td>
 
 
                                 <td class="text-center">
@@ -190,6 +161,48 @@
                                         {{ $row->end_goals_overunder_under_275 }}
                                     </small>
                                 </td>
+
+                                <td class="text-center">
+                                    <small >
+                                        {{ $row->pre_goals_overunder_over_20 }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small >
+                                        {{ $row->pre_goals_overunder_under_20 }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small >
+                                        {{ $row->pre_goals_overunder_over_225 }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small >
+                                        {{ $row->pre_goals_overunder_under_225 }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small >
+                                        {{ $row->pre_goals_overunder_over_25 }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small >
+                                        {{ $row->pre_goals_overunder_under_25 }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small >
+                                        {{ $row->pre_goals_overunder_over_275 }}
+                                    </small>
+                                </td>
+                                <td class="text-center">
+                                    <small >
+                                        {{ $row->pre_goals_overunder_under_275 }}
+                                    </small>
+                                </td>
+
 
 
 

@@ -5,7 +5,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 708,
+                'betapi_id' => 708,
                 'value' => 'Yes',
                 'odd' => $row->pre_rcard_yes,
             ])}}"
@@ -22,7 +22,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 709,
+                'betapi_id' => 709,
                 'value' => 'No',
                 'odd' => $row->pre_rcard_no,
             ])}}"
@@ -45,7 +45,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 708,
+                'betapi_id' => 708,
                 'value' => 'Yes',
                 'odd' => $row->end_rcard_yes,
             ])}}"
@@ -60,7 +60,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 709,
+                'betapi_id' => 709,
                 'value' => 'No',
                 'odd' => $row->end_rcard_no,
             ])}}"

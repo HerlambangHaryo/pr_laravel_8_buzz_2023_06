@@ -59,6 +59,7 @@ class TodayController extends Controller
                                 ->groupby('season')
                                 ->get();
 
+
         // ----------------------------------------------------------- Send
             return view($view,
                 compact(

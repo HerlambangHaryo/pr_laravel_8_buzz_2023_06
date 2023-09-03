@@ -43,10 +43,17 @@
             <x-studio_v30.badge-fixture-status
                 link="https://www.google.com/search?client=firefox-b-d&q={!! $row_fixture->home->name !!}+vs+{!! $row_fixture->away->name !!}+flashscore"
                 nama="{{ $row_fixture->fixture_status }}"/>
-            <a
-                href="{{route('Fixtures.setoneye', $row_fixture->id )}}">
-                On Eye
-            </a>
+
+                @if($row_fixture->eye->status == 1)
+                    <i class="far fa-eye"></i>
+                @else
+                    <a
+                        href="{{route('Fixtures.setoneye', $row->id )}}"
+                        class=" ">
+                        On Eye
+                    </a>
+                @endif
+
             <a
                 href="{{route('Fixtures.setone', $row_fixture->id )}}">
                 One

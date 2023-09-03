@@ -5,7 +5,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 289,
+                'betapi_id' => 289,
                 'value' => 'Odd',
                 'odd' => $row->pre_oddeven_odd,
             ])}}"
@@ -22,7 +22,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 290,
+                'betapi_id' => 290,
                 'value' => 'Even',
                 'odd' => $row->pre_oddeven_even,
             ])}}"
@@ -45,7 +45,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 289,
+                'betapi_id' => 289,
                 'value' => 'Odd',
                 'odd' => $row->end_oddeven_odd,
             ])}}"
@@ -60,7 +60,7 @@
                 'leagueapi_id' => $row->leagueapi_id,
                 'season' => $row->season,
                 'fixtureapi_id' => $row->fixtureapi_id,
-                'betsapi_id' => 290,
+                'betapi_id' => 290,
                 'value' => 'Even',
                 'odd' => $row->end_oddeven_even,
             ])}}"

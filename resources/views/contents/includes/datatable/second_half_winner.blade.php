@@ -1,0 +1,1 @@
+kosong second_half_winner

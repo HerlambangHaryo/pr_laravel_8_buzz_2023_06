@@ -7,7 +7,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -6.5',
                         'odd' => $row->pre_corners_asian_handicap_home_min_65,
                     ])}}"
@@ -24,7 +24,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -6.5',
                         'odd' => $row->pre_corners_asian_handicap_away_min_65,
                     ])}}"
@@ -48,7 +48,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -6',
                         'odd' => $row->pre_corners_asian_handicap_home_min_6,
                     ])}}"
@@ -65,7 +65,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -6',
                         'odd' => $row->pre_corners_asian_handicap_away_min_6,
                     ])}}"
@@ -89,7 +89,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -5.5',
                         'odd' => $row->pre_corners_asian_handicap_home_min_55,
                     ])}}"
@@ -106,7 +106,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -5.5',
                         'odd' => $row->pre_corners_asian_handicap_away_min_55,
                     ])}}"
@@ -130,7 +130,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -5',
                         'odd' => $row->pre_corners_asian_handicap_home_min_5,
                     ])}}"
@@ -147,7 +147,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -5',
                         'odd' => $row->pre_corners_asian_handicap_away_min_5,
                     ])}}"
@@ -171,7 +171,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -4.5',
                         'odd' => $row->pre_corners_asian_handicap_home_min_45,
                     ])}}"
@@ -189,7 +189,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -4.5',
                         'odd' => $row->pre_corners_asian_handicap_away_min_45,
                     ])}}"
@@ -213,7 +213,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -4',
                         'odd' => $row->pre_corners_asian_handicap_home_min_4,
                     ])}}"
@@ -230,7 +230,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -4',
                         'odd' => $row->pre_corners_asian_handicap_away_min_4,
                     ])}}"
@@ -254,7 +254,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -3.5',
                         'odd' => $row->pre_corners_asian_handicap_home_min_35,
                     ])}}"
@@ -271,7 +271,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -3.5',
                         'odd' => $row->pre_corners_asian_handicap_away_min_35,
                     ])}}"
@@ -295,7 +295,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -3',
                         'odd' => $row->pre_corners_asian_handicap_home_min_3,
                     ])}}"
@@ -312,7 +312,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -3',
                         'odd' => $row->pre_corners_asian_handicap_away_min_3,
                     ])}}"
@@ -336,7 +336,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -2.5',
                         'odd' => $row->pre_corners_asian_handicap_home_min_25,
                     ])}}"
@@ -353,7 +353,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -2.5',
                         'odd' => $row->pre_corners_asian_handicap_away_min_25,
                     ])}}"
@@ -378,7 +378,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -2',
                         'odd' => $row->pre_corners_asian_handicap_home_min_2,
                     ])}}"
@@ -395,7 +395,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -2',
                         'odd' => $row->pre_corners_asian_handicap_away_min_2,
                     ])}}"
@@ -419,7 +419,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -1.5',
                         'odd' => $row->pre_corners_asian_handicap_home_min_15,
                     ])}}"
@@ -436,7 +436,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -1.5',
                         'odd' => $row->pre_corners_asian_handicap_away_min_15,
                     ])}}"
@@ -460,7 +460,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -1',
                         'odd' => $row->pre_corners_asian_handicap_home_min_1,
                     ])}}"
@@ -480,7 +480,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -0.5',
                         'odd' => $row->pre_corners_asian_handicap_home_min_05,
                     ])}}"
@@ -497,7 +497,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -1',
                         'odd' => $row->pre_corners_asian_handicap_away_min_1,
                     ])}}"
@@ -518,7 +518,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -0.5',
                         'odd' => $row->pre_corners_asian_handicap_away_min_05,
                     ])}}"
@@ -542,7 +542,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +0',
 
                         'odd' => $row->pre_corners_asian_handicap_home_plus_0,
@@ -560,7 +560,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +0',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_0,
                     ])}}"
@@ -584,7 +584,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +0.5',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_05,
                     ])}}"
@@ -601,7 +601,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +0.5',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_05,
                     ])}}"
@@ -625,7 +625,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +1',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_1,
                     ])}}"
@@ -642,7 +642,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +1',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_1,
                     ])}}"
@@ -666,7 +666,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +1.5',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_15,
                     ])}}"
@@ -683,7 +683,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +1.5',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_15,
                     ])}}"
@@ -707,7 +707,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +2',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_2,
                     ])}}"
@@ -724,7 +724,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +2',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_2,
 
@@ -749,7 +749,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +2.5',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_25,
                     ])}}"
@@ -766,7 +766,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +2.5',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_25,
                     ])}}"
@@ -790,7 +790,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +3',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_3,
                     ])}}"
@@ -807,7 +807,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +3',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_3,
                     ])}}"
@@ -831,7 +831,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +3.5',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_35,
                     ])}}"
@@ -848,7 +848,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +3.5',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_35,
                     ])}}"
@@ -872,7 +872,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +4',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_4,
                     ])}}"
@@ -889,7 +889,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +4',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_4,
                     ])}}"
@@ -914,7 +914,7 @@
 
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +4.5',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_45,
                     ])}}"
@@ -931,7 +931,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +4.5',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_45,
                     ])}}"
@@ -955,7 +955,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +5',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_5,
                     ])}}"
@@ -972,7 +972,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +5',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_5,
                     ])}}"
@@ -996,7 +996,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +5.5',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_55,
                     ])}}"
@@ -1013,7 +1013,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +5.5',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_55,
                     ])}}"
@@ -1037,7 +1037,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +6',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_6,
                     ])}}"
@@ -1054,7 +1054,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +6',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_6,
                     ])}}"
@@ -1078,7 +1078,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +6.5',
                         'odd' => $row->pre_corners_asian_handicap_home_plus_65,
                     ])}}"
@@ -1096,7 +1096,7 @@
                         'season' => $row->season,
 
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +6.5',
                         'odd' => $row->pre_corners_asian_handicap_away_plus_65,
                     ])}}"
@@ -1126,7 +1126,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -6.5',
                         'odd' => $row->end_corners_asian_handicap_home_min_65,
                     ])}}"
@@ -1141,7 +1141,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -6.5',
                         'odd' => $row->end_corners_asian_handicap_away_min_65,
                     ])}}"
@@ -1163,7 +1163,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -6',
                         'odd' => $row->end_corners_asian_handicap_home_min_6,
                     ])}}"
@@ -1178,7 +1178,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -6',
                         'odd' => $row->end_corners_asian_handicap_away_min_6,
                     ])}}"
@@ -1200,7 +1200,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -5.5',
                         'odd' => $row->end_corners_asian_handicap_home_min_55,
                     ])}}"
@@ -1215,7 +1215,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -5.5',
                         'odd' => $row->end_corners_asian_handicap_away_min_55,
                     ])}}"
@@ -1237,7 +1237,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -5',
                         'odd' => $row->end_corners_asian_handicap_home_min_5,
                     ])}}"
@@ -1252,7 +1252,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -5',
                         'odd' => $row->end_corners_asian_handicap_away_min_5,
                     ])}}"
@@ -1274,7 +1274,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -4.5',
                         'odd' => $row->end_corners_asian_handicap_home_min_45,
                     ])}}"
@@ -1290,7 +1290,7 @@
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
 
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -4.5',
                         'odd' => $row->end_corners_asian_handicap_away_min_45,
                     ])}}"
@@ -1312,7 +1312,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -4',
                         'odd' => $row->end_corners_asian_handicap_home_min_4,
                     ])}}"
@@ -1327,7 +1327,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -4',
                         'odd' => $row->end_corners_asian_handicap_away_min_4,
                     ])}}"
@@ -1349,7 +1349,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -3.5',
                         'odd' => $row->end_corners_asian_handicap_home_min_35,
                     ])}}"
@@ -1364,7 +1364,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -3.5',
                         'odd' => $row->end_corners_asian_handicap_away_min_35,
                     ])}}"
@@ -1386,7 +1386,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -3',
                         'odd' => $row->end_corners_asian_handicap_home_min_3,
                     ])}}"
@@ -1401,7 +1401,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -3',
                         'odd' => $row->end_corners_asian_handicap_away_min_3,
                     ])}}"
@@ -1423,7 +1423,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -2.5',
                         'odd' => $row->end_corners_asian_handicap_home_min_25,
                     ])}}"
@@ -1438,7 +1438,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -2.5',
                         'odd' => $row->end_corners_asian_handicap_away_min_25,
                     ])}}"
@@ -1460,7 +1460,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -2',
                         'odd' => $row->end_corners_asian_handicap_home_min_2,
                     ])}}"
@@ -1476,7 +1476,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -2',
                         'odd' => $row->end_corners_asian_handicap_away_min_2,
                     ])}}"
@@ -1498,7 +1498,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -1.5',
                         'odd' => $row->end_corners_asian_handicap_home_min_15,
                     ])}}"
@@ -1513,7 +1513,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -1.5',
                         'odd' => $row->end_corners_asian_handicap_away_min_15,
                     ])}}"
@@ -1535,7 +1535,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -1',
                         'odd' => $row->end_corners_asian_handicap_home_min_1,
                     ])}}"
@@ -1553,7 +1553,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home -0.5',
                         'odd' => $row->end_corners_asian_handicap_home_min_05,
                     ])}}"
@@ -1568,7 +1568,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -1',
                         'odd' => $row->end_corners_asian_handicap_away_min_1,
                     ])}}"
@@ -1587,7 +1587,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away -0.5',
                         'odd' => $row->end_corners_asian_handicap_away_min_05,
                     ])}}"
@@ -1609,7 +1609,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +0',
                         'odd' => $row->end_corners_asian_handicap_home_plus_0,
                     ])}}"
@@ -1624,7 +1624,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +0',
                         'odd' => $row->end_corners_asian_handicap_away_plus_0,
                     ])}}"
@@ -1647,7 +1647,7 @@
 
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +0.5',
                         'odd' => $row->end_corners_asian_handicap_home_plus_05,
                     ])}}"
@@ -1662,7 +1662,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +0.5',
                         'odd' => $row->end_corners_asian_handicap_away_plus_05,
                     ])}}"
@@ -1684,7 +1684,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +1',
                         'odd' => $row->end_corners_asian_handicap_home_plus_1,
                     ])}}"
@@ -1699,7 +1699,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +1',
                         'odd' => $row->end_corners_asian_handicap_away_plus_1,
                     ])}}"
@@ -1721,7 +1721,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +1.5',
                         'odd' => $row->end_corners_asian_handicap_home_plus_15,
                     ])}}"
@@ -1736,7 +1736,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +1.5',
                         'odd' => $row->end_corners_asian_handicap_away_plus_15,
                     ])}}"
@@ -1758,7 +1758,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +2',
                         'odd' => $row->end_corners_asian_handicap_home_plus_2,
                     ])}}"
@@ -1773,7 +1773,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +2',
                         'odd' => $row->end_corners_asian_handicap_away_plus_2,
                     ])}}"
@@ -1795,7 +1795,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +2.5',
                         'odd' => $row->end_corners_asian_handicap_home_plus_25,
                     ])}}"
@@ -1810,7 +1810,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +2.5',
                         'odd' => $row->end_corners_asian_handicap_away_plus_25,
                     ])}}"
@@ -1833,7 +1833,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +3',
                         'odd' => $row->end_corners_asian_handicap_home_plus_3,
                     ])}}"
@@ -1848,7 +1848,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +3',
                         'odd' => $row->end_corners_asian_handicap_away_plus_3,
                     ])}}"
@@ -1870,7 +1870,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +3.5',
                         'odd' => $row->end_corners_asian_handicap_home_plus_35,
                     ])}}"
@@ -1885,7 +1885,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +3.5',
                         'odd' => $row->end_corners_asian_handicap_away_plus_35,
                     ])}}"
@@ -1907,7 +1907,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +4',
                         'odd' => $row->end_corners_asian_handicap_home_plus_4,
                     ])}}"
@@ -1922,7 +1922,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +4',
                         'odd' => $row->end_corners_asian_handicap_away_plus_4,
                     ])}}"
@@ -1944,7 +1944,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +4.5',
                         'odd' => $row->end_corners_asian_handicap_home_plus_45,
                     ])}}"
@@ -1959,7 +1959,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +4.5',
                         'odd' => $row->end_corners_asian_handicap_away_plus_45,
                     ])}}"
@@ -1981,7 +1981,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +5',
                         'odd' => $row->end_corners_asian_handicap_home_plus_5,
                     ])}}"
@@ -1997,7 +1997,7 @@
                         'season' => $row->season,
 
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +5',
                         'odd' => $row->end_corners_asian_handicap_away_plus_5,
                     ])}}"
@@ -2019,7 +2019,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +5.5',
                         'odd' => $row->end_corners_asian_handicap_home_plus_55,
                     ])}}"
@@ -2034,7 +2034,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +5.5',
                         'odd' => $row->end_corners_asian_handicap_away_plus_55,
                     ])}}"
@@ -2056,7 +2056,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +6',
                         'odd' => $row->end_corners_asian_handicap_home_plus_6,
                     ])}}"
@@ -2071,7 +2071,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +6',
                         'odd' => $row->end_corners_asian_handicap_away_plus_6,
                     ])}}"
@@ -2093,7 +2093,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Home +6.5',
                         'odd' => $row->end_corners_asian_handicap_home_plus_65,
                     ])}}"
@@ -2108,7 +2108,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 56,
+                        'betapi_id' => 56,
                         'value' => 'Away +6.5',
                         'odd' => $row->end_corners_asian_handicap_away_plus_65,
                     ])}}"

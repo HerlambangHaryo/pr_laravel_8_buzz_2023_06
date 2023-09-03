@@ -93,4 +93,17 @@ class Football_fixture extends Model
                     'nama' => '',
                 ]);
     }
+
+    public function eye()
+    {
+        return $this->belongsTo(football_set_eye::class,'fixtureapi_id', 'fixtureapi_id')
+                ->withDefault([
+                    'nama' => '',
+                ]);
+    }
+
+    public function arya()
+    {
+        return $this->hasMany(football_arya_tip::class,'fixtureapi_id', 'fixtureapi_id') ;
+    }
 }

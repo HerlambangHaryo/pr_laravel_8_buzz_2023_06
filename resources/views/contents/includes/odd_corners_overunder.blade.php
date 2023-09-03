@@ -7,7 +7,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 7',
                         'odd' => $row->pre_corners_over_under_over_700,
                     ])}}"
@@ -24,7 +24,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 7',
                         'odd' => $row->pre_corners_over_under_under_700,
                     ])}}"
@@ -48,7 +48,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 7.25',
                         'odd' => $row->pre_corners_over_under_over_725,
                     ])}}"
@@ -65,7 +65,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 7.25',
                         'odd' => $row->pre_corners_over_under_under_725,
                     ])}}"
@@ -89,7 +89,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 7.5',
                         'odd' => $row->pre_corners_over_under_over_750,
                     ])}}"
@@ -106,7 +106,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 7.5',
                         'odd' => $row->pre_corners_over_under_under_750,
                     ])}}"
@@ -130,7 +130,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 7.75',
                         'odd' => $row->pre_corners_over_under_over_775,
                     ])}}"
@@ -147,7 +147,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 7.75',
                         'odd' => $row->pre_corners_over_under_under_775,
                     ])}}"
@@ -171,7 +171,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 8',
                         'odd' => $row->pre_corners_over_under_over_800,
                     ])}}"
@@ -189,7 +189,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 8',
                         'odd' => $row->pre_corners_over_under_under_800,
                     ])}}"
@@ -213,7 +213,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 8.25',
                         'odd' => $row->pre_corners_over_under_over_825,
                     ])}}"
@@ -230,7 +230,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 8.25',
                         'odd' => $row->pre_corners_over_under_under_825,
                     ])}}"
@@ -254,7 +254,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 8.5',
                         'odd' => $row->pre_corners_over_under_over_850,
                     ])}}"
@@ -271,7 +271,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 8.5',
                         'odd' => $row->pre_corners_over_under_under_850,
                     ])}}"
@@ -295,7 +295,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 8.75',
                         'odd' => $row->pre_corners_over_under_over_875,
                     ])}}"
@@ -312,7 +312,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 8.75',
                         'odd' => $row->pre_corners_over_under_under_875,
                     ])}}"
@@ -336,7 +336,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 9',
                         'odd' => $row->pre_corners_over_under_over_900,
                     ])}}"
@@ -353,7 +353,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 9',
                         'odd' => $row->pre_corners_over_under_under_900,
                     ])}}"
@@ -378,7 +378,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 9.25',
                         'odd' => $row->pre_corners_over_under_over_925,
                     ])}}"
@@ -395,7 +395,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 9.25',
                         'odd' => $row->pre_corners_over_under_under_925,
                     ])}}"
@@ -419,7 +419,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 9.5',
                         'odd' => $row->pre_corners_over_under_over_950,
                     ])}}"
@@ -436,7 +436,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 9.5',
                         'odd' => $row->pre_corners_over_under_under_950,
                     ])}}"
@@ -460,7 +460,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 9.75',
                         'odd' => $row->pre_corners_over_under_over_975,
                     ])}}"
@@ -477,7 +477,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 9.75',
                         'odd' => $row->pre_corners_over_under_under_975,
                     ])}}"
@@ -501,7 +501,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 10',
                         'odd' => $row->pre_corners_over_under_over_1000,
                     ])}}"
@@ -518,7 +518,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 10',
                         'odd' => $row->pre_corners_over_under_under_1000,
                     ])}}"
@@ -542,7 +542,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 10.25',
                         'odd' => $row->pre_corners_over_under_over_1025,
                     ])}}"
@@ -560,7 +560,7 @@
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
 
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 10.25',
                         'odd' => $row->pre_corners_over_under_under_1025,
                     ])}}"
@@ -584,7 +584,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 10.5',
                         'odd' => $row->pre_corners_over_under_over_1050,
                     ])}}"
@@ -601,7 +601,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 10.5',
                         'odd' => $row->pre_corners_over_under_under_1050,
                     ])}}"
@@ -625,7 +625,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 10.75',
                         'odd' => $row->pre_corners_over_under_over_1075,
                     ])}}"
@@ -642,7 +642,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 10.75',
                         'odd' => $row->pre_corners_over_under_under_1075,
                     ])}}"
@@ -666,7 +666,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 11',
                         'odd' => $row->pre_corners_over_under_over_1100,
                     ])}}"
@@ -683,7 +683,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 11',
                         'odd' => $row->pre_corners_over_under_under_1100,
                     ])}}"
@@ -707,7 +707,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 11.25',
                         'odd' => $row->pre_corners_over_under_over_1125,
                     ])}}"
@@ -724,7 +724,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 11.25',
                         'odd' => $row->pre_corners_over_under_under_1125,
                     ])}}"
@@ -749,7 +749,7 @@
                         'season' => $row->season,
 
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 11.5',
                         'odd' => $row->pre_corners_over_under_over_1150,
                     ])}}"
@@ -766,7 +766,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 11.5',
                         'odd' => $row->pre_corners_over_under_under_1150,
                     ])}}"
@@ -790,7 +790,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 11.75',
                         'odd' => $row->pre_corners_over_under_over_1175,
                     ])}}"
@@ -807,7 +807,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 11.75',
                         'odd' => $row->pre_corners_over_under_under_1175,
                     ])}}"
@@ -831,7 +831,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 12',
                         'odd' => $row->pre_corners_over_under_over_1200,
                     ])}}"
@@ -848,7 +848,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 12',
                         'odd' => $row->pre_corners_over_under_under_1200,
                     ])}}"
@@ -872,7 +872,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 12.25',
                         'odd' => $row->pre_corners_over_under_over_1225,
                     ])}}"
@@ -889,7 +889,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 12.25',
                         'odd' => $row->pre_corners_over_under_under_1225,
                     ])}}"
@@ -913,7 +913,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 12.5',
                         'odd' => $row->pre_corners_over_under_over_1250,
                     ])}}"
@@ -930,7 +930,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 12.5',
                         'odd' => $row->pre_corners_over_under_under_1250,
 
@@ -955,7 +955,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 12.75',
                         'odd' => $row->pre_corners_over_under_over_1275,
                     ])}}"
@@ -972,7 +972,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 12.75',
                         'odd' => $row->pre_corners_over_under_under_1275,
                     ])}}"
@@ -1000,7 +1000,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 7',
                         'odd' => $row->end_corners_over_under_over_700,
                     ])}}"
@@ -1015,7 +1015,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 7',
                         'odd' => $row->end_corners_over_under_under_700,
                     ])}}"
@@ -1037,7 +1037,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 7.25',
                         'odd' => $row->end_corners_over_under_over_725,
                     ])}}"
@@ -1052,7 +1052,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 7.25',
                         'odd' => $row->end_corners_over_under_under_725,
                     ])}}"
@@ -1074,7 +1074,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 7.5',
                         'odd' => $row->end_corners_over_under_over_750,
                     ])}}"
@@ -1089,7 +1089,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 7.5',
                         'odd' => $row->end_corners_over_under_under_750,
                     ])}}"
@@ -1111,7 +1111,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 7.75',
                         'odd' => $row->end_corners_over_under_over_775,
                     ])}}"
@@ -1126,7 +1126,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 7.75',
                         'odd' => $row->end_corners_over_under_under_775,
                     ])}}"
@@ -1148,7 +1148,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 8',
                         'odd' => $row->end_corners_over_under_over_800,
                     ])}}"
@@ -1163,7 +1163,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 8',
                         'odd' => $row->end_corners_over_under_under_800,
                     ])}}"
@@ -1186,7 +1186,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 8.25',
                         'odd' => $row->end_corners_over_under_over_825,
                     ])}}"
@@ -1201,7 +1201,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 8.25',
                         'odd' => $row->end_corners_over_under_under_825,
                     ])}}"
@@ -1223,7 +1223,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 8.5',
                         'odd' => $row->end_corners_over_under_over_850,
                     ])}}"
@@ -1238,7 +1238,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 8.5',
                         'odd' => $row->end_corners_over_under_under_850,
                     ])}}"
@@ -1260,7 +1260,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 8.75',
                         'odd' => $row->end_corners_over_under_over_875,
                     ])}}"
@@ -1275,7 +1275,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 8.75',
                         'odd' => $row->end_corners_over_under_under_875,
                     ])}}"
@@ -1297,7 +1297,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 9',
                         'odd' => $row->end_corners_over_under_over_900,
                     ])}}"
@@ -1312,7 +1312,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 9',
                         'odd' => $row->end_corners_over_under_under_900,
                     ])}}"
@@ -1334,7 +1334,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 9.25',
                         'odd' => $row->end_corners_over_under_over_925,
                     ])}}"
@@ -1349,7 +1349,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
 
                         'value' => 'Under 9.25',
                         'odd' => $row->end_corners_over_under_under_925,
@@ -1372,7 +1372,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 9.5',
                         'odd' => $row->end_corners_over_under_over_950,
                     ])}}"
@@ -1387,7 +1387,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 9.5',
                         'odd' => $row->end_corners_over_under_under_950,
                     ])}}"
@@ -1409,7 +1409,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 9.75',
                         'odd' => $row->end_corners_over_under_over_975,
                     ])}}"
@@ -1424,7 +1424,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 9.75',
                         'odd' => $row->end_corners_over_under_under_975,
                     ])}}"
@@ -1446,7 +1446,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 10',
                         'odd' => $row->end_corners_over_under_over_1000,
                     ])}}"
@@ -1461,7 +1461,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 10',
                         'odd' => $row->end_corners_over_under_under_1000,
                     ])}}"
@@ -1483,7 +1483,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 10.25',
                         'odd' => $row->end_corners_over_under_over_1025,
                     ])}}"
@@ -1498,7 +1498,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 10.25',
                         'odd' => $row->end_corners_over_under_under_1025,
                     ])}}"
@@ -1520,7 +1520,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 10.5',
                         'odd' => $row->end_corners_over_under_over_1050,
                     ])}}"
@@ -1536,7 +1536,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 10.5',
                         'odd' => $row->end_corners_over_under_under_1050,
                     ])}}"
@@ -1558,7 +1558,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 10.75',
                         'odd' => $row->end_corners_over_under_over_1075,
                     ])}}"
@@ -1573,7 +1573,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 10.75',
                         'odd' => $row->end_corners_over_under_under_1075,
                     ])}}"
@@ -1595,7 +1595,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 11',
                         'odd' => $row->end_corners_over_under_over_1100,
                     ])}}"
@@ -1610,7 +1610,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 11',
                         'odd' => $row->end_corners_over_under_under_1100,
                     ])}}"
@@ -1632,7 +1632,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 11.25',
                         'odd' => $row->end_corners_over_under_over_1125,
                     ])}}"
@@ -1647,7 +1647,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 11.25',
                         'odd' => $row->end_corners_over_under_under_1125,
                     ])}}"
@@ -1669,7 +1669,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 11.5',
                         'odd' => $row->end_corners_over_under_over_1150,
                     ])}}"
@@ -1684,7 +1684,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 11.5',
                         'odd' => $row->end_corners_over_under_under_1150,
                     ])}}"
@@ -1706,7 +1706,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 11.75',
                         'odd' => $row->end_corners_over_under_over_1175,
                     ])}}"
@@ -1722,7 +1722,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 11.75',
                         'odd' => $row->end_corners_over_under_under_1175,
                     ])}}"
@@ -1744,7 +1744,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 12',
                         'odd' => $row->end_corners_over_under_over_1200,
                     ])}}"
@@ -1759,7 +1759,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 12',
                         'odd' => $row->end_corners_over_under_under_1200,
                     ])}}"
@@ -1781,7 +1781,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 12.25',
                         'odd' => $row->end_corners_over_under_over_1225,
                     ])}}"
@@ -1796,7 +1796,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 12.25',
                         'odd' => $row->end_corners_over_under_under_1225,
                     ])}}"
@@ -1818,7 +1818,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 12.5',
                         'odd' => $row->end_corners_over_under_over_1250,
                     ])}}"
@@ -1833,7 +1833,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 12.5',
                         'odd' => $row->end_corners_over_under_under_1250,
                     ])}}"
@@ -1855,7 +1855,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Over 12.75',
                         'odd' => $row->end_corners_over_under_over_1275,
                     ])}}"
@@ -1870,7 +1870,7 @@
                         'leagueapi_id' => $row->leagueapi_id,
                         'season' => $row->season,
                         'fixtureapi_id' => $row->fixtureapi_id,
-                        'betsapi_id' => 45,
+                        'betapi_id' => 45,
                         'value' => 'Under 12.75',
                         'odd' => $row->end_corners_over_under_under_1275,
                     ])}}"
