@@ -101,16 +101,6 @@
                                         ?>
 
                                         <a
-                                            href="{{ route('Aryatips.tip',
-                                                [
-                                                    'leagueapi_id' => $row->leagueapi_id,
-                                                    'season' => $row->season,
-                                                    'fixtureapi_id' => $row->fixtureapi_id,
-                                                    'betapi_id' => 92,
-                                                    'value' => $new_val,
-                                                    'odd' => $row->pre_odd
-                                                ])
-                                            }}"
                                             target="_blank"
                                             class="btn bg-gray-700 btn-sm text-white">
                                             {{ $row->pre_odd }}

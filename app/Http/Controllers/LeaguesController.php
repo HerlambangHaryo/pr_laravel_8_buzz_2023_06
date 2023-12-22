@@ -936,6 +936,10 @@ class LeaguesController extends Controller
             {
                 $bookmakers_name = 'Marathon';
             }
+            elseif($bookmakersapi_id == 27)
+            {
+                $bookmakers_name = 'NordicBet';
+            }
             elseif($bookmakersapi_id == 28)
             {
                 $bookmakers_name = 'ComeOn';

@@ -6,7 +6,6 @@
 
     @include('contents.studio_v30.backend.desktop.leagues.pre_sub_head')
 
-
     <div id="datatable" class="mb-5">
         <div class="card">
             <div class="card-header">

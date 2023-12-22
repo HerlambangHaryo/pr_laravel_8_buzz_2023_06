@@ -173,7 +173,6 @@ class PlayersController extends Controller
                                 ->whereIN('fixture_status',  ['Not Started', 'Not Started Goto', 'Not Started One']);
 
             $data       = research_on_anytime_goal_scorer::whereIN('fixtureapi_id', $pre_data)
-                                // ->whereNull('deleted_at')
                                 ->get();
         // ----------------------------------------------------------- Send
             return view($view,

@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Football_team;
 use App\Models\Football_league;
 
+
+use App\Models\Api_football_league_standing;
+
 use Awobaz\Compoships\Compoships;
 
 class Football_fixture extends Model
@@ -16,6 +19,16 @@ class Football_fixture extends Model
     use Compoships;
 
 
+    public function standingsx()
+    {
+        return $this->belongsTo(Api_football_league_standing::class,
+                ['fixtureapi_id', 'leagueapi_id', 'season'],
+                ['fixtureapi_id', 'leagueapi_id', 'season'],
+            )
+            ->withDefault([
+                'total_fixtures' => 0,
+            ]);
+    }
 
     public function statistic()
     {

@@ -11,6 +11,9 @@
                             <abbr class="initialism">
                                 {{ $row->jam }}
                             </abbr>
+                            <span class="badge bg-gray-800 mt-2 ">
+                                {{ $row->fixtureapi_id }}
+                            </span>
                         </div>
                         <div class="col-2">
                             <i class="flag-icon flag-icon-{{ strtolower($row->league->country->code) }} "
@@ -19,6 +22,7 @@
                             {{ $row->league->country->name }}
                         </div>
                         <div class="col-4">
+                            #{{ $row->league->leagueapi_id }}
                             {{ $row->league->name }}  -
                             {{ $row->season }}
                         </div>
@@ -91,6 +95,20 @@
                             {{ $row->goals_home }}
                             <br/>
                             {{ $row->goals_away }}
+                            <br/>
+                            <i class="far fa-futbol text-success"></i>
+                        </div>
+                        <div class="col-1 text-center">
+                            {{ $row->pre_avg_goals_home }}
+                            <br/>
+                            {{ $row->pre_avg_goals_away }}
+                            <br/>
+                            <i class="far fa-futbol text-success"></i>
+                        </div>
+                        <div class="col-1 text-center">
+                            {{ $row->pre_avg_handicap }}
+                            <br/>
+                            {{ $row->pre_avg_overunder }}
                             <br/>
                             <i class="far fa-futbol text-success"></i>
                         </div>

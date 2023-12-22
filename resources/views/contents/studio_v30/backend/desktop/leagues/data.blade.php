@@ -105,6 +105,15 @@
                                                         </a>
                                                         <a href="{{ route('Leagues.setbookmakers_league',
                                                                         [
+                                                                            'bookmakersapi_id'  => 27,
+                                                                            'leagueapi_id'      => $row->leagueapi_id
+                                                                        ]
+                                                                    ) }}"
+                                                            class="btn btn-default btn-sm" >
+                                                            NordicBet
+                                                        </a>
+                                                        <a href="{{ route('Leagues.setbookmakers_league',
+                                                                        [
                                                                             'bookmakersapi_id'  => 28,
                                                                             'leagueapi_id'      => $row->leagueapi_id
                                                                         ]
