@@ -17,7 +17,7 @@
                 </a>
             </div>
 
-            <div class="menu-item @if($title == 'AboutApp') active @endif">
+            <!-- <div class="menu-item @if($title == 'AboutApp') active @endif">
                 <a href="{{ route('AboutApp.index') }}" class="menu-link">
                     <span class="menu-icon">
                         <i class="fas fa-id-card "></i>
@@ -26,7 +26,7 @@
                         AboutApp
                     </span>
                 </a>
-            </div>
+            </div> -->
 
             <div class="menu-item @if($title == 'Rapidapi') active @endif">
                 <a href="{{ route('Rapidapi.index') }}" class="menu-link">

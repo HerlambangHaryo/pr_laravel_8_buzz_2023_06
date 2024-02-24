@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-use App\Models\Country;  
+use App\Models\Country;
 
 class Football_league extends Model
 {
@@ -20,12 +20,13 @@ class Football_league extends Model
         'country_name',
         'leagueapi_id',
         'name',
-        'type', 
-        'logo', 
+        'type',
+        'logo',
+        'tier'
     ];
 
     public function country()
-    {         
+    {
         return $this->belongsTo(Country::class,'country_name', 'name')
                 ->withDefault([
                     'nama' => '',

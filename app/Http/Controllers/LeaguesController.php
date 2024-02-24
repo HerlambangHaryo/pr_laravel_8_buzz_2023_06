@@ -300,6 +300,7 @@ class LeaguesController extends Controller
                     'type'              => $leagueapi_type,
                     'logo'              => $leagueapi_logo,
                     'country'           => $country_name,
+                    'tier'              => $request->tier,
                 ]);
             }
         // ----------------------------------------------------------- Send
