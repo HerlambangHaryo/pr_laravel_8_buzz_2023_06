@@ -945,6 +945,26 @@ class LeaguesController extends Controller
             {
                 $bookmakers_name = 'ComeOn';
             }
+            elseif($bookmakersapi_id == 6)
+            {
+                $bookmakers_name = 'Bwin';
+            }
+            elseif($bookmakersapi_id == 1)
+            {
+                $bookmakers_name = '10Bet';
+            }
+            elseif($bookmakersapi_id == 7)
+            {
+                $bookmakers_name = 'William Hill';
+            }
+            elseif($bookmakersapi_id == 21)
+            {
+                $bookmakers_name = '888Sport';
+            }
+            elseif($bookmakersapi_id == 24)
+            {
+                $bookmakers_name = 'Betway';
+            }
         // ----------------------------------------------------------- Action
             $model      = Football_league::where('leagueapi_id', '=', $leagueapi_id);
 

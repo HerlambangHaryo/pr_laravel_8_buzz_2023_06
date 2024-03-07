@@ -25,11 +25,7 @@
                                 <x-html.th-content title="Logo"   />
                                 <x-html.th-content title="Country"   />
                                 <x-html.th-content title="League" />
-                                <x-html.th-content title="Type" />
                                 <x-html.th-content title="Bookm" />
-                                <x-html.th-content title="Action" />
-                                <x-html.th-content title="Action" />
-                                <x-html.th-content-width title="Action" width="15%" />
                             </tr>
                         </thead>
                         <tbody>
@@ -53,14 +49,15 @@
                                         {{ $row->name }}
                                     </td>
                                     <td class="text-center">
-                                        {{ $row->type }}
-                                    </td>
-                                    <td class="text-center">
                                         @if($row->bookmakersapi_id == 11)
                                             <span class="badge bg-primary" >
                                                 {{ $row->bookmakers_name }}
                                             </span>
                                         @elseif($row->bookmakersapi_id == 8)
+                                            <span class="badge bg-success" >
+                                                {{ $row->bookmakers_name }}
+                                            </span>
+                                        @elseif($row->bookmakersapi_id == 6)
                                             <span class="badge bg-success" >
                                                 {{ $row->bookmakers_name }}
                                             </span>
@@ -70,6 +67,22 @@
                                             </span>
                                         @elseif($row->bookmakersapi_id == 28)
                                             <span class="badge bg-warning" >
+                                                {{ $row->bookmakers_name }}
+                                            </span>
+                                        @elseif($row->bookmakersapi_id == 1)
+                                            <span class="badge bg-warning" >
+                                                {{ $row->bookmakers_name }}
+                                            </span>
+                                        @elseif($row->bookmakersapi_id == 7)
+                                            <span class="badge bg-primary" >
+                                                {{ $row->bookmakers_name }}
+                                            </span>
+                                        @elseif($row->bookmakersapi_id == 21)
+                                            <span class="badge bg-primary" >
+                                                {{ $row->bookmakers_name }}
+                                            </span>
+                                        @elseif($row->bookmakersapi_id == 24)
+                                            <span class="badge bg-primary" >
                                                 {{ $row->bookmakers_name }}
                                             </span>
                                         @else
@@ -83,7 +96,7 @@
                                                                         ]
                                                                     ) }}"
                                                             class="btn btn-default btn-sm" >
-                                                            365
+                                                            Bet365
                                                         </a>
                                                         <a href="{{ route('Leagues.setbookmakers_league',
                                                                         [
@@ -92,7 +105,7 @@
                                                                         ]
                                                                     ) }}"
                                                             class="btn btn-default btn-sm" >
-                                                            1xB
+                                                            1xBet
                                                         </a>
                                                         <a href="{{ route('Leagues.setbookmakers_league',
                                                                         [
@@ -121,39 +134,57 @@
                                                             class="btn btn-default btn-sm" >
                                                             ComeOn
                                                         </a>
+                                                        <a href="{{ route('Leagues.setbookmakers_league',
+                                                                        [
+                                                                            'bookmakersapi_id'  => 6,
+                                                                            'leagueapi_id'      => $row->leagueapi_id
+                                                                        ]
+                                                                    ) }}"
+                                                            class="btn btn-default btn-sm" >
+                                                            Bwin
+                                                        </a>
+                                                        <a href="{{ route('Leagues.setbookmakers_league',
+                                                                        [
+                                                                            'bookmakersapi_id'  => 1,
+                                                                            'leagueapi_id'      => $row->leagueapi_id
+                                                                        ]
+                                                                    ) }}"
+                                                            class="btn btn-default btn-sm" >
+                                                            10Bet
+                                                        </a>
+                                                        <a href="{{ route('Leagues.setbookmakers_league',
+                                                                        [
+                                                                            'bookmakersapi_id'  => 7,
+                                                                            'leagueapi_id'      => $row->leagueapi_id
+                                                                        ]
+                                                                    ) }}"
+                                                            class="btn btn-default btn-sm" >
+                                                            William
+                                                        </a>
+                                                        <a href="{{ route('Leagues.setbookmakers_league',
+                                                                        [
+                                                                            'bookmakersapi_id'  => 21,
+                                                                            'leagueapi_id'      => $row->leagueapi_id
+                                                                        ]
+                                                                    ) }}"
+                                                            class="btn btn-default btn-sm" >
+                                                            888Sport
+                                                        </a>
+                                                        <a href="{{ route('Leagues.setbookmakers_league',
+                                                                        [
+                                                                            'bookmakersapi_id'  => 24,
+                                                                            'leagueapi_id'      => $row->leagueapi_id
+                                                                        ]
+                                                                    ) }}"
+                                                            class="btn btn-default btn-sm" >
+                                                            Betway
+                                                        </a>
 
 
                                                     </div>
                                                 </div>
                                             </div>
                                         @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(is_null($row->star))
-                                            <a  href="{{ route('Leagues.setfav', $row->leagueapi_id) }}"
-                                                class="badge bg-gray-700 bg-opacity-50" >
-                                                Fav
-                                            </a>
-                                        @else
-                                            {!! $row->star !!}
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(is_null($row->detail_stats))
-                                            <a  href="{{ route('Leagues.setdetail', $row->leagueapi_id) }}"
-                                                class="badge bg-gray-700 bg-opacity-50" >
-                                                detail
-                                            </a>
-                                        @else
-                                            {!! $row->detail_stats !!}ds
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="{{ route($content.'.edit', $row->id ) }}"
-                                            class="btn btn-default btn-sm" >
-                                            <i class="far fa-edit fa-fw ms-auto text-dark text-opacity-50"></i>
-                                            Edit
-                                        </a>
                                     </td>
                                 </tr>
                                 @empty
